@@ -99,7 +99,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: start;
-    padding-top: 10em;
     justify-content: center;
 }
 
@@ -485,68 +484,93 @@ input[type=number] {
 
 /* screen 300px ===================================== WORKS     */
 
-@media only screen and (min-width: 300px) and (max-width: 370px) and (orientation: portrait) {
+@media only screen and (min-width: 200px) and (max-width: 500px) and (orientation: portrait) {
 
     body {
-        font-size: 8.5px;
+        font-size: 11px;
     }
 
     #section_1 {
-        align-items: flex-start;
-        padding-top: 6.5em;
+        font-size: 11px;
+        margin-top: 5px;
+        align-items: center;
 
     }
 
     #section_2 {
+        font-size: 10px;
         align-items: flex-start;
-        padding-top: 4.5em;
+        padding-top: 12vh;
     }
 
 }
 
 /* screen 500px ===================================== WORKS     */
 
-@media only screen and (min-width: 371px) and (max-width: 420px){
+@media only screen and (min-width: 501px) and (max-width: 809px){
 
     body {
-        font-size: 9.5px;
+        font-size: 15px;
     }
 
     #section_1 {
-        align-items: flex-start;
-        padding-top: 30%;
+        font-size: 15px;
+        align-items: center;
 
     }
 
     #section_2 {
+        font-size: 15px;
         align-items: flex-start;
-        padding-top: 30%;
+        padding-top: 12vh;
     }
 
 }
 
 /* screen 800px =========================================   WORKS */
 
-@media only screen and (min-device-width: 810px) and (min-device-width: 1024px) and (min-device-width: 834px)and (orientation: portrait) {
+@media only screen and (min-device-width: 810px) and (orientation: portrait)  {
 
     body {
-        font-size: 16px;
+        font-size: 11px;
     }
 
     #section_1 {
+        font-size: 15px;
         align-items: center;
-        padding-top: 0px;
     }
 
     #section_2 {
-        align-items: start;
-        padding-top: 12em;
+        font-size: 15px;
+        align-items: center;
+      
+    }
+
+}
+
+/* screen 800px =========================================   WORKS */
+
+@media only screen and (min-device-width: 1200px) {
+
+    body {
+        font-size: 11px;
+    }
+
+    #section_1 {
+        font-size: 11px;
+        align-items: center;
+    }
+
+    #section_2 {
+        font-size: 11px;
+        align-items: center;
+      
     }
 
 }
 
 
-/* screen under 2000px =========================================*/
+/* screen above 1900px =========================================*/
 
 @media only screen and (min-width:1900px) {
 
@@ -566,7 +590,7 @@ input[type=number] {
 
 }
 
-/* screen under 3000px =========================================*/
+/* screen above 3000px =========================================*/
 
 @media only screen and (min-width:3000px) {
 
