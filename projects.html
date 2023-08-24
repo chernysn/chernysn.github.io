@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>Portfolio: Financial calculator</title>
+
+    <link rel="stylesheet" href="style_projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+
+    <script src="jquery-3.6.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="nav">
+        <a href="index.html" class="home_btn" id="home_btn"><img src="images/icons8-home-100_dark.png" alt=""></a>
+        <div class="left-right">
+            <p>PROJECTS</p>
+            <div class="btn_back_left" id="btn_back_left"><img src="images/icons8-right-button-100.png" alt=""></div>
+            <div class="btn_next_right" id="btn_next_right"><img src="images/icons8-right-button-100.png" alt=""></div>
+        </div>
+    </div>
+    <div class="main">
+
+        <div class="section" id="section_1">
+            <div class="calculator">
+                <h3>Financial calculator</h3>
+                <label for="current_investment">current investment</label>
+                <input type="number" class="current_investment" id="current_investment" value="0">
+                <label for="monthly_deposits">monthly deposits</label>
+                <input type="number" class="monthly_deposits" id="monthly_deposits" value="0">
+                <label for="period_months">period (months)</label>
+                <input type="number" class="period_months" id="period_months" value="0">
+                <label for="rate_of_return">rate of return</label>
+                <input type="number" class="rate_of_return" id="rate_of_return" value="0">
+                <label for="compounded">compounded</label>
+                <div class="compounded_select" id="compounded">
+                    <div class="compounded_btn">
+                        <div class="sBtn_text" id="sBtn_text">Select your option:</div>
+                    </div>
+                    <ul class="options">
+                        <li class="option">
+                            <span class="option_text"> annually</span>
+                        </li>
+                        <li class="option">
+                            <span class="option_text">quaterly</span>
+                        </li>
+                        <li class="option">
+                            <span class="option_text">monthly</span>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="total">TOTAL:</h3>
+                <div type="text" class="total_final" id="total_final"></div>
+                <button onclick="total()">calculate</button>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="section" id="section_2">
+            <div class="todo_list">
+                <div class="heading">
+                    <h1>TO-DO LIST</h1>
+                </div>
+                <div class="todo">
+                    <label for="your_input">What are your plans for today?</label>
+                    <input type="text" class="todo_input" id="todo_input" maxlength="40">
+
+                    <button class="todo_btn_add" id="todo_btn_add">Add</button>
+                    <div class="alert" id="alert" role="alert">
+                        <p>Don't forget to say something!</p>
+                        <div type="button" class="close"><span class="alert_close" id="alert_close">
+                                <p> &times</p>
+                            </span></div>
+                    </div>
+
+                </div>
+                <div class="list_items">
+
+                    <div class="my_list" id="my_list">
+
+                    </div>
+                    <button class="clear" id="clear"> <span id="x">x</span> clear all</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="section" id="section_3">
+            <div class="div_test" id="div_test">
+                <h1>I am a div 3</h1>
+            </div>
+        </div>
+        <div class="section" id="section_4">
+            <nav class="nav_bar">
+            </nav>
+            <div>
+                <h1>I am a div 4</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script_projects.js"></script>
+</body>
+
+</html>

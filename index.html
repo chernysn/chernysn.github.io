@@ -1,14 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natalia Chernysheva: Portfolio</title>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style_index.css">
+    <script type="text/javascript" src="script_index.js" defer></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
-    PORTFOLIO
+
+    <div class="screen" id="screen">
+        <h1 class="screen_text" id="screen_text"><span id="scr_span_one">WELCOME</span><span id="scr_span_two">
+                TO</span><span id="scr_span_three"> MY PORTFOLIO</span></h1>
+        <div class="enter_btn"><img id="enter_btn" src="images/icons8-login-rounded-up-100.png" alt=""></div>
+    </div>
+
+    <div class="navigation">
+        <ul class="nav_list" id="nav_list">
+            <li class="nav"> <a href="#section1">HOME</a></li>
+            <li class="nav"><a href="#section2">PROJECTS</a></li>
+            <li class="nav"><a href="#section3">SERVICES</a></li>
+            <li class="nav"><a href="#section4">CONTACTS</a></li>
+        </ul>
+
+
+        <div class="progress_bar" id="progress_bar">
+            <div class="prog_bar" id="prog_bar"></div>
+        </div>
+    </div>
+
+    <div class="section1" id="section1">
+        <div class="section1_inner">
+            <div class="front_page_text">
+                <h2>Natalia Chernysheva</h2>
+                <h1>Web Development</h1>
+                <h3>HTML, CSS, Javascript, Python, mySQL, </h3>
+                <h3> Bootstrap, MongoDB, Django, Flask</h3>
+                <img src="images/html-5.png" alt="">
+                <img src="images/css.png" alt="">
+                <img src="images/java.png" alt="">
+                <img src="images/icons8-sql-48.png" alt="" ">
+                <img src=" images/icons8-mongodb-48.png" alt="">
+                <img src="images/icons8-bootstrap-48.png" alt="">
+                <img src="images/icons8-python-48.png" alt="">
+                <img src="images/icons8-django-48.png" alt="">
+                <img src="images/icons8-flask-48.png" alt="" ">
+            </div>
+
+            <div class=" r-cl-2">
+                <div class="section1_image">
+                    <img src="images\chernysheva_photo_web-removebg-preview_2.png" alt="photo">
+                </div>
+            </div>
+        </div>
+        <div class="pulse_div" id="pulse_div">
+            <div class="chat" id="chat">
+                <div class="chat_heading">CHATBOT</div>
+                <div class="chat_body" id="chat_body">
+                    <div class="chat-bubble-me" id="chat-bubble-me">Hello!</div>
+                    <div class="chat-bubble-other">Hey! How are you today? </div>
+                </div>
+                <div class="texting_area">
+                    <input type="text" id="chat_texting_input" class="chat_texting">
+                    <span class="chat_send_btn" id="chat_send_btn"><img src="images/icons8-send-96.png"
+                            alt="send"></span>
+                </div>
+            </div>
+            <div class="pulse" id="pulse"><img src="images/icons8-chat-bubble-100.png" alt=""></div>
+        </div>
+    </div>
+
+    <div class="section2" id="section2">
+        <div class="inner_section2">
+            <div class="projects_examples"><img src="images/icons8-backend-100.png" alt="">
+                <h4>Front-End Web Development</h4>
+                <p>Dynamic web pages from scratch.</p>
+            </div>
+            <div class="projects_examples"><img src="images/icons8-backend-development-96.png" alt="">
+                <h4>Back-End Web Development</h4>
+                <p>Server-side software engineering.</p>
+                <p>Building and integrating databases.</p>
+            </div>
+            <div class="projects_examples"><img src="images/icons8-responsive-64.png" alt="">
+                <h4>Responsive Design</h4>
+                <p>Adapting to any screen size.</p>
+            </div>
+            <div class="projects_examples"><img src="images/icons8-upload-to-cloud-100.png" alt="">
+                <h4>Scalable Cloud Applications</h4>
+                <p>Server-side software engineering.</p>
+                <p>Building and integrating databases.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section3" id="section3">
+        <div class="wrapper">
+            <div class="example" id="example1">
+                <div class="note" id="note1" onclick="location.href='projects.html#section_1'">
+                    <div class="backgr_color" id="backgr_color1"></div>
+                    <div class="note_text">
+                        <h2>Front-End development</h2>
+                        <h3>Financial Calculator</h3>
+                        <div class="note_comment">
+                            <img class='note_img' src="images/icons8-calculator-64_dark.png" alt="">
+                            <img class='note_img_hover' src="images/icons8-calculator-64_hover.png" alt="">
+                            <p></p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>HTML, CSS, Javascript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example" id="example2">
+                <div class="note" id="note2" onclick="location.href='projects.html#section_2'">
+                    <div class="backgr_color" id="backgr_color2"></div>
+                    <div class="note_text">
+                        <h2>Front-End development</h2>
+                        <h3>To-Do List</h3>
+                        <div class="note_comment">
+                            <img class='note_img' src="images/icons8-what-i-do-100_dark.png" alt="">
+                            <img class='note_img_hover' src="images/icons8-what-i-do-100_hover.png" alt="">
+                            <p> </p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>HTML, CSS, Javascript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example" id="example3">
+                <div class="note" id="note3">
+                    <div class="backgr_color" id="backgr_color3"></div>
+                    <div class="note_text">
+                        <h2>Front-End development</h2>
+                        <h3>Books & Travels Blog</h3>
+                        <div class="note_comment">
+                            <p>login & logout, post & respond, like & edit, tag posts & upload images</p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>Django, Python</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example" id="example4">
+                <div class="note" id="note4">
+                    <div class="backgr_color" id="backgr_color4"></div>
+                    <div class="note_text">
+                        <h2>Front-End development</h2>
+                        <h3>Trivia Game</h3>
+                        <div class="note_comment">
+                            <p>play with a robot, pick a question & give an answer, get your score</p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>Django, Python</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example" id="example5">
+                <div class="note" id="note5">
+                    <div class="backgr_color" id="backgr_color5"></div>
+                    <div class="note_text">
+                        <h2>Front-End development</h2>
+                        <h3>Financial Calculator</h3>
+                        <div class="note_comment">
+                            <p></p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>HTML, CSS, Javascript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="example" id="example6">
+                <div class="note" id="note6">
+                    <div class="backgr_color" id="backgr_color6"></div>
+                    <div class="note_text">
+                        <h2>Front-End development</h2>
+                        <h3>Financial Calculator</h3>
+                        <div class="note_comment">
+                            <p></p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>HTML, CSS, Javascript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="section4" id="section4">
+        <div class="inner_section4" id="inner_section4">
+            <form class="form" id="form">
+                <h1>Contact me</h1>
+                <label for="name">Your name:</label><br>
+                <input type="text" id="name"> <br>
+                <label for="email">Your email:</label><br>
+                <input type="email" id="email"> <br>
+                <label for="request">Your request:</label><br>
+                <textarea name="contact_textarea" id="request" cols="50" rows="10"></textarea><br>
+                <input type="submit" onclick="pop()" id="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="page_overlay" id="page_overlay">
+        <div id="overlay" class="overlay">
+            <div class="popup">
+                <h4>Thank you for contacting me!</h4>
+                <p> I will be in touch with you shortly.</p>
+                <br><img src="images/icons8-web-developer-96.png" alt="">
+            </div>
+            <div class="close" onclick="off()"> <img src="images/icons8-close-48.png" alt=""></div>
+        </div>
+    </div>
+
 </body>
 
 </html>
