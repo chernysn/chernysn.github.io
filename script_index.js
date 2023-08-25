@@ -117,11 +117,12 @@ for (i = 0; i < notes_animation.length; i++) {
 }
 
 
+/*
 let form = document.querySelector('form');
 form.addEventListener('submit', submit_form);
 
 function submit_form(e) { e.preventDefault(); };
-
+*/
 
 /*
 
