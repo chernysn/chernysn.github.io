@@ -205,7 +205,7 @@ form.onsubmit = function (event) {
 
         if (xhr.status === 200) {
 
-            formMessageFailed.innerHTML = "Success! Your message has been successully sent.";
+            formMessage.style.display = "block";
 
         } else {
 
