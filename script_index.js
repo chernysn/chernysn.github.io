@@ -186,6 +186,9 @@ var form = document.getElementById("form-contact");
 
 var formMessage = document.getElementById("form-message");
 
+var formMessageFailed = document.getElementById("message_failed");
+
+
 form.onsubmit = function (event) {
 
     event.preventDefault();
@@ -208,7 +211,7 @@ form.onsubmit = function (event) {
 
             var response = JSON.parse(xhr.response);
 
-            formMessage.innerHTML = "Error: " + response.error;
+            formMessageFailed.innerHTML = "Error: " + response.error;
 
         }
 
