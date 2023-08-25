@@ -168,17 +168,52 @@ chat_send_btn.addEventListener('click', () => {
         new_text_msg.appendChild(text_in_msg);
         chat_body.appendChild(new_text_msg);
         new_msg.value = '';
-        
-        setTimeout(() => {new_text_msg = document.createElement('div');
-        new_text_msg.classList.add("chat-bubble-other");
-        text_in_msg = document.createTextNode(bot_message);
-        new_text_msg.appendChild(text_in_msg);
-        chat_body.appendChild(new_text_msg);}, 3000);
+
+        setTimeout(() => {
+            new_text_msg = document.createElement('div');
+            new_text_msg.classList.add("chat-bubble-other");
+            text_in_msg = document.createTextNode(bot_message);
+            new_text_msg.appendChild(text_in_msg);
+            chat_body.appendChild(new_text_msg);
+        }, 3000);
 
     }
 })
 
 
 
+var form = document.getElementById("form-contact");
+
+var formMessage = document.getElementById("form-message");
+
+form.onsubmit = function (event) {
+
+    event.preventDefault();
+
+    var formData = new FormData(form);
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", form.action, true);
+
+    xhr.send(formData);
+
+    xhr.onload = function (e) {
+
+        if (xhr.status === 200) {
+
+            formMessage.style.display = "block";
+
+        } else {
+
+            var response = JSON.parse(xhr.response);
+
+            formMessage.innerHTML = "Error: " + response.error;
+
+        }
+
+    };
+
+};
 
 
