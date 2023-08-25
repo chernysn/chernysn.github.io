@@ -32,7 +32,7 @@ function pop() {
 }
 
 function off() {
-    document.getElementById("page_overlay").style.display = "none";
+    document.getElementById("form-message").style.display = "none";
 }
 
 
