@@ -206,6 +206,7 @@ form.onsubmit = function (event) {
         if (xhr.status === 200) {
 
             formMessage.style.display = "block";
+            form.innerHTML = '';
 
         } else {
 
