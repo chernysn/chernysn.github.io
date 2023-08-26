@@ -183,11 +183,11 @@ chat_send_btn.addEventListener('click', () => {
 
 
 var form = document.getElementById("form-contact");
-
 var formMessage = document.getElementById("form-message");
-
 var formMessageFailed = document.getElementById("message_failed");
-
+var form_name = document.getElementById('name');
+var form_email = document.getElementById('email');
+var form_message = document.getElementById('message');
 
 form.onsubmit = function (event) {
 
@@ -206,7 +206,10 @@ form.onsubmit = function (event) {
         if (xhr.status === 200) {
 
             formMessage.style.display = "block";
-            form.innerHTML = '';
+            form_name.innerHTML = '';
+            form_email.innerHTML = '';
+            form_message.innerHTML = '';
+            
 
         } else {
 
