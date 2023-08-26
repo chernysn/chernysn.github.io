@@ -206,9 +206,9 @@ form.onsubmit = function (event) {
         if (xhr.status === 200) {
 
             formMessage.style.display = "block";
-            form_name.innerHTML = '';
-            form_email.innerHTML = '';
-            form_message.innerHTML = '';
+            form_name.value = '';
+            form_email.value = '';
+            form_message.value = '';
             
 
         } else {
