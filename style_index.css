@@ -498,6 +498,12 @@ h3 {
     cursor: pointer;
 }
 
+.link_projects {
+    text-decoration: none;
+    color: rgb(45, 45, 45);
+
+}
+
 
 .note_text h2 {
     font-size: 1.25em;
