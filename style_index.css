@@ -499,13 +499,13 @@ h3 {
 }
 
 
-.note h2 {
+.note_text h2 {
     font-size: 1.25em;
     margin: 0;
     margin: 5px;
 }
 
-.note h3 {
+.note_text h3 {
     font-size: .9em;
     margin: 5px;
 
