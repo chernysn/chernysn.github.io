@@ -122,14 +122,14 @@ li {
     margin-bottom: .5em;
 }
 
-a {
+.nav a {
 
     text-decoration: none;
     font-weight: 200;
     font-size: 1.2em;
 }
 
-a:hover {
+.nav a:hover {
     color: orange;
 }
 
