@@ -2,13 +2,14 @@
 window.addEventListener('resize', () => {
     var w = window.innerWidth;
     var h = window.innerHeight;
-    console.log(w, "and", h)    
+    console.log(w, "and", h)
 
 })
 
 
 /* HOME BUTTON AND NAVIGATION ============================================================ */
 
+/*
 let next_btn = document.getElementById("btn_next_right");
 let back_btn = document.getElementById("btn_back_left");
 let section_1 = document.getElementById("section_1");
@@ -47,24 +48,31 @@ home_btn.addEventListener('mouseover', () => {
 
 })
 
-
+*/
 
 /* CALCULATOR ============================================================
 */
 
+let x = 2
+console.log(x)
 
-optionMenu = document.querySelector(".compounded_select"),
-    selectBtn = optionMenu.querySelector(".compounded_btn"),
-    options = optionMenu.querySelectorAll(".option"),
-    sBtn_text = optionMenu.querySelector(".sBtn_text");
+let optionMenu = document.querySelector(".compounded_select");
+let sBtn_text = document.querySelector(".sBtn_text");
+let selectBtn = document.querySelector(".compounded_btn");
+let options = document.querySelectorAll(".option");
+let options_box = document.querySelector(".options");
 
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+selectBtn.addEventListener("click", () => {
+
+    options_box.classList.add('active');
+
+});
 
 options.forEach(option => {
     option.addEventListener("click", () => {
         let selectedOption = option.querySelector(".option_text").innerText;
         sBtn_text.innerText = selectedOption;
-        optionMenu.classList.remove("active");
+        options_box.classList.remove("active");
 
     })
 })

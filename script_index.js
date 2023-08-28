@@ -117,30 +117,6 @@ for (i = 0; i < notes_animation.length; i++) {
 }
 
 
-/*
-let form = document.querySelector('form');
-form.addEventListener('submit', submit_form);
-
-function submit_form(e) { e.preventDefault(); };
-*/
-
-/*
-
-
-for (i = 0; i < notes_animation.length; i++) {
-    notes_animation[i].addEventListener(my_fun(), function (event) {
-        console.log("Class removed");
-        event.target.querySelector('.backgr_color').classList.remove("run_notes_animation");
-    });
-}
-
-
-    x.target.querySelector(".note_text").classList.remove("run_text_animation");
-    x.target.querySelector(".note_comment").classList.remove("run_text_animation");
-    x.target.querySelector(".note_bottom").classList.remove("run_text_animation");
- 
-*/
-
 let chat_btn = document.getElementById('pulse');
 let chat = document.getElementById('chat');
 

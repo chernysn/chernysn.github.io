@@ -274,8 +274,8 @@ h3 {
     border: .5px rgba(0, 135, 255, .4) solid;
     width: 20em;
     height: 25em;
-    right: 7em;
-    bottom: 10em;
+    right: 2em;
+    bottom: 12em;
     border-radius: .5em;
     display: none;
     flex-direction: column;
