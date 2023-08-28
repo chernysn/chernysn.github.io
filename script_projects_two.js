@@ -30,11 +30,11 @@ for (i = 0; i < close.length; i++) {
     }
 }
 
-let input = document.getElementById("todo_input").value;
+
 let add_task_btn = document.getElementById("todo_btn_add");
 
 add_task_btn.addEventListener('click', () => {
-
+    let input = document.getElementById("todo_input").value;
     if (input == "") {
         let alert = document.getElementById("alert");
         alert.style.display = 'block';
@@ -49,7 +49,7 @@ add_task_btn.addEventListener('click', () => {
 
         create_local_item(task);
         document.getElementById("todo_input").value = "";
-        
+
     }
 })
 
