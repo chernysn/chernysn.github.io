@@ -307,7 +307,7 @@ input[type=number] {
     margin: 0;
 }
 
-.todo input {
+.todo_input {
     border: none;
     height: 1.5em;
     padding: 0.5em;
@@ -321,7 +321,7 @@ input[type=number] {
     border: none;
 }
 
-.todo button {
+.todo_btn_add {
     font-size: 1.2em;
     margin: 0.5em 0;
     padding: 0.5em;
