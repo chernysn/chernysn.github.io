@@ -74,47 +74,78 @@ options.forEach(options => {
     })
 })
 
+function noCommas(num) {
+    return num.replace(/[,]/g, '');
+}
 
-function total() {
-    let p = document.getElementById("current_investment").value;
-    let d = document.getElementById("monthly_deposits").value;
-    let R = document.getElementById("rate_of_return").value;
-    let n = document.querySelector(".sBtn_text").innerText;
-
-    if (n == "annually") {
-        n = 1;
-    }
-
-    else if (n == "quaterly") {
-        n = 4;
-    }
-
-    else if (n == "monthly") {
-        n = 12;
-    }
-
-    else {
-        n = 0;
-    }
-
-    let t = document.getElementById("period_months").value;
-
-    p = parseFloat(p);
-    R = parseFloat(R);
-    n = parseFloat(n);
-    t = parseFloat(t);
-
-    let r = R / 100;
-
-    let A = p * (1 + r / n) ** n * t;
-    A = Math.floor(A);
-    let XY = Intl.NumberFormat('en-EN', { style: 'currency', currency: 'USD' }).format(A);
-
-    document.getElementById("total_final").innerHTML = XY;
-
+function withCommas(input) {
+    return input.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
+let current_investment = document.getElementById("current_investment");
+current_investment.addEventListener('input', () => {
+
+    let no_commas = noCommas(current_investment.value);
+    let with_commas = withCommas(no_commas);
+    current_investment.value = with_commas; 
+})
+
+let monthly_deposits = document.getElementById("monthly_deposits");
+monthly_deposits.addEventListener('input', () => {
+    let no_commas = noCommas(monthly_deposits.value);
+    let with_commas = withCommas(no_commas);
+    monthly_deposits.value = with_commas; 
+})
+
+function total() {
+
+let cur_inv = document.getElementById("current_investment").value;
+cur_inv = noCommas(cur_inv);
+let deposits = document.getElementById("monthly_deposits").value;
+deposits = noCommas(deposits);
+let months = document.getElementById("period_months").value;
+let rateofreturn = document.getElementById("rate_of_return").value;
+let compounded = document.querySelector(".sBtn_text").innerText;
+
+if (compounded == "annually") {
+    compounded = 1;
+}
+
+else if (compounded == "quaterly") {
+    compounded = 4;
+}
+
+else if (compounded == "monthly") {
+    compounded = 12;
+}
+
+else {
+    compounded = 1;
+}
+
+cur_inv = parseFloat(cur_inv);
+deposits = parseFloat(deposits);
+rateofreturn = parseFloat(rateofreturn);
+compounded = parseFloat(compounded);
+months = parseFloat(months);
+
+let r = rateofreturn / 100 ;
+let years = months/12;
+
+let FV = cur_inv * (1 + r/compounded) ** (compounded*years) + deposits * months * (months + 1) / 12 * r + deposits * months;
+
+FV = Math.trunc(FV);
+FV_string = FV.toString();
+
+let total_amount = FV_string.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+document.getElementById("total_final").innerHTML = "$" + total_amount;
+
+
+
+
+
+}
 
 /* SECOND SECTION ================================================================*/
 
