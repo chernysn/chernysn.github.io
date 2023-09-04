@@ -114,7 +114,7 @@ for (i = 0; i < notes_animation.length; i++) {
 
 
     });
-}
+};
 
 
 let chat_btn = document.getElementById('pulse');
@@ -132,11 +132,33 @@ chat_btn.addEventListener('click', () => {
 let chat_send_btn = document.getElementById("chat_send_btn");
 let new_msg = document.getElementById("chat_texting_input");
 let chat_body = document.getElementById("chat_body");
-let bot_message = "Hello! How can I assist you today?"
+let bot_message = ["Hello! How can I help you today?",
+    "To estimate the cost of your project, please send me a brief description of your prospective project using the contact form below.",
+    "Absolutely, please send me a message using the contact form below and I will respond to you shortly!",
+    "If you would like to contact me, please message me using the contact form below. I will respond to you shortly!",
+    "I can design both frontend and backend of your project. For specific details, please contact me using the contact form below!",
+    "I am happy to help, have a nice day!",
+    "I am sorry, I did not catch your question."];
 
+let bot_request = [["hello", "hey", "hi"], ["price", "cost", "how much", "fees"], ["human", "agent", "person"],
+["contact", "phone", "email"], ["frontend", "backend", "front", "back", "fullstack"],
+["thank", "that's all", "bye", "goodbye", "farewell", "that would be all"]];
+
+new_msg.addEventListener('keypress', function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        chat_messaging();
+    }
+});
 
 
 chat_send_btn.addEventListener('click', () => {
+    chat_messaging();
+}
+);
+
+
+function chat_messaging() {
     if (new_msg.value != '') {
         let new_text_msg = document.createElement('div');
         new_text_msg.classList.add("chat-bubble-me");
@@ -145,16 +167,27 @@ chat_send_btn.addEventListener('click', () => {
         chat_body.appendChild(new_text_msg);
         new_msg.value = '';
 
+        let bot_response = bot_message[6];
+
+        for (i = 0; i < bot_request.length; i++) {
+            for (j = 0; j < bot_request[i].length; j++) {
+                check = text_in_msg.nodeValue.toLowerCase();
+                if (check.includes(bot_request[i][j])) {
+                    bot_response = bot_message[i];
+                };
+            };
+        };
+
         setTimeout(() => {
             new_text_msg = document.createElement('div');
             new_text_msg.classList.add("chat-bubble-other");
-            text_in_msg = document.createTextNode(bot_message);
+            text_in_msg = document.createTextNode(bot_response);
             new_text_msg.appendChild(text_in_msg);
             chat_body.appendChild(new_text_msg);
-        }, 3000);
+        }, 1000);
 
     }
-})
+};
 
 
 

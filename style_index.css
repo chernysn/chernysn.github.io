@@ -275,7 +275,7 @@ h3 {
     width: 20em;
     height: 25em;
     right: 2em;
-    bottom: 12em;
+    bottom: 10em;
     border-radius: .5em;
     display: none;
     flex-direction: column;
@@ -323,13 +323,12 @@ h3 {
 
 .chat-bubble-me {
     width: 65%;
-    min-height: 1.5em;
+    height: auto;
     border: .5px rgba(100, 180, 255) solid;
     background-color: rgb(255, 255, 255);
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
-
     margin: .5em auto .5em .5em;
     padding: 1em;
     color: rgba(100, 180, 255);
@@ -338,7 +337,7 @@ h3 {
 
 .chat-bubble-other {
     width: 65%;
-    min-height: 1.5em;
+    height: auto;
     background-color: rgb(100, 180, 255);
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
