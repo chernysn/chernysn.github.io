@@ -133,7 +133,7 @@ let chat_send_btn = document.getElementById("chat_send_btn");
 let new_msg = document.getElementById("chat_texting_input");
 let chat_body = document.getElementById("chat_body");
 let bot_message = ["Hello! How can I help you today?",
-    "To estimate the cost of your project, please send me a brief description of your prospective project using the contact form below.",
+    "Sure! To estimate the cost of your project, please send me a brief description of your prospective project using the contact form below.",
     "Absolutely, please send me a message using the contact form below and I will respond to you shortly!",
     "If you would like to contact me, please message me using the contact form below. I will respond to you shortly!",
     "I can design both frontend and backend of your project. For specific details, please contact me using the contact form below!",
