@@ -419,6 +419,7 @@ h3 {
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
+    margin-right: 1em;
     padding: 10px;
 }
 
@@ -445,6 +446,7 @@ h3 {
 
     font-size: 1em;
     font-weight: 100;
+    line-height: 2em;
 }
 
 
