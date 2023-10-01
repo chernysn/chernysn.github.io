@@ -3,8 +3,8 @@ $name = $_POST['name'];
 $email= $_POST['email'];
 $request= $_POST['request'];
  
-$to = "natasha.e.chernysheva@gmail.com";
-$subject = "from your web dev site";
+$to = "chernysn@gmail.com";
+$subject = "FROM WEB DEV PAGE";
  
 $txt ="Name = ". $name . "\r\n  Email = "
     . $email . "\r\n Request =" . $request;
