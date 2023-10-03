@@ -51,6 +51,9 @@ add_task_btn.addEventListener('click', () => {
         document.getElementById("todo_input").value = "";
 
     }
+
+    location.href = location.href;
+
 })
 
 
@@ -68,7 +71,7 @@ function display_items(task) {
     let items = "";
     for (y = 0; y < input_array.length; y++) {
         items += `                        
-            <div class="my_todo_items"><span class="today" id="today">${today}</span><span class="items">${task[y].name}</span><button class="remove_item" onclick="delete_btn()"> x </button></div>`
+            <div class="my_todo_items"><span class="today" id="today">${today}</span><span class="items">${task[y].name}</span><button class="remove_item" > x </button></div>`
     }
     document.getElementById("my_list").innerHTML = items;
 }
@@ -76,9 +79,30 @@ function display_items(task) {
 
 
 
+let all_buttons = document.querySelectorAll(".remove_item");
 
+all_buttons.forEach((btn, i) => {
+
+    btn.addEventListener('click', () => {
+
+        console.log("Hello!", btn, i);
+        input_array.splice(i, 1);
+        localStorage.setItem("items", JSON.stringify(input_array));
+        console.log(localStorage);
+        input_array = JSON.parse(localStorage.getItem("items"));
+
+        location.replace(location.href);
+        display_items(input_array);
+    })
+
+})
+
+
+
+
+/*
 function delete_btn() {
-    let all_buttons = document.querySelectorAll(".remove_item");
+
     all_buttons.forEach((item, i) => {
         item.addEventListener('click', () => {
             truly_delete(i)
@@ -87,14 +111,7 @@ function delete_btn() {
 }
 
 function truly_delete(i) {
-    input_array.splice(i, 1);
-    localStorage.setItem("items", JSON.stringify(input_array));
-    console.log(localStorage);
-    input_array = JSON.parse(localStorage.getItem("items"));
-    $('.section_2').load('projects.html #section_2');
-    console.log(input_array);
-    display_items(input_array);
-
-
-
+       $('.section_2').load('projects.html #section_2');
+        console.log(input_array);
 }
+*/ 
