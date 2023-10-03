@@ -13,7 +13,6 @@ document.getElementById("clear").addEventListener("click", () => {
     localStorage.clear();
     console.log(localStorage)
     input_array = []
-    $('.section_2').load('projects.html #section_2');
     display_items(input_array);
 
 })
@@ -51,9 +50,7 @@ add_task_btn.addEventListener('click', () => {
         document.getElementById("todo_input").value = "";
 
     }
-
-    location.href = location.href;
-
+    location.reload();
 })
 
 
@@ -90,8 +87,7 @@ all_buttons.forEach((btn, i) => {
         localStorage.setItem("items", JSON.stringify(input_array));
         console.log(localStorage);
         input_array = JSON.parse(localStorage.getItem("items"));
-
-        location.replace(location.href);
+        location.reload()
         display_items(input_array);
     })
 
