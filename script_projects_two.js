@@ -48,9 +48,8 @@ add_task_btn.addEventListener('click', () => {
 
         create_local_item(task);
         document.getElementById("todo_input").value = "";
-
     }
-    location.reload();
+
 })
 
 
@@ -62,6 +61,7 @@ function create_local_item(task) {
     localStorage.setItem("items", JSON.stringify(input_array));
     console.log(localStorage);
     display_items(input_array);
+    location.reload()
 }
 
 function display_items(task) {
@@ -71,6 +71,7 @@ function display_items(task) {
             <div class="my_todo_items"><span class="today" id="today">${today}</span><span class="items">${task[y].name}</span><button class="remove_item" > x </button></div>`
     }
     document.getElementById("my_list").innerHTML = items;
+
 }
 
 
@@ -81,7 +82,6 @@ let all_buttons = document.querySelectorAll(".remove_item");
 all_buttons.forEach((btn, i) => {
 
     btn.addEventListener('click', () => {
-
         console.log("Hello!", btn, i);
         input_array.splice(i, 1);
         localStorage.setItem("items", JSON.stringify(input_array));
