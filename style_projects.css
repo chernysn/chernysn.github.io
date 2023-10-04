@@ -329,9 +329,8 @@ input[type=number] {
     background-color: orange;
     color: white;
     font-weight: 800;
-    ;
     border: 0px white solid;
-    box-shadow: 2px 2px 4px 1px rgb(118, 118, 118);
+    box-shadow: 5px 5px 10px 1px rgb(80, 80, 80);
 }
 
 .todo button:hover {
@@ -449,14 +448,13 @@ input[type=number] {
     right: 1em;
     width: 1.5em;
     height: 1.5em;
-    padding: 0;
+    padding: 0.3em;
     color: rgb(255, 234, 194);
-    border: 1px orange solid;
     background-color: orange;
 }
 
 #alert_close p {
-    margin: 0;
+    margin: 0.2em 0 ;
 }
 
 #alert_close:hover {
