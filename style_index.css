@@ -127,7 +127,7 @@ li {
 
     text-decoration: none;
     font-weight: 200;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 .nav a:hover {
@@ -216,7 +216,7 @@ li {
 .front_page_text {
 
     width: 45%;
-    min-width: 20em;
+    min-width: 25em;
     height: auto;
 }
 
@@ -233,8 +233,8 @@ li {
 
     overflow: hidden;
     border-radius: 50%;
-    width: 20em;
-    padding-bottom: 20em;
+    width: 22em;
+    padding-bottom: 22em;
     position: relative;
 
 }
@@ -251,14 +251,14 @@ li {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 600;
 }
 
 
 h2,
 h3 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 400;
 }
 
@@ -402,7 +402,6 @@ h3 {
     width: auto;
     display: flex;
     flex-direction: column;
-    padding: 0%;
     color: white;
     color: rgb(210, 210, 210);
     padding: 5%;
@@ -457,7 +456,7 @@ h3 {
 
 
 .section3 {
-    padding: 1.5em;
+    padding: 5%;
     min-height: 450px;
     max-height: auto;
     background-color: rgb(250, 250, 250);
