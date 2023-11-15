@@ -1,20 +1,4 @@
 
-window.addEventListener('load', (evnt) => {
-    document.getElementById("screen").style.cssText = "opacity: 1; transition: 2s; ";
-    document.getElementById("scr_span_one").style.cssText = "opacity: 1; left: 15%; top: 15%; transition: 3s; font-size: 3em; ";
-    document.getElementById("scr_span_two").style.cssText = "opacity: 1; left: 55%; top: 20%; transition: 5s; font-size: 1.5em; ";
-    document.getElementById("scr_span_three").style.cssText = "opacity: 1; left: 25%; top: 35%; transition: 4s; font-size: 2em; ";
-    document.getElementById("enter_btn").style.cssText = "opacity: 1; transition: 2s; transition-delay: 5s"
-})
-
-document.getElementById("enter_btn").addEventListener('click', () => {
-    document.getElementById("screen").style.display = "none";
-
-})
-
-
-
-
 window.onscroll = function () {
 
     const bar = document.getElementById("prog_bar");
@@ -34,87 +18,6 @@ function pop() {
 function off() {
     document.getElementById("form-message").style.display = "none";
 }
-
-
-
-const notes_animation = document.querySelectorAll(".note");
-
-let dot_size = [
-    { transform: 'scale(1)', opacity: '0', transition: 'ease-in-out', },
-    { transform: 'scale(40)', opacity: '.6', },
-    { transform: 'scale(80)', opacity: '.9', },
-    { transform: 'scale(40)', opacity: '.6', },
-    { transform: 'scale(1)', opacity: '0', top: '0', left: '0', transition: 'ease-in-out', },
-];
-
-let dot_size_rev = [
-    { transform: 'scale(1)', opacity: '0', transition: 'ease-in-out', },
-    { transform: 'scale(40)', opacity: '.6', },
-    { transform: 'scale(80)', opacity: '.9', },
-    { transform: 'scale(40)', opacity: '.6', },
-    { transform: 'scale(1)', opacity: '0', bottom: '0', right: '0', transition: 'ease-in-out', },
-];
-
-let dot_size_alt = [
-    { transform: 'scale(1)', opacity: '0', transition: 'ease-in-out', },
-    { transform: 'scale(40)', opacity: '.6', },
-    { transform: 'scale(80)', opacity: '.9', },
-    { transform: 'scale(40)', opacity: '.6', },
-    { transform: 'scale(1)', opacity: '0', top: '0', right: '0', transition: 'ease-in-out', },
-];
-
-let note_text_color = [
-    { color: 'rgb(45, 45, 45)' },
-    { color: 'rgb(235, 235, 235)', transition: 'ease-in-out', duration: '1s' },
-    { color: 'rgb(45, 45, 45)' },
-];
-
-let img_color_hover = [
-    { opacity: '0' },
-    { opacity: '1' },
-    { opacity: '0' },
-];
-
-let img_color_no_hover = [
-    { opacity: '1' },
-    { opacity: '0' },
-    { opacity: '1' },
-];
-
-let dot_timing = {
-    duration: 3000,
-    iteration: 1,
-};
-
-let note_text_timing = {
-    duration: 3300,
-    iteration: 1,
-};
-
-
-for (i = 0; i < notes_animation.length; i++) {
-    notes_animation[i].addEventListener('mouseenter', function (event) {
-
-        let k = Math.random() * 20;
-
-        if (k > 15) {
-            event.target.querySelector('.backgr_color').animate(dot_size, dot_timing);
-        }
-        else if (k > 8) {
-            event.target.querySelector('.backgr_color').animate(dot_size_rev, dot_timing);
-        } else {
-            event.target.querySelector('.backgr_color').animate(dot_size_alt, dot_timing);
-        };
-
-        event.target.querySelector(".note_text").animate(note_text_color, note_text_timing);
-        event.target.querySelector(".note_comment").animate(note_text_color, dot_timing);
-        event.target.querySelector(".note_bottom").animate(note_text_color, dot_timing);
-        event.target.querySelector(".note_img").animate(img_color_no_hover, dot_timing);
-        event.target.querySelector(".note_img_hover").animate(img_color_hover, dot_timing);
-
-
-    });
-};
 
 
 let chat_btn = document.getElementById('pulse');
@@ -218,7 +121,7 @@ form.onsubmit = function (event) {
             form_name.value = '';
             form_email.value = '';
             form_message.value = '';
-            
+
 
         } else {
 
