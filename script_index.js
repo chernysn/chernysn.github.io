@@ -101,38 +101,44 @@ var form_name = document.getElementById('name');
 var form_email = document.getElementById('email');
 var form_message = document.getElementById('message');
 
-form.onsubmit = function (event) {
+function sendMail() {
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var message = $('#message').val();
+    window.location.href = 'mailto:chernysn@gmail.com?subject=The subject - ' + name + ' (' + email + ')' + '&body=' + message;
+};
 
-    event.preventDefault();
 
+/*
     var formData = new FormData(form);
-
+ 
     var xhr = new XMLHttpRequest();
-
+ 
     xhr.open("POST", form.action, true);
-
+ 
     xhr.send(formData);
-
+ 
     xhr.onload = function (e) {
-
+ 
         if (xhr.status === 200) {
-
+ 
             formMessage.style.display = "block";
             form_name.value = '';
             form_email.value = '';
             form_message.value = '';
-
-
+ 
+ 
         } else {
-
+ 
             var response = JSON.parse(xhr.response);
-
+ 
             formMessageFailed.innerHTML = "Error: " + response.error;
-
+ 
         }
-
+ 
     };
+*/
 
-};
+
 
 
