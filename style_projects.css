@@ -104,13 +104,8 @@ body {
 
 #section_3 {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-}
-
-#section_4 {
-    display: flex;
+    align-items: center;
 }
 
 
@@ -454,7 +449,7 @@ input[type=number] {
 }
 
 #alert_close p {
-    margin: 0.2em 0 ;
+    margin: 0.2em 0;
 }
 
 #alert_close:hover {
@@ -467,16 +462,11 @@ input[type=number] {
 }
 
 
-/* SECTION 3 TEST =============================================*/
+/* SECTION THREE ONLINE STORE =============================================*/
 
-.div_test {
+.store {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20em;
-    height: 20em;
-    background-color: blue;
-    color: white;
+    flex-direction: column;
 }
 
 
