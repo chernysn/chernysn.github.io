@@ -106,6 +106,7 @@ function sendMail() {
     var email = $('#email').val();
     var message = $('#message').val();
     window.location.href = 'mailto:chernysn@gmail.com?subject=The subject - ' + name + ' (' + email + ')' + '&body=' + message;
+
 };
 
 
