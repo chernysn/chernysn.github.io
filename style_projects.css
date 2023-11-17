@@ -91,8 +91,8 @@ body {
 #section_1 {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    padding: 5em 0;
 }
 
 #section_2 {
@@ -114,13 +114,14 @@ body {
 .calculator {
     width: 25em;
     min-width: 15em;
-    height: 46em;
+    height: 47em;
     color: rgb(255, 255, 255);
     padding: 2.5em;
     background-color: rgb(128, 0, 0);
     display: flex;
     justify-content: center;
     flex-direction: column;
+    object-fit: contain;
 }
 
 .calculator h3 {
@@ -481,14 +482,12 @@ input[type=number] {
 @media only screen and (min-width: 200px) and (max-width: 500px) and (orientation: portrait) {
 
     body {
-        font-size: 11px;
+        font-size: 8px;
     }
 
     #section_1 {
-        font-size: 11px;
         margin-top: 5px;
         align-items: center;
-
     }
 
     #section_2 {
