@@ -692,7 +692,7 @@ button:active {
     }
 
     .section1 {
-        padding: 7em 0;
+        padding: 7em 1em;
         background-color: white;
         height: 95vh;
         width: auto;
