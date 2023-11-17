@@ -49,8 +49,13 @@
             <div class="front_page_text">
                 <h2>Natalia Chernysheva</h2>
                 <h1>Full-Stack Developer</h1>
-                <h3>HTML, CSS, Javascript, Python, mySQL, </h3>
-                <h3> Bootstrap, MongoDB, Django, Flask</h3>
+                <h3><span class="lang">HTML</span> <span class="lang">CSS </span>
+                    <span class="lang">React</span> <span class="lang">React Native</span>
+                    <span class="lang">Django</span>
+                    <span class="lang">Flask</span><span class="lang">Bootstrap</span>
+                    <span class="lang">Javascript</span> <span class="lang">Python</span>
+                    <span class="lang">SQL</span><span class="lang">noSQL</span>
+                </h3>
                 <img src="images/html-5.png" alt="">
                 <img src="images/css.png" alt="">
                 <img src="images/java.png" alt="">
@@ -59,10 +64,10 @@
                 <img src="images/icons8-bootstrap-48.png" alt="">
                 <img src="images/icons8-python-48.png" alt="">
                 <img src="images/icons8-django-48.png" alt="">
-                <img src="images/icons8-flask-48.png" alt="" ">
+                <img src="images/icons8-flask-48.png" alt="">
             </div>
 
-            <div class=" r-cl-2">
+            <div class=" front_page_portrait">
                 <div class="section1_image">
                     <img src="images\chernysheva_photo_web-removebg-preview_2.png" alt="photo">
                 </div>
@@ -84,24 +89,24 @@
         </div>
     </div>
 
-    <div class="section2" id="section2">
+    <div class="hidden section2" id="section2">
         <div class="inner_section2">
-            <div class="projects_examples"><img src="images/icons8-backend-100.png" alt="">
+            <div class="hidden skills"><img src="images/code_b.png" alt="">
                 <h4>Full-Stack Web Development</h4>
                 <p>Front-end and back-end development, end-to-end solutions for dynamic web applications, seamless user
                     experience.</p>
             </div>
-            <div class="projects_examples"><img src="images/icons8-backend-development-96.png" alt="">
+            <div class="hidden skills"><img src="images/backend_b.png" alt="">
                 <h4>Back-End Web Development</h4>
                 <p>Design and optimization of server-side systems, databases, and APIs for efficient web applications.
                 </p>
             </div>
-            <div class="projects_examples"><img src="images/icons8-responsive-64.png" alt="">
+            <div class="hidden skills"><img src="images/responsive_design__b.png" alt="">
                 <h4>Responsive Design</h4>
                 <p>Enabling websites to seamlessly adjust to diverse devices and screen dimensions, delivering an
                     excellent user experience.</p>
             </div>
-            <div class="projects_examples"><img src="images/icons8-upload-to-cloud-100.png" alt="">
+            <div class="hidden skills"><img src="images/cloud_b.png" alt="">
                 <h4>Scalable Cloud Applications</h4>
                 <p>Leveraging cloud platforms for scalable, reliable web applications, optimizing performance, and
                     ensuring uninterrupted user availability.</p>
@@ -110,125 +115,175 @@
     </div>
 
     <div class="section3" id="section3">
-        <div class="wrapper">
-            <div class="example" id="example1">
-                <div class="note" id="note1" onclick="location.href='projects_page_one.html'">
-                    <div class="backgr_color" id="backgr_color1"></div>
-                    <div class="note_text">
-                        <h2>Front-End development</h2>
-                        <h3>Financial Calculator</h3>
-                        <div class="note_comment">
-                            <img class='note_img' src="images/icons8-calculator-64_dark.png" alt="">
-                            <img class='note_img_hover' src="images/icons8-calculator-64_hover.png" alt="">
-                            <p></p>
-                        </div>
-                        <div class="note_bottom">
-                            <p>HTML, CSS, Javascript</p>
-                        </div>
+        <div class="hidden wrapper">
+            <div class="row">
+                <div class='hidden col'>
+                    <img class="img_back" src="images/calc_img_w.png" alt="">
+                    <div class="overlay"></div>
+                </div>
+
+                <div class="col txt">
+                    <h2>Calculate compound interest on your investments</h2>
+                    <p>HTML, CSS, Javascript</p>
+                    <button onclick="location.href='projects_page_one.html'">View</button>
+                </div>
+            </div>
+
+            <div class="row order">
+                <div class="col txt order">
+                    <h2>Never miss a meeting with a dynamic to-do list</h2>
+                    <p>HTML, CSS, Javascript</p>
+                    <button onclick="location.href='projects_page_two.html'">View</button>
+                </div>
+
+                <div class='hidden col order'>
+                    <img class="img_back" src="images/todo_img_w.png" alt="">
+                    <div class="overlay">
                     </div>
-                </div>
-            </div>
-            <div class="example" id="example2">
-                <div class="note" id="note2" onclick="location.href='projects_page_two.html'">
-                    <div class="backgr_color" id="backgr_color2"></div>
-                    <div class="note_text">
-                        <h2>Front-End development</h2>
-                        <h3>To-Do List</h3>
-                        <div class="note_comment">
-                            <img class='note_img' src="images/icons8-what-i-do-100_dark.png" alt="">
-                            <img class='note_img_hover' src="images/icons8-what-i-do-100_hover.png" alt="">
-                            <p> </p>
-                        </div>
-                        <div class="note_bottom">
-                            <p>HTML, CSS, Javascript</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="example" id="example3">
-                <div class="note" id="note3">
-                    <a class='link_projects' href="projects_page_three.html">
-                        <div class="backgr_color" id="backgr_color3"></div>
-                        <div class="note_text">
-                            <h2>Full-Stack development</h2>
-                            <h3>Online Store </h3>
-                            <div class="note_comment">
-                                <img class='note_img' src="images/icons8-store-64_dark.png" alt="">
-                                <img class='note_img_hover' src="images/icons8-store-64_orange.png" alt="">
-                                <p></p>
-                            </div>
-                            <div class="note_bottom">
-                                <p>Django, Python</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="example" id="example4">
-                <div class="note" id="note4">
-                    <a class='link_projects' href="http://chernysn.pythonanywhere.com/">
-                        <div class="backgr_color" id="backgr_color4"></div>
-                        <div class="note_text">
-                            <h2>Full-Stack development</h2>
-                            <h3>Test</h3>
-                            <div class="note_comment">
-                                <p>test test test</p>
-                            </div>
-                            <div class="note_bottom">
-                                <p>Django, Python</p>
-                            </div>
-                        </div>
-                    </a>
                 </div>
 
             </div>
-            <div class="example" id="example5">
-                <div class="note" id="note4">
-                    <a class='link_projects' href="http://chernysn.pythonanywhere.com/">
-                        <div class="backgr_color" id="backgr_color4"></div>
-                        <div class="note_text">
-                            <h2>Full-Stack development</h2>
-                            <h3>Test</h3>
-                            <div class="note_comment">
-                                <p>test test test</p>
-                            </div>
-                            <div class="note_bottom">
-                                <p>Django, Python</p>
-                            </div>
-                        </div>
-                    </a>
+
+            <div class="row">
+                <div class='hidden col'>
+                    <img class="img_back" src="images/store_img_cut.png" alt="">
+                    <div class="overlay">
+                    </div>
                 </div>
 
+                <div class="col txt">
+                    <h2>Shop online from the comfort of your home </h2>
+                    <p>Django, Python, PostreSQL</p>
+                    <button onclick="location.href='projects_page_three.html'">View</button>
+                </div>
             </div>
-            <div class="example" id="example6">
-                <div class="note" id="note6">
-                    <div class="backgr_color" id="backgr_color6"></div>
-                    <div class="note_text">
-                        <h2>Front-End development</h2>
-                        <h3>Financial Calculator</h3>
-                        <div class="note_comment">
-                            <p></p>
-                        </div>
-                        <div class="note_bottom">
-                            <p>HTML, CSS, Javascript</p>
-                        </div>
+        </div>
+        <br>
+
+        <!--
+        <div class="example hidden" id="example1">
+            <div class="note" id="note1" onclick="location.href='projects_page_one.html'"
+                onmouseenter="changeColor(this); changeText(this)">
+
+                <div class="backgr_color" id="backgr_color1"></div>
+                <div class="note_text">
+                    <h2>Front-End development</h2>
+                    <h3>Financial Calculator</h3>
+                    <div class="note_comment">
+                        <img class='note_img_hover' src="images/icons8-calculator-64_dark.png" alt="">
+                        <img class='note_img' src="images/icons8-calculator-64_hover.png" alt="">
+                        <p></p>
+
+                    </div>
+                    <div class="note_bottom">
+                        <p>HTML, CSS, Javascript</p>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="example hidden" id="example2">
+            <div class="note" id="note2" onclick="location.href='projects_page_two.html'"
+                onmouseenter="changeColor(this); changeText(this)">
+                <div class="backgr_color" id="backgr_color2"></div>
+                <div class="note_text">
+                    <h2>Front-End development</h2>
+                    <h3>To-Do List</h3>
+                    <div class="note_comment">
+                        <img class='note_img_hover' src="images/icons8-what-i-do-100_dark.png" alt="">
+                        <img class='note_img' src="images/icons8-what-i-do-100_hover.png" alt="">
+                        <p> </p>
+                    </div>
+                    <div class="note_bottom">
+                        <p>HTML, CSS, Javascript</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="example hidden" id="example3">
+            <div class="note" id="note3" onmouseenter="changeColor(this); changeText(this)">
+                <a class='link_projects' href="projects_page_three.html">
+                    <div class="backgr_color" id="backgr_color3"></div>
+                    <div class="note_text">
+                        <h2>Full-Stack development</h2>
+                        <h3>Online Store </h3>
+                        <div class="note_comment">
+                            <img class='note_img_hover' src="images/icons8-store-64_dark.png" alt="">
+                            <img class='note_img' src="images/icons8-store-64_orange.png" alt="">
+                            <p></p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>Django, Python</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="example hidden" id="example4">
+            <div class="note" id="note4" onmouseenter="changeColor(this); changeText(this)">
+                <a class='link_projects' href="">
+                    <div class="backgr_color" id="backgr_color4"></div>
+                    <div class="note_text">
+                        <h2>Full-Stack development</h2>
+                        <h3>Test</h3>
+                        <div class="note_comment">
+                            <p>test test test</p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>Django, Python</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="example hidden" id="example5">
+            <div class="note" id="note4" onmouseenter="changeColor(this); changeText(this)">
+                <a class='link_projects' href="">
+                    <div class="backgr_color" id="backgr_color4"></div>
+                    <div class="note_text">
+                        <h2>Full-Stack development</h2>
+                        <h3>Test</h3>
+                        <div class="note_comment">
+                            <p>test test test</p>
+                        </div>
+                        <div class="note_bottom">
+                            <p>Django, Python</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="example hidden" id="example6">
+            <div class="note" id="note6" onmouseenter="changeColor(this); changeText(this)">
+                <div class="backgr_color" id="backgr_color6"></div>
+                <div class="note_text">
+                    <h2>Front-End development</h2>
+                    <h3>Financial Calculator</h3>
+                    <div class="note_comment">
+                        <p></p>
+                    </div>
+                    <div class="note_bottom">
+                        <p>HTML, CSS, Javascript</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
     </div>
 
     <div class="section4" id="section4">
         <div class="inner_section4" id="inner_section4">
-            <form class="form" enctype="text/plain" id="form-contact">
-                <h1>Contact me</h1>
+            <form class="form" action="https://formspree.io/f/mvojnrrv" method="post" id="form-contact">
+                <h1>CONTACT</h1>
                 <label for="name">Your name:</label><br>
                 <input type="text" name="name" id="name" required> <br>
                 <label for="email">Your email:</label><br>
                 <input type="email" name="email" id="email" required> <br>
                 <label for="message">Your request:</label><br>
-                <textarea name="message" id="message" cols="50" rows="10" required></textarea><br>
-                <button type="submit" id="submit" onclick="sendMail()">Submit</button>
+                <textarea name="message" id="message" cols="50" rows="6" required></textarea><br>
+                <button type="submit" id="submit">Submit</button>
             </form>
         </div>
     </div>

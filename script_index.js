@@ -11,15 +11,6 @@ window.onscroll = function () {
 }
 
 
-function pop() {
-    document.getElementById("page_overlay").style.display = "block";
-}
-
-function off() {
-    document.getElementById("form-message").style.display = "none";
-}
-
-
 let chat_btn = document.getElementById('pulse');
 let chat = document.getElementById('chat');
 
@@ -101,45 +92,35 @@ var form_name = document.getElementById('name');
 var form_email = document.getElementById('email');
 var form_message = document.getElementById('message');
 
-function sendMail() {
-    var name = $('#name').val();
-    var email = $('#email').val();
-    var message = $('#message').val();
-    window.location.href = 'mailto:chernysn@gmail.com?subject=The subject - ' + name + ' (' + email + ')' + '&body=' + message;
+function pop() {
+    document.getElementById("page_overlay").style.display = "block";
+}
 
-};
-
+function off() {
+    document.getElementById("form-message").style.display = "none";
+}
 
 /*
-    var formData = new FormData(form);
- 
-    var xhr = new XMLHttpRequest();
- 
-    xhr.open("POST", form.action, true);
- 
-    xhr.send(formData);
- 
-    xhr.onload = function (e) {
- 
-        if (xhr.status === 200) {
- 
-            formMessage.style.display = "block";
-            form_name.value = '';
-            form_email.value = '';
-            form_message.value = '';
- 
- 
-        } else {
- 
-            var response = JSON.parse(xhr.response);
- 
-            formMessageFailed.innerHTML = "Error: " + response.error;
- 
-        }
- 
-    };
+function changeText(i) {
+    console.log(i);
+    i.style.animation = "animate_text 3s ease-in";
+};
+
+function changeColor(note) {
+    let backgr = note.querySelector(".backgr_color");
+    backgr.style.animation = "animate_notes 3s ease-in";
+};
 */
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            return;
+        }
+    })
+});
 
-
-
+const hidden_elements = document.querySelectorAll(".hidden");
+hidden_elements.forEach((el) => observer.observe(el));
