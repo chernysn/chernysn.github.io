@@ -285,14 +285,14 @@ input[type=number] {
 }
 
 .todo {
-    height: 12em;
+    height: 15em;
     background-color: rgba(65, 65, 65, .9);
     border-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: space-between;
-    padding: 1.5em 1em;
+    padding: 2em 1em 1em;
     position: relative;
 }
 
@@ -311,6 +311,7 @@ input[type=number] {
     background-color: white;
     outline: none;
     font-size: 1.2em;
+    margin: .2em 0;
 }
 
 .todo input:focus {
@@ -379,12 +380,17 @@ input[type=number] {
     padding-left: 0.5em;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
     width: 100%;
-    line-height: 1em;
+    line-height: 1.5em;
     cursor: pointer;
     word-break: break-word;
     white-space: normal;
+}
+
+.items .date {
+    font-weight: bold;
+    margin: 0 .3em 0 0;
 }
 
 .my_list .my_todo_items:hover {

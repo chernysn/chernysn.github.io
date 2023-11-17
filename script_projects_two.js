@@ -34,6 +34,7 @@ let add_task_btn = document.getElementById("todo_btn_add");
 
 add_task_btn.addEventListener('click', () => {
     let input = document.getElementById("todo_input").value;
+    let planned_date = document.getElementById("todo_date").value;
     if (input == "") {
         let alert = document.getElementById("alert");
         alert.style.display = 'block';
@@ -44,6 +45,7 @@ add_task_btn.addEventListener('click', () => {
         let task = {
             id: id,
             name: input,
+            planned_date: planned_date,
         }
 
         create_local_item(task);
@@ -68,7 +70,7 @@ function display_items(task) {
     let items = "";
     for (y = 0; y < input_array.length; y++) {
         items += `                        
-            <div class="my_todo_items"><span class="today" id="today">${today}</span><span class="items">${task[y].name}</span><button class="remove_item" > x </button></div>`
+            <div class="my_todo_items"><span class="items"> <span class="date"> ${task[y].planned_date} </span> ${task[y].name}</span><button class="remove_item" > x </button></div>`
     }
     document.getElementById("my_list").innerHTML = items;
 
