@@ -35,6 +35,9 @@ let add_task_btn = document.getElementById("todo_btn_add");
 add_task_btn.addEventListener('click', () => {
     let input = document.getElementById("todo_input").value;
     let planned_date = document.getElementById("todo_date").value;
+    planned_date = planned_date.toString().split("-");
+    planned_date = `${planned_date[1]}/${planned_date[2]}`;
+
     if (input == "") {
         let alert = document.getElementById("alert");
         alert.style.display = 'block';

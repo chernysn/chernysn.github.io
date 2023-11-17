@@ -304,6 +304,7 @@ input[type=number] {
 }
 
 .todo_input {
+    width: auto;
     border: none;
     height: 1.5em;
     padding: 0.5em;
@@ -343,8 +344,8 @@ input[type=number] {
 
 .list_items {
     border-radius: 0;
-    min-height: 12em;
-    height: 40vh;
+    min-height: 15em;
+    height: auto;
     background-color: rgba(85, 85, 85, .4);
     margin-top: 0;
     padding: 1em 0 3.5em 0;
@@ -382,7 +383,7 @@ input[type=number] {
     flex-direction: row;
     justify-content: left;
     width: 100%;
-    line-height: 1.5em;
+    line-height: 2em;
     cursor: pointer;
     word-break: break-word;
     white-space: normal;
@@ -497,7 +498,7 @@ input[type=number] {
     }
 
     #section_2 {
-        font-size: 10px;
+        font-size: 5px;
         align-items: flex-start;
         padding-top: 12vh;
     }
