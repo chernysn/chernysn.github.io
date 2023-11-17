@@ -694,7 +694,7 @@ button:active {
     .section1 {
         padding: 7em 1em;
         background-color: white;
-        height: 95vh;
+        height: auto;
         width: auto;
     }
 
@@ -722,13 +722,13 @@ button:active {
     }
 
     .front_page_text {
-        min-width: 350px;
+        min-width: 330px;
         max-width: 12em;
         width: 100%;
     }
 
     .front_page_text img {
-        width: 2.5em;
+        width: 2em;
         height: auto;
     }
 
@@ -827,10 +827,11 @@ button:active {
         order: 3;
     }
 
+    /*
     .row:nth-child(even) {
         background-color: rgba(54, 59, 64, 0.05);
     }
-
+*/
     .row {
         display: flex;
         flex-direction: column;
@@ -841,14 +842,21 @@ button:active {
     .row .txt {
         text-align: center;
         align-items: center;
-        padding: 0 3em 5em;
+        padding: 0 5em 5em;
     }
 
     .col {
-        width: 80%;
+        width: 100%;
         height: 100%;
         border-radius: 0;
         box-sizing: border-box;
+    }
+
+    .col button {
+        width: 6em;
+        height: 3em;
+        font-size: 1em;
+        ;
     }
 
     .table {
