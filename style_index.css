@@ -19,6 +19,7 @@ body {
     box-sizing: border-box;
 }
 
+/*
 .navigation {
     position: fixed;
     top: 0;
@@ -28,6 +29,11 @@ body {
     z-index: 2;
     background-color: #ffffff;
     box-shadow: 1px 1px 5px rgba(90, 94, 104, 0.4);
+}
+*/
+
+.navigation {
+    padding: 1em;
 }
 
 .nav_list {
@@ -43,14 +49,16 @@ li {
 }
 
 .nav a {
-
     text-decoration: none;
     font-weight: 200;
+    padding: .3em 0;
     font-size: 1em;
+    transition: all .1s ease-in-out;
 }
 
 .nav a:hover {
-    color: orange;
+    border-bottom: 2px solid #343a40;
+
 }
 
 .progress_bar {
@@ -104,8 +112,7 @@ li {
 
 .section1 {
     width: auto;
-    height: 90%;
-    padding: 2em 0 0 0;
+    height: 85%;
     position: relative;
     background-color: white;
 }
