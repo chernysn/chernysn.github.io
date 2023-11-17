@@ -377,7 +377,7 @@ input[type=number] {
 
 .my_list .items {
     margin: 0;
-    padding-left: 0.5em;
+    padding-left: 0.2em;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -390,7 +390,7 @@ input[type=number] {
 
 .items .date {
     font-weight: bold;
-    margin: 0 .3em 0 0;
+    margin: 0 1em 0 0;
 }
 
 .my_list .my_todo_items:hover {
