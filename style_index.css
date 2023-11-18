@@ -33,7 +33,7 @@ body {
 */
 
 .navigation {
-    padding: .5em 1em 0 1em;
+    padding: .5em 1em 0;
     display: flex;
     justify-content: space-between;
 
@@ -56,11 +56,11 @@ body {
     display: flex;
     width: 20%;
     justify-content: right;
-    padding: 0 0 0 1.5em;
+    padding: 0 1em 0 0;
 }
 
 .nav_contacts li {
-    margin: 0 3em 0 0;
+    margin: 0 0 0 3em;
 
 }
 
@@ -170,7 +170,7 @@ body {
 
 .front_page_text {
     width: 50%;
-    min-width: 22em;
+    min-width: 25em;
     max-width: 28em;
     height: auto;
 }
@@ -760,22 +760,16 @@ button:active {
     }
 
     .nav_contacts {
-        margin: 0;
-        justify-content: left;
-    }
-
-    .nav_contacts {
         width: 100%;
         padding-top: .5em;
         padding-bottom: .5em;
         background-color: #343a40;
+        margin: 0;
+        justify-content: left;
     }
 
-    .nav-contact img {
-        width: 1.5em;
-        height: auto;
-        opacity: .6;
-        transition: all .3s ease;
+    .nav_contacts li {
+        margin: 0 0 0 2em;
     }
 
     .nav_contacts .large_screen {
