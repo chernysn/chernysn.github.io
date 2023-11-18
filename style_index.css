@@ -793,6 +793,7 @@ button:active {
     }
 
     .home_inner {
+        width: 90%;
         min-width: 0;
         display: flex;
         flex-direction: column;
@@ -1132,7 +1133,7 @@ button:active {
     }
 
     .front_page_text {
-        width: 90%;
+        width: 95%;
         min-width: 22em;
         max-width: 100em;
         height: auto;
