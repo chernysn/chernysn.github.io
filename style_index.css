@@ -742,6 +742,7 @@ button:active {
     .navigation {
         flex-direction: column;
         width: auto;
+        padding: 0;
     }
 
     .nav-order:nth-child(2) {
@@ -755,6 +756,21 @@ button:active {
     .nav_contacts {
         margin: 0;
         justify-content: left;
+    }
+
+    .nav_contacts {
+        width: 100%;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        background-color: #343a40;
+    }
+
+    .nav_contacts .large_screen {
+        display: none;
+    }
+
+    .nav_contacts .small_screen {
+        display: flex;
     }
 
     .section1 {
