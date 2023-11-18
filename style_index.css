@@ -739,6 +739,10 @@ button:active {
         font-size: 13px;
     }
 
+    .nav_list {
+        display: none;
+    }
+
     .navigation {
         flex-direction: column;
         width: auto;
