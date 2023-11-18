@@ -159,9 +159,9 @@ body {
 .section1_inner {
     margin: 0 auto;
     width: 65%;
-    height: 90%;
+    height: 85%;
     display: flex;
-    flex: row;
+    flex-direction: row;
     max-width: 70em;
     justify-content: space-between;
     align-items: center;
@@ -788,20 +788,7 @@ button:active {
         padding: 2em 1em 6em;
         background-color: white;
         height: auto;
-        width: auto;
     }
-
-    .front_page_text h2 {
-        font-weight: 300;
-    }
-
-    .hidden {
-        opacity: 1;
-        transition: none;
-        transform: translateY(0);
-        z-index: 1;
-    }
-
 
     .section1_inner {
         display: flex;
@@ -819,14 +806,19 @@ button:active {
     }
 
     .front_page_text {
-        min-width: 330px;
-        max-width: 12em;
         width: 100%;
+    }
+
+    .hidden {
+        opacity: 1;
+        transition: none;
+        transform: translateY(0);
+        z-index: 1;
     }
 
     .front_page_text h2 {
         font-size: 1.4em;
-        font-weight: 100;
+        font-weight: 300;
     }
 
     .front_page_text h3 {
@@ -880,6 +872,7 @@ button:active {
     }
 
     .inner_section2 {
+        width: 80%;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -1114,4 +1107,61 @@ button:active {
         width: 80%;
     }
 
+}
+
+
+@media only screen and (max-width: 900px) {
+
+    body {
+        margin: auto;
+        padding: 0;
+        color: #343a40;
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+    }
+
+    .section1_inner {
+        margin: 0 auto;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        max-width: 70em;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .front_page_portrait {
+        width: 50%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    body {
+        margin: auto;
+        padding: 0;
+        color: #343a40;
+        width: 100%;
+        height: 100%;
+        font-size: 11px;
+    }
+
+    .section1_inner {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .front_page_text {
+        width: 100%;
+        min-width: 22em;
+        max-width: 28em;
+        height: auto;
+    }
 }
