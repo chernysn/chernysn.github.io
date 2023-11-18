@@ -778,7 +778,7 @@ button:active {
     }
 
     .section1 {
-        padding: 3em 1em 6em;
+        padding: 1em 1em 6em;
         background-color: white;
         height: auto;
         width: auto;
@@ -816,6 +816,19 @@ button:active {
         max-width: 12em;
         width: 100%;
     }
+
+    .front_page_text h2 {
+        font-size: 1.5em;
+        font-weight: 100;
+    }
+
+    .front_page_text h3 {
+        font-size: 1.2em;
+        font-weight: 100;
+        color: white;
+        margin: 1em 0;
+    }
+
 
     .front_page_text img {
         width: 2em;
