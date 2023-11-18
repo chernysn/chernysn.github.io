@@ -774,10 +774,14 @@ button:active {
     }
 
     .section1 {
-        padding: 5em 1em 6em;
+        padding: 3em 1em 6em;
         background-color: white;
         height: auto;
         width: auto;
+    }
+
+    .front_page_text h2 {
+        font-weight: 300;
     }
 
     .hidden {
