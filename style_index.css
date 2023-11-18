@@ -33,7 +33,10 @@ body {
 */
 
 .navigation {
-    padding: 1em;
+    padding: 1em 1em 0 1em;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .nav_list {
@@ -41,24 +44,63 @@ body {
     padding-top: .5em;
     display: flex;
     list-style: None;
+    width: 50%;
 }
 
-li {
+.nav_list li {
     margin-right: 5em;
-    margin-bottom: .5em;
 }
+
+.nav_contacts {
+    list-style: none;
+    display: flex;
+    width: 20%;
+    justify-content: right;
+    padding: 0 0 0 1.5em;
+}
+
+.nav_contacts li {
+    margin: 0 3em 0 0;
+
+}
+
+.nav-contact img {
+    width: 1.3em;
+    height: auto;
+    opacity: .6;
+    transition: all .3s ease;
+}
+
+.nav-contact img:hover {
+    opacity: 1;
+}
+
 
 .nav a {
     text-decoration: none;
     font-weight: 200;
     padding: .3em 0;
     font-size: 1em;
-    transition: all .1s ease-in-out;
+    display: inline-block;
+    position: relative;
 }
 
-.nav a:hover {
-    border-bottom: 2px solid #343a40;
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #343a40;
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-out;
+}
 
+.nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .progress_bar {
@@ -142,7 +184,6 @@ li {
     justify-content: center;
 }
 
-
 .section1_image {
     overflow: hidden;
     border-radius: 50%;
@@ -164,7 +205,6 @@ li {
     font-size: 2.5em;
     font-weight: 700;
 }
-
 
 .front_page_text h2 {
     font-size: 1.2em;
@@ -698,8 +738,26 @@ button:active {
         font-size: 13px;
     }
 
+    .navigation {
+        flex-direction: column;
+        width: auto;
+    }
+
+    .nav-order:nth-child(2) {
+        order: 1;
+    }
+
+    .nav-order:nth-child(1) {
+        order: 2;
+    }
+
+    .nav_contacts {
+        margin: 0;
+        justify-content: left;
+    }
+
     .section1 {
-        padding: 7em 1em;
+        padding: 5em 1em 6em;
         background-color: white;
         height: auto;
         width: auto;
