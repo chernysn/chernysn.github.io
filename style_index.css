@@ -769,6 +769,13 @@ button:active {
         background-color: #343a40;
     }
 
+    .nav-contact img {
+        width: 1.5em;
+        height: auto;
+        opacity: .6;
+        transition: all .3s ease;
+    }
+
     .nav_contacts .large_screen {
         display: none;
     }
@@ -818,12 +825,12 @@ button:active {
     }
 
     .front_page_text h2 {
-        font-size: 2em;
+        font-size: 1.5em;
         font-weight: 100;
     }
 
     .front_page_text h3 {
-        font-size: 1.5em;
+        font-size: 1.2em;
         font-weight: 100;
         color: white;
         margin: 1em 0;
