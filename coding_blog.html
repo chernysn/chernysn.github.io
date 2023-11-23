@@ -62,9 +62,49 @@
             display: none;
         }
 
+        .navigation {
+            display: block;
+            width: 100%;
+            text-align: right;
+            box-sizing: border-box;
+        }
+
+        .navigation img {
+            padding: .5em;
+        }
+
+        .navigation .menu,
+        .dropdown_menu .close {
+            cursor: pointer;
+        }
+
+        .dropdown_menu {
+            display: none;
+            width: 70%;
+            height: 70%;
+            padding: 2em;
+            border-radius: 1em;
+            background-color: rgba(0, 0, 0, .9);
+            box-shadow: 15px 10px 20px rgb(79, 77, 77);
+            z-index: 2;
+            position: fixed;
+            text-align: left;
+            left: 10%;
+            color: white;
+        }
+
+        .dropdown_menu a {
+            color: white;
+            text-decoration: none;
+        }
+
         @media only screen and (min-width: 800px) {
             .main {
                 width: 100%;
+            }
+
+            .navigation {
+                display: none;
             }
 
             .blog {
@@ -110,6 +150,20 @@
 </head>
 
 <body>
+
+
+    <div class="navigation">
+        <div class="menu" id="menu"><img width="40" height="40" src="https://img.icons8.com/ios/50/menu--v1.png"
+                alt="menu--v1" /></div>
+        <div class="dropdown_menu" id="dropdown_menu">
+            <div class="close" id="close">close</div>
+            <h3>Natalia Chernysheva</h3>
+            <ul>
+                <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a></li>
+            </ul>
+            <p><a href="https://chernysn.github.io/">chernysn.github.io</a></p>
+        </div>
+    </div>
     <div class="main">
         <div class="article">
             <h3>Natalia Chernysheva</h3>
@@ -260,6 +314,23 @@
         </div>
 
     </div>
+
+    <script>
+
+        var menu = document.getElementById("menu");
+        var dropdown_menu = document.getElementById("dropdown_menu");
+        var close = document.getElementById("close");
+
+        menu.addEventListener('click', () => {
+            dropdown_menu.style.display = "block";
+        });
+
+        close.addEventListener('click', () => {
+            dropdown_menu.style.display = "none";
+        });
+
+
+    </script>
 </body>
 
 </html>
