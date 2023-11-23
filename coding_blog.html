@@ -79,17 +79,17 @@
         }
 
         .dropdown_menu {
-            display: none;
+            display: flex;
+            flex-direction: column;
             width: 70%;
             height: 70%;
             padding: 2em;
-            border-radius: 1em;
             background-color: rgba(0, 0, 0, .9);
             box-shadow: 15px 10px 20px rgb(79, 77, 77);
             z-index: 2;
             position: fixed;
+            right: -120%;
             text-align: left;
-            left: 10%;
             color: white;
         }
 
@@ -322,11 +322,11 @@
         var close = document.getElementById("close");
 
         menu.addEventListener('click', () => {
-            dropdown_menu.style.display = "block";
+            dropdown_menu.style.right = "8%";
         });
 
         close.addEventListener('click', () => {
-            dropdown_menu.style.display = "none";
+            dropdown_menu.style.right = "120%";
         });
 
 
