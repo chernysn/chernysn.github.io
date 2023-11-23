@@ -677,12 +677,14 @@ textarea {
 }
 
 button {
+    font-family: 'Oxanium', cursive;
     width: 6em;
     height: 2.5em;
     font-size: .9em;
     background-color: rgb(235, 159, 8);
     margin: 1.4em 0 1em 0;
     border: none;
+
 }
 
 button:active {
@@ -758,14 +760,6 @@ button:active {
         padding: 0;
     }
 
-    .nav-order:nth-child(2) {
-        order: 1;
-    }
-
-    .nav-order:nth-child(1) {
-        order: 2;
-    }
-
     .nav_contacts {
         width: 100%;
         padding-top: .5em;
@@ -777,6 +771,11 @@ button:active {
 
     .nav_contacts li {
         margin: 0 0 0 2em;
+    }
+
+    .nav-contact img {
+        width: 1.5em;
+        padding: 0.2em;
     }
 
     .nav_contacts .large_screen {
@@ -823,7 +822,7 @@ button:active {
     }
 
     .front_page_text h2 {
-        font-size: 1.4em;
+        font-size: 1.5em;
         font-weight: 300;
     }
 
@@ -878,7 +877,7 @@ button:active {
     }
 
     .inner_web_skills {
-        width: 80%;
+        width: 95%;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -907,7 +906,7 @@ button:active {
     }
 
     .skills p {
-        font-size: 1.2em;
+        font-size: 1.5em;
         font-weight: 100;
         line-height: 2em;
     }
@@ -918,7 +917,7 @@ button:active {
     .projects {
         width: 100%;
         height: auto;
-        padding: 0;
+        padding: 0 0 5em 0;
     }
 
     .projects .wrapper {
@@ -933,7 +932,7 @@ button:active {
     }
 
     .wrapper .order .col:nth-child(1) {
-        order: 3;
+        order: 2;
     }
 
     /*
@@ -951,21 +950,33 @@ button:active {
     .row .txt {
         text-align: center;
         align-items: center;
-        padding: 0 5em 5em;
+        padding: 0 2em 5em;
+    }
+
+    .row .txt h2 {
+        font-size: 2em;
+    }
+
+    .row .txt p {
+        font-size: 1.2em;
     }
 
     .col {
         width: 100%;
+        padding: 5em;
         height: 100%;
         border-radius: 0;
         box-sizing: border-box;
     }
 
+    .h-col {
+        padding: 5em 2.5em;
+    }
+
     .col button {
-        width: 6em;
+        width: 7em;
         height: 3em;
-        font-size: 1em;
-        ;
+        font-size: 1.2em;
     }
 
     .table {
@@ -998,7 +1009,7 @@ button:active {
         height: 25em;
         display: flex;
         justify-content: center;
-        font-family: 'Oxanium', cursive;
+
     }
 
 
@@ -1020,7 +1031,8 @@ button:active {
 
 
     .inner_contact_me {
-        padding: 6em 0;
+        height: 100vh;
+        padding: 0;
         width: 90%;
         display: flex;
         flex-direction: column;
@@ -1049,22 +1061,12 @@ button:active {
         height: 8em;
     }
 
-    input[type="submit"] {
-
-        width: 5em;
-        padding: 0.5em;
-        font-size: 1.1em;
-        background-color: rgb(215, 215, 215);
-        border: 1px solid gray;
-        margin: .5em 0 1em 0;
+    .inner_contact_me button {
+        width: 7em;
+        height: 3em;
+        font-size: 1.2em;
 
     }
-
-    input[type="submit"]:hover {
-        background-color: orange;
-
-    }
-
 
     #page_overlay {
         position: fixed;
