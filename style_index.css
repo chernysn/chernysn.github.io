@@ -75,6 +75,13 @@ body {
     opacity: 1;
 }
 
+.nav_contacts .small_screen {
+    display: none;
+}
+
+.nav_contacts .large_screen {
+    display: flex;
+}
 
 .nav a {
     text-decoration: none;
@@ -778,6 +785,7 @@ button:active {
 
     .nav_contacts .small_screen {
         display: flex;
+
     }
 
     .home {
