@@ -13,7 +13,6 @@
         body {
             width: 100%;
             height: 100%;
-
             margin: 0;
             padding: 0;
             font-size: 15px;
@@ -30,20 +29,19 @@
         }
 
         .blog {
-            width: 90%;
+            width: 95%;
             padding: 0;
             margin: 0 auto;
         }
 
         .body img {
-            width: 95%;
+            width: 100%;
         }
 
 
         .body {
             line-height: 2em;
             text-align: justify;
-
         }
 
         code {
@@ -53,7 +51,7 @@
         pre {
             background-color: rgb(3, 72, 128);
             display: block;
-            width: 90%;
+            width: auto;
             color: white;
             padding: 2em .5em;
             overflow-x: scroll;
@@ -65,22 +63,26 @@
         }
 
         @media only screen and (min-width: 800px) {
+            .main {
+                width: 100%;
+            }
+
             .blog {
                 width: 80%;
-                padding: 0;
+                padding: 0 1em;
                 margin: 0 0 0 auto;
-
             }
 
             .body img {
                 width: 70%;
+                margin: 0 auto;
             }
 
 
             .article {
                 display: block;
                 width: 20%;
-                padding: 2em 1em;
+                padding: 2.5em 1.5em 0 .5em;
                 min-width: 15em;
                 box-sizing: border-box;
             }
@@ -91,16 +93,12 @@
 
             .article h3 {
                 font-size: calc(1.2em + .2vw);
-                margin: 0;
             }
 
             .article a {
                 text-decoration: none;
                 color: rgb(3, 72, 128);
-            }
-
-            .blog {
-                width: 80%;
+                font-size: .9em;
             }
 
             pre {
