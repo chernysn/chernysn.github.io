@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: row;
             box-sizing: border-box;
-            padding: 1em .5em 3em 1em;
+            padding: 1em .5em 3em .5em;
         }
 
         .blog {
@@ -82,6 +82,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0;
+        }
+
+        .nav-menu-heading #close img {
+            margin: 0 -.5em 0 0;
         }
 
         .dropdown_menu {
@@ -94,7 +99,6 @@
             box-shadow: 15px 10px 20px rgb(79, 77, 77);
             z-index: 2;
             position: fixed;
-            right: -120%;
             text-align: left;
             color: white;
         }
@@ -109,10 +113,11 @@
         }
 
         .dropdown_menu_nav_body li {
-            margin: 0 0 1em 0;
+            margin: 0 0 1em -1em;
         }
 
         @media only screen and (min-width: 800px) {
+
             .main {
                 width: 100%;
                 margin: 0;
@@ -383,16 +388,36 @@
 
     <script>
 
+        window.addEventListener('resize', () => {
+            var w = window.innerWidth;
+            console.log(w);
+            var divElement = document.querySelector(".dropdown_menu");
+            var divWidth = divElement.offsetWidth;
+            console.log(divWidth);
+            var margin = (w - divWidth) / 2;
+            console.log("MARGIN", margin);
+
+            var percents = margin * 100 / w;
+            console.log("MARGIN PERC", percents);
+
+        });
+
+
         var menu = document.getElementById("menu");
         var dropdown_menu = document.getElementById("dropdown_menu");
         var close = document.getElementById("close");
 
+
         menu.addEventListener('click', () => {
-            dropdown_menu.style.right = "8%";
+            dropdown_menu.style.display = "flex";
+            dropdown_menu.style.marginLeft = "10%";
+            dropdown_menu.style.marginRight = "auto";
+
+
         });
 
         close.addEventListener('click', () => {
-            dropdown_menu.style.right = "120%";
+            dropdown_menu.style.display = "none";
         });
 
 
