@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: row;
             box-sizing: border-box;
-            padding: 1em 0 3em 1em;
+            padding: 1em .5em 3em 1em;
         }
 
         .blog {
@@ -74,17 +74,23 @@
         }
 
         .navigation .menu,
-        .dropdown_menu .close {
+        .dropdown_menu .nav-menu-heading {
             cursor: pointer;
+        }
+
+        .nav-menu-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .dropdown_menu {
             display: flex;
             flex-direction: column;
             width: 70%;
-            height: 70%;
-            padding: 2em;
-            background-color: rgba(0, 0, 0, .9);
+            height: auto;
+            padding: 1em 2em 3em 2em;
+            background-color: #bb3e03;
             box-shadow: 15px 10px 20px rgb(79, 77, 77);
             z-index: 2;
             position: fixed;
@@ -96,6 +102,14 @@
         .dropdown_menu a {
             color: white;
             text-decoration: none;
+        }
+
+        .dropdown_menu_nav_body {
+            padding: 1em;
+        }
+
+        .dropdown_menu_nav_body li {
+            margin: 0 0 1em 0;
         }
 
         @media only screen and (min-width: 800px) {
@@ -191,15 +205,29 @@
 
 
     <div class="navigation">
-        <div class="menu" id="menu"><img width="40" height="40" src="https://img.icons8.com/ios/50/menu--v1.png"
-                alt="menu--v1" /></div>
+        <div class="menu" id="menu">
+            <img width="50" height="50" src="https://img.icons8.com/ios/50/menu--v1.png" alt="menu--v1" />
+        </div>
+
         <div class="dropdown_menu" id="dropdown_menu">
-            <div class="close" id="close">close</div>
-            <h3>Natalia Chernysheva</h3>
-            <ul>
-                <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a></li>
-            </ul>
-            <p><a href="https://chernysn.github.io/">chernysn.github.io</a></p>
+            <div class="nav-menu-heading"><a href="https://chernysn.github.io/">
+                    Return to Portfolio</a>
+                <div id="close"> <img width="30" height="30"
+                        src="https://img.icons8.com/ios/30/ffffff/delete-sign--v1.png" alt="delete-sign--v1" />
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="dropdown_menu_nav_body">
+                <h3>Read my blog:</h3>
+                <ul>
+                    <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a></li>
+                    <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a></li>
+                    <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a></li>
+                    <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="main">
