@@ -21,17 +21,107 @@
         }
 
         .main {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            box-sizing: border-box;
             padding: 1em .5em 3em .5em;
         }
 
         .blog {
-            width: 95%;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
             padding: 0;
-            margin: 0 auto;
+            margin: 0 0;
+        }
+
+        .small_top {
+            padding: 0 1em 3em;
+        }
+
+        .small_top .photo_container {
+            width: 12em;
+            height: 12em;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 3em 0 0 0;
+        }
+
+        .small_top .photo_container img {
+            width: 10em;
+            height: auto;
+        }
+
+        .small_top h3 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .small_top p.blog-dot {
+            margin: 2em 0 .5em;
+            padding: 0;
+        }
+
+        .small_top p.subheading {
+            font-size: 1.2em;
+            margin: .5em;
+        }
+
+        .small_top p.website {
+            font-size: 1.2em;
+            margin: .5em;
+        }
+
+        .small_top span.dot {
+            font-weight: bolder;
+            font-size: 6em;
+            margin: 0;
+        }
+
+        .small_top span.red-dot {
+            color: red;
+            font-weight: bolder;
+            font-size: 5em;
+        }
+
+
+        .blog_item {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            height: 16em;
+            padding: 0 0 3em 0;
+        }
+
+        .blog_item .text_preview {
+            margin: 0 1em;
+            width: auto;
+            height: 100%;
+            white-space: wrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-mask-image: linear-gradient(rgb(0 0 0 / 1),
+                    rgb(0 0 0 / .5) 70%,
+                    rgb(0 0 0 / 0));
+            mask-image: linear-gradient(rgb(0 0 0 / 1),
+                    rgb(0 0 0 / .5) 70%,
+                    rgb(0 0 0 / 0));
+        }
+
+        .arrow {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            padding: 0 0.5em;
+            text-align: right;
+            margin: 1em 0;
+            background-color: rgba(219, 219, 219, .3);
+            border-radius: 3em;
+        }
+
+        #plus {
+            display: block;
+        }
+
+        #minus {
+            display: none;
         }
 
         .body img {
@@ -64,13 +154,15 @@
 
         .navigation {
             display: block;
-            width: 100%;
-            text-align: right;
-            box-sizing: border-box;
+            width: auto;
+            position: absolute;
+            top: 0.2em;
+            right: 0;
         }
 
         .navigation img {
             padding: .5em;
+            opacity: .3;
         }
 
         .navigation .menu,
@@ -120,6 +212,9 @@
 
             .main {
                 width: 100%;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
                 margin: 0;
                 padding: 0;
             }
@@ -128,10 +223,59 @@
                 display: none;
             }
 
-            .blog {
-                width: 70%;
-                padding: 0 4em;
+            .small_top {
+                display: none;
             }
+
+            .blog {
+                width: 60%;
+                height: auto;
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+
+            .blog_item {
+                display: flex;
+                flex-direction: column;
+                width: auto;
+                height: 16em;
+                padding: 0 0 3em 0;
+            }
+
+            .blog_item .text_preview {
+                margin-left: 4em;
+                width: auto;
+                height: 100%;
+                white-space: wrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-mask-image: linear-gradient(rgb(0 0 0 / 1),
+                        rgb(0 0 0 / .5) 70%,
+                        rgb(0 0 0 / 0));
+                mask-image: linear-gradient(rgb(0 0 0 / 1),
+                        rgb(0 0 0 / .5) 70%,
+                        rgb(0 0 0 / 0));
+            }
+
+            .arrow {
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                padding: 0 0.5em;
+                text-align: right;
+                margin: 1em 0;
+                background-color: rgba(219, 219, 219, .3);
+                border-radius: 3em;
+            }
+
+            #plus {
+                display: block;
+            }
+
+            #minus {
+                display: none;
+            }
+
 
             .body img {
                 width: 70%;
@@ -143,13 +287,14 @@
                 display: flex;
                 flex-direction: column;
                 width: 20em;
+                height: 100vh;
                 padding: 1em 2% 0 2.5%;
                 margin-right: 2m;
-                min-width: 15em;
+                max-width: 50em;
                 box-sizing: border-box;
                 align-items: start;
                 border-right: 1px rgb(200, 200, 200) dashed;
-                box-shadow: 2px 5px 5px rgb(186, 196, 217)
+                box-shadow: 0px 0px 5px rgb(186, 196, 217);
             }
 
             .article img {
@@ -211,7 +356,8 @@
 
     <div class="navigation">
         <div class="menu" id="menu">
-            <img width="50" height="50" src="https://img.icons8.com/ios/50/menu--v1.png" alt="menu--v1" />
+            <a href="http://chernysn.github.io"><img width="40" height="40"
+                    src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1" /></a>
         </div>
 
         <div class="dropdown_menu" id="dropdown_menu">
@@ -248,57 +394,95 @@
             </ul>
         </div>
         <div class="blog">
-            <h1>How to integrate Chart.js in your Django project? </h1>
+            <div class="small_top">
+                <p class="blog-dot"><span class="dot">Blog</span><span class="red-dot">.</span></p>
+                <h3>Natalia Chernysheva</h3>
+                <p class="subheading">Full Stack Web Developer</p>
+                <p class="website"> <a href="https://chernysn.github.io/">chernysn.github.io</a></p>
+                <div class="photo_container">
+                    <img src="images/chernysheva_photo_web-2.png" alt="photo">
+                </div>
 
-            <p class="body">
-                You started a Django project and you want to generate some charts to illustrate your data with some
-                visuals.
-                To generate charts we need to get data from our database. So, first, we will save data to variables,
-                which
-                we can then use in the Chart.js Javascript code to generate the charts. </p>
+            </div>
+            <div class="blog_item">
+                <div class="arrow" id="arrow">
+                    <img id="plus" class="plus" width="40" height="40"
+                        src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/000000/external-plus-user-interface-tanah-basah-glyph-tanah-basah-2.png"
+                        alt="external-plus-user-interface-tanah-basah-glyph-tanah-basah-2" />
+                    <img id="minus" class="minus" width="40" height="40"
+                        src="https://img.icons8.com/sf-regular/48/minus-math.png" alt="minus-math" />
+                </div>
+                <div class="text_preview">
 
-            <p class="body"><img src="images/blog_students_enrollments.png" alt="chart"></p>
-            </p>
+                    <h1>How to integrate Chart.js in your Django project? </h1>
 
-            <p class="body"> Let's say you have a model <code>Student</code> that has an attribute <code>major</code>
-                (Computer Science, Math, French, ...). You would like to have a chart that visually demonstrates how
-                many students
-                major in each field. </p>
-            <p class="body">
-                To simplify this demonstration, I will assume that each discipline was inserted manually for each
-                student. If your attribute major has ManyToMany relationship with a separate class Discipline, then you
-                should take a slightly more complicated route to collect the data. You can read about ManyToMany
-                relationships <a
-                    href="https://openclassrooms.com/en/courses/7107341-intermediate-django/7265468-create-many-to-many-relationships">here</a>.
-            </p>
+                    <p class="body">
+                        You started a Django project and you want to generate some charts to illustrate your data
+                        with
+                        some
+                        visuals.
+                        To generate charts we need to get data from our database. So, first, we will save data to
+                        variables,
+                        which
+                        we can then use in the Chart.js Javascript code to generate the charts. </p>
 
-            <caption><strong>models.py</strong></caption>
-            <pre>
+                    <p class="body"><img src="images/blog_students_enrollments.png" alt="chart"></p>
+                    </p>
+
+                    <p class="body"> Let's say you have a model <code>Student</code> that has an attribute
+                        <code>major</code>
+                        (Computer Science, Math, French, ...). You would like to have a chart that visually
+                        demonstrates
+                        how
+                        many students
+                        major in each field.
+                    </p>
+                    <p class="body">
+                        To simplify this demonstration, I will assume that each discipline was inserted manually for
+                        each
+                        student. If your attribute major has ManyToMany relationship with a separate class
+                        Discipline,
+                        then
+                        you
+                        should take a slightly more complicated route to collect the data. You can read about
+                        ManyToMany
+                        relationships <a
+                            href="https://openclassrooms.com/en/courses/7107341-intermediate-django/7265468-create-many-to-many-relationships">here</a>.
+                    </p>
+
+                    <caption><strong>models.py</strong></caption>
+                    <pre>
         class Student(models.Model):
             first_name = models.CharField(max_length=100)           
             last_name = models.CharField(max_length=100)                  
             major = models.CharField(max_length=100)              
             ...        </pre>
-            <p class="body">First, let's create a variable <code>majors</code> to collect a list of all majors (you
-                don't want
-                to
-                list them one by one or to manually
-                update the list if the university adds new majors or changes the phrasing). We will also use the
-                .distinct()
-                method to
-                eliminate the duplicates.</p>
+                    <p class="body">First, let's create a variable <code>majors</code> to collect a list of all
+                        majors
+                        (you
+                        don't want
+                        to
+                        list them one by one or to manually
+                        update the list if the university adds new majors or changes the phrasing). We will also use
+                        the
+                        .distinct()
+                        method to
+                        eliminate the duplicates.</p>
 
-            <caption><b>views.py</b></caption>
-            <pre>
+                    <caption><b>views.py</b></caption>
+                    <pre>
         majors = Student.objects.values_list('major').distinct()            </pre>
 
-            <p class="body">Now, after we got the list of majors, let's count the number of students per each major. We
-                will
-                create an empty <code>students_per_major</code> list, filter the student objects by major
-                and then save the major-students tuples to the list.</p>
+                    <p class="body">Now, after we got the list of majors, let's count the number of students per
+                        each
+                        major.
+                        We
+                        will
+                        create an empty <code>students_per_major</code> list, filter the student objects by major
+                        and then save the major-students tuples to the list.</p>
 
-            <caption><b>views.py</b></caption>
-            <pre>
+                    <caption><b>views.py</b></caption>
+                    <pre>
         students_per_major = [] 
 
         for m in majors: 
@@ -306,43 +490,59 @@
             major_students_set = (m, student_count_per_major)
             students_per_major.append(major_students_set) </pre>
 
-            <p class="body">The final step in views.py is to save the majors and the number of students per major in two
-                separate lists (we will need two separate sets to create a chart: a set of labels and a set of data). To
-                create the
-                two lists, we will loop through the <code>students_per_major</code> list of tuples and save the first
-                item of
-                each
-                tuple to the <code>majors_set</code> variable and the second item of each tuple to the
-                <code>student_count_set</code>
-                list.
-            </p>
+                    <p class="body">The final step in views.py is to save the majors and the number of students per
+                        major in
+                        two
+                        separate lists (we will need two separate sets to create a chart: a set of labels and a set
+                        of
+                        data). To
+                        create the
+                        two lists, we will loop through the <code>students_per_major</code> list of tuples and save
+                        the
+                        first
+                        item of
+                        each
+                        tuple to the <code>majors_set</code> variable and the second item of each tuple to the
+                        <code>student_count_set</code>
+                        list.
+                    </p>
 
-            <caption><b>views.py</b></caption>
-            <pre>
+                    <caption><b>views.py</b></caption>
+                    <pre>
         majors_set = [x[0] for x in students_per_major]
         student_count_set = [x[1] for x in students_per_major]          </pre>
 
-            <p class="body">
-                Now, we can use these two data sets to create our chart. We cannot transfer the data from Django to JS
-                directly but we can do so via a Django
-                template. In the Django html file, put the following code:
-            </p>
+                    <p class="body">
+                        Now, we can use these two data sets to create our chart. We cannot transfer the data from
+                        Django
+                        to
+                        JS
+                        directly but we can do so via a Django
+                        template. In the Django html file, put the following code:
+                    </p>
 
-            <caption><b>sample.html</b></caption>
-            <pre>
+                    <caption><b>sample.html</b></caption>
+                    <pre>
         {{ majors_set|json_script:"major-labels" }}
         {{ student_count_set|json_script:"major-data" }}            </pre>
 
-            <p class="body">The first part of the code is the variables we have created in views.py to save the names of
-                majors and the number of students per major. The second part of the code dynamically creates an HTML
-                code
-                with the ids "major-labels" and "major-data". We can now create a &lt;script&gt; code to fetch the data
-                from these variable using the .getElementbyID() JS method. You can read more on it <a
-                    href="https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#json-script">here</a>.
-            </p>
+                    <p class="body">The first part of the code is the variables we have created in views.py to save
+                        the
+                        names of
+                        majors and the number of students per major. The second part of the code dynamically creates
+                        an
+                        HTML
+                        code
+                        with the ids "major-labels" and "major-data". We can now create a &lt;script&gt; code to
+                        fetch
+                        the
+                        data
+                        from these variable using the .getElementbyID() JS method. You can read more on it <a
+                            href="https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#json-script">here</a>.
+                    </p>
 
-            <caption><b>sample.html</b></caption>
-            <pre>
+                    <caption><b>sample.html</b></caption>
+                    <pre>
         &lt;script&gt;
         var major_labels = JSON.parse(document.getElementById('major-labels').textContent);         
         var major_data = JSON.parse(document.getElementById('major-data').textContent);    
@@ -350,16 +550,21 @@
         &lt;script&gt;          </pre>
 
 
-            <p class="body">
-                Last but not least, we will add the labels and the data to the Chart.js code and create a chart! I
-                expect
-                that a number of majors at a university can be significant so representing this data as a bar chart will
-                be
-                both visually appealing and exlicit. And that's it!
-            </p>
+                    <p class="body">
+                        Last but not least, we will add the labels and the data to the Chart.js code and create a
+                        chart!
+                        I
+                        expect
+                        that a number of majors at a university can be significant so representing this data as a
+                        bar
+                        chart
+                        will
+                        be
+                        both visually appealing and exlicit. And that's it!
+                    </p>
 
-            <caption><b>sample.html</b></caption>
-            <pre>
+                    <caption><b>sample.html</b></caption>
+                    <pre>
         &lt;script&gt;
 
             var major_labels = JSON.parse(document.getElementById('major-labels').textContent);         
@@ -379,47 +584,254 @@
 
         &lt;script&gt;         </pre>
 
-            <p class="body">
-            <h3>Have fun coding!</h3>
-            </p>
+                    <p class="body">
+                    <h3>Have fun coding!</h3>
+                    </p>
+
+
+
+                </div>
+
+            </div>
+
+            <!--
+    NEXT BLOG ITEM
+-->
+
+            <div class="blog_item">
+                <div class="arrow" id="arrow">
+                    <img id="plus" class="plus" width="40" height="40"
+                        src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/000000/external-plus-user-interface-tanah-basah-glyph-tanah-basah-2.png"
+                        alt="external-plus-user-interface-tanah-basah-glyph-tanah-basah-2" />
+                    <img id="minus" class="minus" width="40" height="40"
+                        src="https://img.icons8.com/sf-regular/48/minus-math.png" alt="minus-math" />
+                </div>
+                <div class="text_preview">
+
+                    <h1>How to integrate Chart.js in your Django project? </h1>
+
+                    <p class="body">
+                        You started a Django project and you want to generate some charts to illustrate your data
+                        with
+                        some
+                        visuals.
+                        To generate charts we need to get data from our database. So, first, we will save data to
+                        variables,
+                        which
+                        we can then use in the Chart.js Javascript code to generate the charts. </p>
+
+                    <p class="body"><img src="images/blog_students_enrollments.png" alt="chart"></p>
+                    </p>
+
+                    <p class="body"> Let's say you have a model <code>Student</code> that has an attribute
+                        <code>major</code>
+                        (Computer Science, Math, French, ...). You would like to have a chart that visually
+                        demonstrates
+                        how
+                        many students
+                        major in each field.
+                    </p>
+                    <p class="body">
+                        To simplify this demonstration, I will assume that each discipline was inserted manually for
+                        each
+                        student. If your attribute major has ManyToMany relationship with a separate class
+                        Discipline,
+                        then
+                        you
+                        should take a slightly more complicated route to collect the data. You can read about
+                        ManyToMany
+                        relationships <a
+                            href="https://openclassrooms.com/en/courses/7107341-intermediate-django/7265468-create-many-to-many-relationships">here</a>.
+                    </p>
+
+                    <caption><strong>models.py</strong></caption>
+                    <pre>
+class Student(models.Model):
+first_name = models.CharField(max_length=100)           
+last_name = models.CharField(max_length=100)                  
+major = models.CharField(max_length=100)              
+...        </pre>
+                    <p class="body">First, let's create a variable <code>majors</code> to collect a list of all
+                        majors
+                        (you
+                        don't want
+                        to
+                        list them one by one or to manually
+                        update the list if the university adds new majors or changes the phrasing). We will also use
+                        the
+                        .distinct()
+                        method to
+                        eliminate the duplicates.</p>
+
+                    <caption><b>views.py</b></caption>
+                    <pre>
+majors = Student.objects.values_list('major').distinct()            </pre>
+
+                    <p class="body">Now, after we got the list of majors, let's count the number of students per
+                        each
+                        major.
+                        We
+                        will
+                        create an empty <code>students_per_major</code> list, filter the student objects by major
+                        and then save the major-students tuples to the list.</p>
+
+                    <caption><b>views.py</b></caption>
+                    <pre>
+students_per_major = [] 
+
+for m in majors: 
+student_count_per_major = Student.objects.filter(major=m).count()           
+major_students_set = (m, student_count_per_major)
+students_per_major.append(major_students_set) </pre>
+
+                    <p class="body">The final step in views.py is to save the majors and the number of students per
+                        major in
+                        two
+                        separate lists (we will need two separate sets to create a chart: a set of labels and a set
+                        of
+                        data). To
+                        create the
+                        two lists, we will loop through the <code>students_per_major</code> list of tuples and save
+                        the
+                        first
+                        item of
+                        each
+                        tuple to the <code>majors_set</code> variable and the second item of each tuple to the
+                        <code>student_count_set</code>
+                        list.
+                    </p>
+
+                    <caption><b>views.py</b></caption>
+                    <pre>
+majors_set = [x[0] for x in students_per_major]
+student_count_set = [x[1] for x in students_per_major]          </pre>
+
+                    <p class="body">
+                        Now, we can use these two data sets to create our chart. We cannot transfer the data from
+                        Django
+                        to
+                        JS
+                        directly but we can do so via a Django
+                        template. In the Django html file, put the following code:
+                    </p>
+
+                    <caption><b>sample.html</b></caption>
+                    <pre>
+{{ majors_set|json_script:"major-labels" }}
+{{ student_count_set|json_script:"major-data" }}            </pre>
+
+                    <p class="body">The first part of the code is the variables we have created in views.py to save
+                        the
+                        names of
+                        majors and the number of students per major. The second part of the code dynamically creates
+                        an
+                        HTML
+                        code
+                        with the ids "major-labels" and "major-data". We can now create a &lt;script&gt; code to
+                        fetch
+                        the
+                        data
+                        from these variable using the .getElementbyID() JS method. You can read more on it <a
+                            href="https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#json-script">here</a>.
+                    </p>
+
+                    <caption><b>sample.html</b></caption>
+                    <pre>
+&lt;script&gt;
+var major_labels = JSON.parse(document.getElementById('major-labels').textContent);         
+var major_data = JSON.parse(document.getElementById('major-data').textContent);    
+...
+&lt;script&gt;          </pre>
+
+
+                    <p class="body">
+                        Last but not least, we will add the labels and the data to the Chart.js code and create a
+                        chart!
+                        I
+                        expect
+                        that a number of majors at a university can be significant so representing this data as a
+                        bar
+                        chart
+                        will
+                        be
+                        both visually appealing and exlicit. And that's it!
+                    </p>
+
+                    <caption><b>sample.html</b></caption>
+                    <pre>
+&lt;script&gt;
+
+var major_labels = JSON.parse(document.getElementById('major-labels').textContent);         
+var major_data = JSON.parse(document.getElementById('major-data').textContent);
+
+new Chart("myChart", {
+    type: "bar",
+    data: {
+        labels: major_labels,
+        datasets: [{
+            label: "Number of Students per Major",
+            backgroundColor: "#48cae4",
+            data: major_data
+        }]
+    },
+});
+
+&lt;script&gt;         </pre>
+
+                    <p class="body">
+                    <h3>Have fun coding!</h3>
+                    </p>
+
+
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
-
     <script>
 
-        window.addEventListener('resize', () => {
-            var w = window.innerWidth;
-            console.log(w);
-            var divElement = document.querySelector(".dropdown_menu");
-            var divWidth = divElement.offsetWidth;
-            console.log(divWidth);
-            var margin = (w - divWidth) / 2;
-            console.log("MARGIN", margin);
-
-            var percents = margin * 100 / w;
-            console.log("MARGIN PERC", percents);
-
-        });
-
+        var plus_expand = document.querySelectorAll(".plus");
+        var minus_hide = document.querySelectorAll(".minus");
+        var blog_item = document.querySelectorAll(".blog_item");
+        var text_preview = document.querySelectorAll(".text_preview");
 
         var menu = document.getElementById("menu");
         var dropdown_menu = document.getElementById("dropdown_menu");
         var close = document.getElementById("close");
 
+        plus_expand.forEach((plus, i) => {
+            plus.addEventListener('click', () => {
+                text_preview[i].style.cssText = " mask-image: none; -webkit-mask-image: none;";
+                blog_item[i].style.height = "100%";
+                minus_hide[i].style.display = "block";
+                plus_expand[i].style.display = "none";
+            });
+        })
 
-        menu.addEventListener('click', () => {
-            dropdown_menu.style.display = "flex";
-            dropdown_menu.style.marginLeft = "10%";
-            dropdown_menu.style.marginRight = "auto";
+        minus_hide.forEach((minus, i) => {
+            minus.addEventListener('click', () => {
+                text_preview[i].style.cssText = " mask-image: linear-gradient(black, transparent); -webkit-mask-image: linear-gradient(black, transparent);";
+                blog_item[i].style.height = "16em";
+                minus_hide[i].style.display = "none";
+                plus_expand[i].style.display = "block";
+            });
+        })
 
-
-        });
-
-        close.addEventListener('click', () => {
-            dropdown_menu.style.display = "none";
-        });
-
+        /*
+        
+                menu.addEventListener('click', () => {
+                    dropdown_menu.style.display = "flex";
+                    dropdown_menu.style.marginLeft = "10%";
+                    dropdown_menu.style.marginRight = "auto";
+                });
+        
+                close.addEventListener('click', () => {
+                    dropdown_menu.style.display = "none";
+                });
+        */
 
     </script>
 </body>
