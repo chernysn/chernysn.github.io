@@ -25,7 +25,7 @@
             display: flex;
             flex-direction: row;
             box-sizing: border-box;
-            padding: 1em 1em 3em 1em;
+            padding: 1em 0 3em 1em;
         }
 
         .blog {
@@ -101,6 +101,8 @@
         @media only screen and (min-width: 800px) {
             .main {
                 width: 100%;
+                margin: 0;
+                padding: 0;
             }
 
             .navigation {
@@ -108,9 +110,8 @@
             }
 
             .blog {
-                width: 80%;
-                padding: 0 1em;
-                margin: 0 0 0 auto;
+                width: 70%;
+                padding: 0 4em;
             }
 
             .body img {
@@ -120,25 +121,62 @@
 
 
             .article {
-                display: block;
-                width: 20%;
-                padding: 2.5em 1.5em 0 .5em;
+                display: flex;
+                flex-direction: column;
+                width: 20em;
+                padding: 1em 2% 0 2.5%;
+                margin-right: 2m;
                 min-width: 15em;
                 box-sizing: border-box;
+                align-items: start;
+                border-right: 1px rgb(200, 200, 200) dashed;
+                box-shadow: 2px 5px 5px rgb(186, 196, 217)
             }
 
             .article img {
-                width: calc(10em + 1vw);
+                width: calc(11em + 1vw);
             }
 
             .article h3 {
-                font-size: calc(1.2em + .2vw);
+                font-size: calc(1em + .2vw);
+                margin: .5em 0;
+            }
+
+            .article p {
+                font-size: 1em;
+                margin: .5em 0;
+            }
+
+            p.blog-dot {
+                margin: 0;
+                padding: 0;
+            }
+
+            span.dot {
+                font-weight: bolder;
+                font-size: 3em;
+                margin: 0;
+            }
+
+            span.red-dot {
+                color: red;
+                font-weight: bolder;
+                font-size: 5em;
+            }
+
+            p.subheading {
+                font-size: calc(.8em + .2vw);
+                margin: .5em 0;
             }
 
             .article a {
                 text-decoration: none;
                 color: rgb(3, 72, 128);
-                font-size: .9em;
+                font-size: 1em;
+            }
+
+            .article ul {
+                margin-left: -2em;
             }
 
             pre {
@@ -166,12 +204,12 @@
     </div>
     <div class="main">
         <div class="article">
+            <p class="blog-dot"><span class="dot">Blog</span><span class="red-dot">.</span></p>
             <h3>Natalia Chernysheva</h3>
-            <p>Full Stack Web Developer</p>
-            <p><small> <a href="https://chernysn.github.io/">chernysn.github.io</a></small></p>
+            <p class="subheading">Full Stack Web Developer</p>
+            <p> <a href="https://chernysn.github.io/">chernysn.github.io</a></p>
             <p><img src="images/chernysheva_photo_web-2.png" alt="photo"></p>
 
-            <p><strong>Blog</strong></p>
             <ul>
                 <li><a href="/coding_blog.html">How to integrate Chart.js in your Django project?</a> </li>
             </ul>
