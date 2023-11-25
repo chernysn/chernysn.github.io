@@ -222,9 +222,9 @@
                 width: 100%;
                 display: flex;
                 flex-direction: row;
-                width: 100%;
                 margin: 0;
                 padding: 0;
+                align-items: stretch;
             }
 
             .navigation {
@@ -237,9 +237,10 @@
 
             .blog {
                 width: 60%;
-                height: auto;
                 margin: 0 auto;
                 box-sizing: border-box;
+                min-height: 100%;
+
             }
 
             .blog_item {
@@ -248,9 +249,11 @@
                 width: auto;
                 height: 16em;
                 padding: 0 0 3em 0;
+                margin: .5em 0;
             }
 
             .blog_item .text_preview {
+                background-color: white;
                 margin-left: 4em;
                 width: auto;
                 height: 100%;
@@ -293,17 +296,16 @@
 
 
             .article {
-                display: flex;
-                flex-direction: column;
+                display: inline;
+                min-height: 100vh;
+                background-color: white;
                 width: 20em;
-                height: 100vh;
                 padding: 1em 2% 0 2.5%;
                 margin-right: 2m;
                 max-width: 50em;
                 box-sizing: border-box;
-                align-items: start;
-                border-right: 1px rgb(200, 200, 200) dashed;
-                box-shadow: 0px 0px 5px rgb(186, 196, 217);
+                border-right: 1px rgb(175, 175, 175) dashed;
+                box-shadow: 0px 0px 15px rgb(178, 184, 196);
             }
 
             .article img {

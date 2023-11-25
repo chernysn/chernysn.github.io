@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation Effects</title>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navigation {
+            width: 95%;
+            text-align: right;
+            margin: 1em auto 0;
+            padding: .5em;
+            box-sizing: border-box;
+        }
+
+        .menu {
+            opacity: .2;
+        }
+
+        .main {
+            width: 90%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            margin: 0 auto 1em;
+            padding-bottom: 3em;
+        }
+
+        .animation_1,
+        .animation_2,
+        .animation_3,
+        .animation_4,
+        .animation_5 {
+
+            min-width: 30em;
+            width: auto;
+            height: 14em;
+            margin: 1em auto;
+            border: 1px white solid;
+            padding: 0 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*
+        .animation_1 h1 {
+            background: linear-gradient(to right, red, yellow, green);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            animation: rainbow 2.5s infinite linear;
+            margin: 0 0 5em;
+        }
+*/
+        .animation_2 p span {
+            color: white;
+            display: inline-block;
+            font-size: 1.5em;
+            margin: 0 5px;
+            animation: letter_rope 3s infinite linear;
+            animation-delay: calc(.3s * var(--i));
+        }
+
+        .animation_3 p span {
+            color: rgb(62, 62, 62);
+            display: inline-block;
+            font-size: 2.8em;
+            animation: letter 2.5s infinite ease-in-out;
+            animation-delay: calc(.1s * var(--i));
+        }
+
+        .animation_4 p span {
+
+            color: white;
+            font-size: 2.5em;
+            display: inline-block;
+            animation: step 2s infinite ease-out;
+            animation-delay: calc(.1s * var(--i));
+        }
+
+        .animation_5 {
+            font-size: 1em;
+            font-weight: 100;
+            color: hsl(255, 50%, 80%);
+            position: relative;
+        }
+
+        .animation_5 p {
+            color: white;
+            font-size: 2em;
+        }
+
+        .animation_5 .destroy {
+            font-size: 2.5em;
+            margin: 0;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+
+        }
+
+        .controls {
+            top: .5em;
+            left: 1em;
+            right: 1em;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #click_me,
+        #restart {
+            cursor: pointer;
+        }
+
+        .pop {
+            animation: pop 500ms forwards ease-out;
+            animation-delay: calc(.1s * var(--i));
+        }
+
+        .dkjown {
+            animation: down 1000ms forwards ease-out;
+            animation-delay: calc(1s * var(--i));
+        }
+
+
+        @keyframes rainbow {
+
+            0% {
+                background-position: -30em;
+            }
+
+            100% {
+                background-position: 30em;
+            }
+        }
+
+
+        @keyframes letter_rope {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: scale(4);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes letter {
+
+            0% {
+                transform: translateY(0);
+
+            }
+
+            45% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(1.5em);
+                color: rgb(255, 255, 255);
+            }
+
+            55% {
+                transform: translateY(0);
+
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes step {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: rotateX(180deg);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        @keyframes pop {
+
+            to {
+                font-size: 0;
+                color: black;
+                border-radius: 50%;
+                border: 5px solid red;
+            }
+
+        }
+
+        @keyframes down {
+
+            0% {
+                margin-tp: 0;
+            }
+
+            100% {
+                margin-top: 5em;
+            }
+
+        }
+
+        @media screen and (max-width: 450px) {
+
+            html,
+            body {
+                font-size: 10px;
+            }
+
+
+            .navigation {
+                width: 95%;
+            }
+
+            .main {
+                width: 95%;
+                margin: 0 auto;
+            }
+
+            .animation_1,
+            .animation_2,
+            .animation_3,
+            .animation_4,
+            .animation_5 {
+
+                width: 35em;
+                height: 10em;
+                margin: 1em;
+                border: 1px white solid;
+                padding: 2em 1em;
+                word-wrap: nowrap;
+            }
+        }
+
+
+        @media screen and (max-width: 380px) {
+
+            html,
+            body {
+                font-size: 9px;
+            }
+
+            .navigation {
+                width: 95%;
+            }
+
+            .main {
+                width: 95%;
+                margin: 0 auto;
+            }
+
+            .animation_1,
+            .animation_2,
+            .animation_3,
+            .animation_4,
+            .animation_5 {
+
+                width: 35em;
+                height: 10em;
+                margin: 1em 1em 2em;
+                border: 1px white solid;
+                padding: 2em 1em;
+                word-wrap: nowrap;
+            }
+
+            .animation_5 .controls {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navigation">
+        <div class="menu" id="menu">
+            <a href="http://chernysn.github.io"><img width="40" height="40"
+                    src="https://img.icons8.com/ios/100/ffffff/home--v1.png" alt="home--v1" /></a>
+        </div>
+    </div>
+    <div class="main">
+        <!--
+        <div class="animation_1">
+            <h1>
+                <p>
+                    <span style="--i:1">W</span>
+                    <span style="--i:2">E</span>
+                    <span style="--i:3">B</span>
+                    <span style="--i:4">&nbsp; </span>
+                    <span style="--i:5">D</span>
+                    <span style="--i:6">E</span>
+                    <span style="--i:7">V</span>
+                    <span style="--i:8">E</span>
+                    <span style="--i:9">L</span>
+                    <span style="--i:10">O</span>
+                    <span style="--i:11">P</span>
+                    <span style="--i:12">M</span>
+                    <span style="--i:13">E</span>
+                    <span style="--i:14">N</span>
+                    <span style="--i:15">T</span>
+                </p>
+            </h1>
+        </div>
+-->
+        <div class="animation_2">
+            <p>
+                <span style="--i:1">w</span>
+                <span style="--i:2">e</span>
+                <span style="--i:3">b</span>
+                <span style="--i:4">&nbsp; </span>
+                <span style="--i:5">d</span>
+                <span style="--i:6">e</span>
+                <span style="--i:7">v</span>
+                <span style="--i:8">e</span>
+                <span style="--i:9">l</span>
+                <span style="--i:10">o</span>
+                <span style="--i:11">p</span>
+                <span style="--i:12">m</span>
+                <span style="--i:13">e</span>
+                <span style="--i:14">n</span>
+                <span style="--i:15">t</span>
+            </p>
+        </div>
+
+
+        <div class="animation_3">
+            <p>
+                <span style="--i:1">W</span>
+                <span style="--i:2">E</span>
+                <span style="--i:3">B</span>
+                <span style="--i:4">&nbsp; </span>
+                <span style="--i:5">D</span>
+                <span style="--i:6">E</span>
+                <span style="--i:7">V</span>
+                <span style="--i:8">E</span>
+                <span style="--i:9">L</span>
+                <span style="--i:10">O</span>
+                <span style="--i:11">P</span>
+                <span style="--i:12">M</span>
+                <span style="--i:13">E</span>
+                <span style="--i:14">N</span>
+                <span style="--i:15">T</span>
+            </p>
+        </div>
+
+        <div class="animation_4">
+            <p>
+                <span style="--i:1">W</span>
+                <span style="--i:2">E</span>
+                <span style="--i:3">B</span>
+                <span style="--i:4">&nbsp; </span>
+                <span style="--i:5">D</span>
+                <span style="--i:6">E</span>
+                <span style="--i:7">V</span>
+                <span style="--i:8">E</span>
+                <span style="--i:9">L</span>
+                <span style="--i:10">O</span>
+                <span style="--i:11">P</span>
+                <span style="--i:12">M</span>
+                <span style="--i:13">E</span>
+                <span style="--i:14">N</span>
+                <span style="--i:15">T</span>
+            </p>
+        </div>
+
+        <div class="animation_5" id="animation_5">
+            <div class="controls">
+                <span id="click_me">Click to animate</span>
+                <span id="restart">Restart animation</span>
+            </div>
+            <p class="container" id="container">
+            <div class="destroy" style="--i:1">Y</div>
+            <div class="destroy" style="--i:2">O</div>
+            <div class="destroy" style="--i:3">U</div>
+            <div class="destroy" style="--i:4">R</div>
+            <div class="destroy" style="--i:5">_</div>
+            <div class="destroy" style="--i:6">N</div>
+            <div class="destroy" style="--i:7">A</div>
+            <div class="destroy" style="--i:8">M</div>
+            <div class="destroy" style="--i:9">E</div>
+
+            </p>
+        </div>
+
+        <script>
+
+            var click_me = document.getElementById("click_me");
+            var restart = document.getElementById("restart");
+
+            click_me.addEventListener('click', () => {
+                red_dot();
+            })
+
+            var letters = document.querySelectorAll(".destroy");
+            function red_dot() {
+                letters.forEach((letter, i) => {
+                    console.log(letter, i);
+                    letter.classList.add("pop");
+                })
+            }
+
+            restart.addEventListener(("click"), () => {
+                letters.forEach((letter) => {
+                    letter.classList.remove("pop");
+                })
+            })
+
+        </script>
+    </div>
+</body>
+
+</html>
+
+<!--
+
+-->
