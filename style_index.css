@@ -502,15 +502,10 @@ body {
     font-weight: 100;
 }
 
-.col img,
-.col video {
+.col img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-}
-
-.col video {
-    margin: 0 auto;
 }
 
 .overlay {
@@ -978,6 +973,10 @@ button:active {
         box-sizing: border-box;
     }
 
+    .col img {
+        margin: 0 auto;
+    }
+
     .h-col {
         padding: 5em 2.5em;
     }
@@ -1159,5 +1158,9 @@ button:active {
 
     .front_page_text h2 {
         font-size: 1.8em;
+    }
+
+    .col img {
+        margin: 0 auto;
     }
 }

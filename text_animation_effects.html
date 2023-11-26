@@ -80,6 +80,17 @@
             color: rgb(62, 62, 62);
             display: inline-block;
             font-size: 2.8em;
+        }
+
+        .animation_3 {
+            position: relative;
+        }
+
+        audio {
+            display: none;
+        }
+
+        .typewriter_animation {
             animation: letter 2.5s infinite ease-in-out;
             animation-delay: calc(.1s * var(--i));
         }
@@ -121,33 +132,18 @@
             position: absolute;
             display: flex;
             justify-content: space-between;
+            color: white;
         }
 
         #click_me,
         #restart {
             cursor: pointer;
+            opacity: .5;
         }
 
         .pop {
             animation: pop 3800ms infinite ease-in-out;
             animation-delay: calc(.1s * var(--i));
-        }
-
-        .dkjown {
-            animation: down 1000ms forwards ease-out;
-            animation-delay: calc(1s * var(--i));
-        }
-
-
-        @keyframes rainbow {
-
-            0% {
-                background-position: -30em;
-            }
-
-            100% {
-                background-position: 30em;
-            }
         }
 
 
@@ -165,6 +161,8 @@
                 transform: translateY(0);
             }
         }
+
+
 
         @keyframes letter {
 
@@ -189,6 +187,12 @@
 
             100% {
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes typewriter {
+            50% {
+                display: block;
             }
         }
 
@@ -224,6 +228,7 @@
                 color: rgba(255, 255, 255, 0.1);
                 transform: rotateZ(0deg);
                 font-size: 0;
+
             }
 
             55% {
@@ -287,6 +292,7 @@
                 word-wrap: nowrap;
             }
 
+            .animation_3 .controls,
             .animation_5 .controls {
                 font-size: 1.25em;
             }
@@ -323,8 +329,10 @@
                 word-wrap: nowrap;
             }
 
+            .animation_3 .controls,
             .animation_5 .controls {
                 font-size: 1.2em;
+
             }
         }
     </style>
@@ -339,29 +347,6 @@
         </div>
     </div>
     <div class="main">
-        <!--
-        <div class="animation_1">
-            <h1>
-                <p>
-                    <span style="--i:1">W</span>
-                    <span style="--i:2">E</span>
-                    <span style="--i:3">B</span>
-                    <span style="--i:4">&nbsp; </span>
-                    <span style="--i:5">D</span>
-                    <span style="--i:6">E</span>
-                    <span style="--i:7">V</span>
-                    <span style="--i:8">E</span>
-                    <span style="--i:9">L</span>
-                    <span style="--i:10">O</span>
-                    <span style="--i:11">P</span>
-                    <span style="--i:12">M</span>
-                    <span style="--i:13">E</span>
-                    <span style="--i:14">N</span>
-                    <span style="--i:15">T</span>
-                </p>
-            </h1>
-        </div>
--->
         <div class="animation_2">
             <p>
                 <span style="--i:1">w</span>
@@ -385,21 +370,21 @@
 
         <div class="animation_3">
             <p>
-                <span style="--i:1">W</span>
-                <span style="--i:2">E</span>
-                <span style="--i:3">B</span>
-                <span style="--i:4">&nbsp; </span>
-                <span style="--i:5">D</span>
-                <span style="--i:6">E</span>
-                <span style="--i:7">V</span>
-                <span style="--i:8">E</span>
-                <span style="--i:9">L</span>
-                <span style="--i:10">O</span>
-                <span style="--i:11">P</span>
-                <span style="--i:12">M</span>
-                <span style="--i:13">E</span>
-                <span style="--i:14">N</span>
-                <span style="--i:15">T</span>
+                <span class="typewriter" style="--i:1">W</span>
+                <span class="typewriter" style="--i:2">E</span>
+                <span class="typewriter" style="--i:3">B</span>
+                <span class="typewriter" style="--i:4">&nbsp; </span>
+                <span class="typewriter" style="--i:5">D</span>
+                <span class="typewriter" style="--i:6">E</span>
+                <span class="typewriter" style="--i:7">V</span>
+                <span class="typewriter" style="--i:8">E</span>
+                <span class="typewriter" style="--i:9">L</span>
+                <span class="typewriter" style="--i:10">O</span>
+                <span class="typewriter" style="--i:11">P</span>
+                <span class="typewriter" style="--i:12">M</span>
+                <span class="typewriter" style="--i:13">E</span>
+                <span class="typewriter" style="--i:14">N</span>
+                <span class="typewriter" style="--i:15">T</span>
             </p>
         </div>
 
@@ -443,6 +428,19 @@
         </div>
 
         <script>
+
+
+            var type_keys = document.querySelectorAll('.typewriter');
+
+            window.addEventListener('DOMContentLoaded', () => {
+                type_keys.forEach((key) => {
+                    key.classList.add("typewriter_animation");
+                });
+            });
+
+            var audio_oon = document.getElementById("audio_on");
+            var audio_off = document.getElementById("audio_off");
+            var type_sound = document.getElementById("type_sound");
 
             var click_me = document.getElementById("click_me");
             var restart = document.getElementById("restart");
