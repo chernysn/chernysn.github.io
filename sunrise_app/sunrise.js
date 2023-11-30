@@ -31,7 +31,7 @@ tomorrow_date_weekDay.innerHTML = tomorrow_day;
 
 
 
-var imgs = ['url(sunrise_images/weather_1.jpg)', 'url(sunrise_images/weather_14.jpg)', 'url(sunrise_images/weather_13.jpg)', 'url(sunrise_images/weather_9.jpg)', 'url(sunrise_images/weather_5.jpg)'];
+var imgs = ['url(sunrise_images/weather_6.jpg)', 'url(sunrise_images/weather_14.jpg)', 'url(sunrise_images/weather_13.jpg)', 'url(sunrise_images/weather_9.jpg)', 'url(sunrise_images/weather_5.jpg)'];
 var body = document.getElementsByTagName("BODY")[0];
 var i = 0;
 
