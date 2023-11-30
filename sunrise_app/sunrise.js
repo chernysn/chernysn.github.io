@@ -62,7 +62,7 @@ setInterval(function () {
         body.style.backgroundImage = imgs[i];
         i = 0;
     }
-}, 30000);
+}, 5000);
 
 function start() {
 
