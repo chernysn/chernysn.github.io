@@ -185,3 +185,18 @@ function weather(location) {
         })
 
 };
+
+
+var mobile_input = document.getElementById("location");
+var mobile_offset_screen = document.querySelector(".weather_info");
+
+mobile_input.addEventListener('focus', () => {
+    mobile_offset_screen.style.transform = "translateY(-20%)";
+})
+
+mobile_input.addEventListener('blur', () => {
+    setTimeout(function () {
+        mobile_offset_screen.style.transform = "translateY(0)";
+    }, 250
+    )
+})

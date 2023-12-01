@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
     <title>Sunrise & Sunset</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +116,7 @@
         .grid_container {
             display: grid;
             justify-content: stretch;
-            grid-template-columns: 6em 1fr 6em 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-rows: 1fr 2fr 8em 8em;
             background-color: rgba(255, 255, 255, .7);
             border-radius: 2em;
@@ -246,11 +246,16 @@
         @media only screen and (max-width: 900px) {
 
             .container {
-                width: 100%;
-                height: auto;
+                width: 80%;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+            }
+
+            .transform_on_vk {
+                transform: translateY(-25%);
+                transition: 1s forwards ease-in-out;
             }
 
             .grid_container {
@@ -258,29 +263,27 @@
             }
 
             .weather_info {
-                width: auto;
-                height: 65%;
+                width: 100%;
+                height: 70%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 padding: 0;
-                margin: 2em 2em 0 2em;
             }
 
             #input {
                 width: 100%;
-                height: 35%;
+                height: 30%;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                margin: 3em 0 0 0;
                 color: white;
             }
 
             .input_container {
-                width: auto;
+                width: 100%;
                 height: auto;
                 display: flex;
                 justify-content: center;
@@ -290,14 +293,14 @@
 
             input[type="text"] {
                 width: 100%;
-                font-size: calc(1.3em + .2vw);
+                font-size: calc(1.5em + .2vw);
                 border-radius: .65em;
                 box-sizing: border-box;
             }
 
             input[type="submit"] {
                 width: 100%;
-                font-size: calc(1.3em + .2vw);
+                font-size: calc(1.5em + .2vw);
                 border-radius: .65em;
             }
 
@@ -311,6 +314,10 @@
                 font: 12px;
             }
 
+            .transform_on_vk {
+                transform: translateY(-25%);
+                transition: 1s forwards ease-in-out;
+            }
 
             .weather_info {
                 width: 100%;
@@ -485,6 +492,11 @@
                     height: 100%;
                     display: flex;
                     flex-direction: column;
+                }
+
+                .transform_on_vk {
+                    transform: translateY(-25%);
+                    transition: 1s forwards ease-in-out;
                 }
 
                 .weather_info {
