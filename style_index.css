@@ -928,7 +928,7 @@ button:active {
     .projects {
         width: 100%;
         height: auto;
-        padding: 0 0 5em 0;
+        padding: 5em 0 5em 0;
     }
 
     .projects .wrapper {
@@ -946,11 +946,6 @@ button:active {
         order: 2;
     }
 
-    /*
-    .row:nth-child(even) {
-        background-color: rgba(54, 59, 64, 0.05);
-    }
-*/
     .row {
         display: flex;
         flex-direction: column;
@@ -973,18 +968,20 @@ button:active {
     }
 
     .col {
-        width: 100%;
         padding: 5em;
+        width: 100%;
         height: 100%;
         border-radius: 0;
         box-sizing: border-box;
     }
 
-    .col img {
+    .v-col {
         margin: 0 auto;
+        width: 35em;
     }
 
     .h-col {
+
         padding: 5em 1.5em;
     }
 

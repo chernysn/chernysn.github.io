@@ -191,7 +191,12 @@ var mobile_input = document.getElementById("location");
 var mobile_offset_screen = document.querySelector(".weather_info");
 
 mobile_input.addEventListener('focus', () => {
-    mobile_offset_screen.style.transform = "translateY(-20%)";
+    if (window.innerHeight < 570) {
+        mobile_offset_screen.style.transform = "translateY(-55%)";
+    } else {
+        mobile_offset_screen.style.transform = "translateY(-25%)";
+
+    }
 })
 
 mobile_input.addEventListener('blur', () => {
