@@ -74,7 +74,7 @@
         padding: 0.5em;
         box-sizing: border-box;
         border-radius: 1em;
-        font-size: 0.8em;
+        font-size: 0.85em;
         line-height: 1.5em;
         color: rgba(0, 0, 0, 0.5);
         position: relative;
@@ -82,6 +82,11 @@
 
       .important {
         background-color: inherit;
+      }
+
+      input[type="checkbox"] {
+        accent-color: rgb(145, 65, 145);
+        transform: scale(1.2);
       }
 
       .input-fields::-webkit-calendar-picker-indicator {
@@ -244,7 +249,8 @@
           <textarea type="text" id="text_note"></textarea>
           <input class="input-fields" id="date_note" type="date" />
           <div class="input-fields important">
-            Important <input type="checkbox" id="important" />
+            <label for="important">Important </label>
+            <input type="checkbox" name="important" id="important" />
           </div>
           <input type="submit" id="save_btn" value="Save" />
         </div>
