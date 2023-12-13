@@ -295,14 +295,15 @@
         var textNote_val = textNote.value;
         var due_date = document.getElementById("date_note");
         var due_date_val = due_date.value;
-        var important = document.getElementById("important").checked;
+        var important = document.getElementById("important");
+        important_val = important.checked;
         let index = saveBtn.getAttribute("data-index");
 
         if (index !== null) {
           allNotes[index] = {
             message: textNote_val,
             due_date: due_date_val,
-            important: important,
+            important: important_val,
           };
           this.removeAttribute("data-index");
           saveBtn.value = "Add";
@@ -310,7 +311,7 @@
           displayNotes();
           textNote.value = "";
           due_date.value = "";
-          important = false;
+          important.checked = false;
         } else {
           if (textNote_val !== "") {
             let to_save = {
@@ -322,7 +323,7 @@
             localStorage.setItem("allNotes", JSON.stringify(allNotes));
             textNote.value = "";
             due_date.value = "";
-            important = false;
+            important.checked = false;
             displayNotes();
           } else {
             alert_message.style.display = "flex";
