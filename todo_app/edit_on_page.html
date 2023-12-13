@@ -67,12 +67,19 @@
 
       .input-fields {
         width: 100%;
-        margin: 0.5em 0 1.5em 0;
+        margin: 0.5em 0 0.5em 0;
         border: 0.5px dotted violet;
         background-color: rgb(250, 200, 250);
         padding: 0.5em;
         box-sizing: border-box;
         border-radius: 1em;
+        font-size: 0.8em;
+        line-height: 1.5em;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .important {
+        background-color: inherit;
       }
 
       input[type="submit"] {
@@ -120,17 +127,12 @@
         font-size: 0.8em;
         line-height: 1.5em;
         padding: 1em;
-        border-radius: 1em;
         background-color: rgb(250, 195, 250);
         box-sizing: border-box;
         text-wrap: wrap;
         word-break: break-all;
         box-shadow: 3px 3px 15px -2px rgb(150, 70, 150);
-      }
-
-      .one_note_quote {
-        background-color: rgb(255, 183, 82);
-        color: black;
+        border-radius: 1em;
       }
 
       .inner_note {
@@ -147,8 +149,13 @@
 
       .date_note {
         margin: 0;
-        color: rgb(190, 115, 205);
+        color: rgb(75, 45, 80);
         text-align: right;
+        border-radius: 1em;
+      }
+
+      .border {
+        border-top: 10px rgb(255, 45, 97) solid;
       }
 
       #edit_note,
@@ -216,15 +223,11 @@
         <div class="add_note">
           <textarea type="text" id="text_note"></textarea>
           <input class="input-fields" id="date_note" type="date" />
+          <div class="input-fields important">
+            Important <input type="checkbox" id="important" />
+          </div>
           <input type="submit" id="save_btn" value="Save" />
         </div>
-        <!--        <div class="quote" id="quote">
-          <p>
-            'The way to get started is to quit talking and begin doing'
-            <i>--Walt Disney</i>
-          </p>
-        </div>
-        -->
 
         <div id="alert_message">
           <div>
@@ -272,24 +275,35 @@
         var textNote_val = textNote.value;
         var due_date = document.getElementById("date_note");
         var due_date_val = due_date.value;
+        var important = document.getElementById("important").checked;
         let index = saveBtn.getAttribute("data-index");
 
         if (index !== null) {
-          console.log(allNotes[index]);
-          allNotes[index] = { message: textNote_val, due_date: due_date_val };
+          allNotes[index] = {
+            message: textNote_val,
+            due_date: due_date_val,
+            important: important,
+          };
+          console.log(allNotes[index], "THIS NOTE");
           this.removeAttribute("data-index");
           saveBtn.value = "Add";
           localStorage.setItem("allNotes", JSON.stringify(allNotes));
           displayNotes();
           textNote.value = "";
           due_date.value = "";
+          important.checked = false;
         } else {
           if (textNote_val !== "") {
-            let to_save = { message: textNote_val, due_date: due_date_val };
+            let to_save = {
+              message: textNote_val,
+              due_date: due_date_val,
+              important: important,
+            };
             allNotes.push(to_save);
             localStorage.setItem("allNotes", JSON.stringify(allNotes));
             textNote.value = "";
             due_date.value = "";
+            important.checked = false;
             displayNotes();
           } else {
             alert_message.style.display = "flex";
@@ -305,17 +319,21 @@
       function displayNotes() {
         displayNotesHTML.innerHTML = "";
         allNotes = JSON.parse(localStorage.getItem("allNotes"));
-        console.log(typeof allNotes);
-        console.log(new Date(allNotes[0].due_date).getTime());
         allNotes.sort(
           (a, b) =>
             new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
         );
-        console.log(allNotes);
         allNotes.forEach((note, i) => {
+          if (note.important === true) {
+            console.log("CHECKED", note.important.checked);
+            var border = "border";
+          } else {
+            console.log("CHECKED", note.important.checked);
+            var border = " ";
+          }
           displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
-                    <div class="one_note">
+                    <div class="one_note ${border}">
                         <div class="inner_note">
                         <p class="date_note">
                           ${new Date(note.due_date).getDate() + 1} /
