@@ -66,7 +66,7 @@
       }
 
       .input-fields {
-        width: 100%;
+        width: auto;
         margin: 0.5em 0 0.5em 0;
         border: 0.5px dotted violet;
         background-color: rgb(250, 200, 250);
@@ -115,8 +115,8 @@
       }
 
       .notes_wrapper {
-        width: 15em;
-        height: 15em;
+        width: 12em;
+        height: 12em;
         padding: 0.5em;
         margin: 0.5em;
       }
@@ -130,7 +130,6 @@
         background-color: rgb(250, 195, 250);
         box-sizing: border-box;
         text-wrap: wrap;
-        word-break: break-all;
         box-shadow: 3px 3px 15px -2px rgb(150, 70, 150);
         border-radius: 1em;
       }
@@ -150,12 +149,18 @@
       .date_note {
         margin: 0;
         color: rgb(75, 45, 80);
-        text-align: right;
+        text-align: left;
+        background-color: rgba(75, 45, 80, 0.2);
         border-radius: 1em;
+        text-align: center;
       }
 
-      .border {
+      .border-red {
         border-top: 10px rgb(255, 45, 97) solid;
+      }
+
+      .border-blue {
+        border-top: 10px rgb(255, 168, 141) solid;
       }
 
       #edit_note,
@@ -222,9 +227,10 @@
       <div class="container">
         <div class="add_note">
           <textarea type="text" id="text_note"></textarea>
-          <input class="input-fields" id="date_note" type="date" />
-          <div class="input-fields important">
-            Important <input type="checkbox" id="important" />
+
+          <div class="input-fields">
+            <input class="" id="date_note" type="date" /> Important
+            <input type="checkbox" id="important" />
           </div>
           <input type="submit" id="save_btn" value="Save" />
         </div>
@@ -325,18 +331,32 @@
         );
         allNotes.forEach((note, i) => {
           if (note.important === true) {
-            var border = "border";
+            var border = "border-red";
           } else {
-            var border = " ";
+            var border = "border-blue";
           }
-
+          var months = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sept",
+            "Oct",
+            "Nov",
+            "Dec",
+          ];
+          var month = months[new Date(note.due_date).getMonth()];
           displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
                     <div class="one_note ${border}">
                         <div class="inner_note">
                         <p class="date_note">
-                          ${new Date(note.due_date).getDate() + 1} /
-                          ${new Date(note.due_date).getMonth() + 1} /
+                          ${new Date(note.due_date).getDate() + 1} 
+                          ${month} 
                           ${new Date(note.due_date).getFullYear()}</p>
                         <p>${note.message}</p>
                         </div>
