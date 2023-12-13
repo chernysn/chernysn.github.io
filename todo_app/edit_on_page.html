@@ -18,9 +18,10 @@
 
       .main {
         width: 100%;
-        height: 100%;
+        height: auto;
         padding: 0 0 3em;
         box-sizing: border-box;
+        margin: 0 0 3em 0;
       }
 
       .quote {
@@ -370,13 +371,13 @@
             "Nov",
             "Dec",
           ];
-          var month = months[new Date(note.due_date).getMonth()];
+          var month = months[new Date(note.due_date).getUTCMonth()];
           displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
                     <div class="one_note ${border}">
                         <div class="inner_note">
                         <p class="date_note">
-                          ${new Date(note.due_date).getDate() + 1} 
+                          ${new Date(note.due_date).getUTCDate()} 
                           ${month} 
                           ${new Date(note.due_date).getFullYear()}</p>
                         <p>${note.message}</p>
