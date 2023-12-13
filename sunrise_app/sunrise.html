@@ -111,6 +111,7 @@
         .grid_tomorrow_info_sunrise,
         .grid_tomorrow_info_sunset {
             padding: .5em;
+            place-self: center;
         }
 
         .grid_container {
@@ -238,8 +239,9 @@
         .grid_today_info_sunset,
         .grid_tomorrow_info_sunrise,
         .grid_tomorrow_info_sunset {
-            font-size: calc(1.5em + .2vw);
+            font-size: calc(1.2em + .2vw);
             font-weight: 600;
+            place-self: center;
         }
 
 
@@ -406,12 +408,10 @@
             .grid_tomorrow_img_sunset img {
                 width: 4em;
                 height: 4em;
+                place-self: center;
+
             }
 
-            .grid_today_img_sunrise,
-            .grid_today_img_sunset,
-            .grid_tomorrow_img_sunrise,
-            .grid_tomorrow_img_sunset,
             .grid_today_info_sunrise,
             .grid_today_info_sunset,
             .grid_tomorrow_info_sunrise,
@@ -578,7 +578,7 @@
         <div class="weather_info">
             <div class="grid_container">
                 <div class="grid_city">
-                    <span id="city"></span>
+                    <span id="city">City</span>
                 </div>
 
 
@@ -601,10 +601,10 @@
 
 
                 <div class="grid_today_info_sunrise">
-                    <p class="table" id="today_sunrise"></p>
+                    <p class="table" id="today_sunrise">0:00:00 AM</p>
                 </div>
                 <div class="grid_today_info_sunset">
-                    <p class="table" id="today_sunset"></p>
+                    <p class="table" id="today_sunset">0:00:00 AM</p>
                 </div>
 
                 <div class="grid_tomorrow_img_sunrise"><img width="80" height="80"
@@ -613,10 +613,10 @@
                         src="https://img.icons8.com/ios/100/sunset--v1.png" alt="sunset--v1" /></div>
 
                 <div class="grid_tomorrow_info_sunrise">
-                    <p id="tomorrow_sunrise"></p>
+                    <p id="tomorrow_sunrise">0:00:00 PM</p>
                 </div>
                 <div class="grid_tomorrow_info_sunset">
-                    <p id="tomorrow_sunset"></p>
+                    <p id="tomorrow_sunset">0:00:00 PM</p>
                 </div>
 
             </div>

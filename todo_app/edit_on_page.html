@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: rgb(237, 130, 237);
+      }
+
+      .main {
+        width: 100%;
+        height: 100%;
+        padding: 0 0 3em;
+        box-sizing: border-box;
+      }
+
+      .quote {
+        width: 100%;
+        height: 5em;
+        border-radius: 2em;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 0.85em;
+        opacity: 1;
+      }
+
+      .container {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .add_note {
+        width: 100%;
+        margin-top: 1em;
+        padding: 0.8em;
+      }
+
+      textarea {
+        width: 100%;
+        height: 10em;
+        padding: 1.5em;
+        margin: 0.5em 0;
+        border-radius: 1em;
+        border: 0.5px dotted violet;
+        background-color: rgb(250, 200, 250);
+        outline: none;
+        box-sizing: border-box;
+        box-shadow: inset 2px 2px 20px 3px rgb(145, 65, 145);
+      }
+
+      .input-fields {
+        width: 100%;
+        margin: 0.5em 0 1.5em 0;
+        border: 0.5px dotted violet;
+        background-color: rgb(250, 200, 250);
+        padding: 0.5em;
+        box-sizing: border-box;
+        border-radius: 1em;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 0.8em 0.5em;
+        border-radius: 1em;
+        border: none;
+        background-color: rgb(150, 70, 150);
+        color: rgb(255, 183, 255);
+        box-shadow: 3px 3px 15px -2px rgb(145, 65, 145);
+      }
+
+      input[type="submit"]:active {
+        transform: translateY(2px);
+      }
+
+      .notes {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      h2 {
+        margin: 0 0 1em 1em;
+      }
+
+      .display_notes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .notes_wrapper {
+        width: 15em;
+        height: 15em;
+        padding: 0.5em;
+        margin: 0.5em;
+      }
+
+      .one_note {
+        width: 100%;
+        height: 100%;
+        font-size: 0.8em;
+        line-height: 1.5em;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: rgb(250, 195, 250);
+        box-sizing: border-box;
+        text-wrap: wrap;
+        word-break: break-all;
+        box-shadow: 3px 3px 15px -2px rgb(150, 70, 150);
+      }
+
+      .one_note_quote {
+        background-color: rgb(255, 183, 82);
+        color: black;
+      }
+
+      .inner_note {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .inner_note::-webkit-scrollbar {
+        display: none;
+      }
+
+      .date_note {
+        margin: 0;
+        color: rgb(190, 115, 205);
+        text-align: right;
+      }
+
+      #edit_note,
+      #del_note {
+        border: none;
+        font-size: 0.8em;
+        float: right;
+        margin: 0 0.1em;
+        border-radius: 1em;
+        padding: 0.25em 0.5em;
+        background-color: none;
+        color: rgb(255, 190, 255);
+        font-weight: 100;
+        visibility: hidden;
+        cursor: pointer;
+      }
+
+      #alert_message {
+        position: absolute;
+        top: 35%;
+        left: calc((100% - 20em) / 2);
+        width: 20em;
+        height: 12em;
+        border-radius: 1em;
+        z-index: 5;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(225, 194, 225);
+        box-shadow: 5px 5px 25px 5px rgb(100, 45, 100);
+        color: rgba(100, 45, 100, 1);
+        font-weight: 600;
+        font-size: 1.5em;
+      }
+
+      #alert_ok {
+        padding: 0.4em;
+        margin: 1em 0 0 0;
+        cursor: pointer;
+        color: rgba(100, 45, 100, 0.3);
+      }
+
+      #alert_ok:hover {
+        transform: translateY(2px);
+        color: rgba(150, 55, 145, 0.8);
+      }
+
+      #overlay {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="add_note">
+          <textarea type="text" id="text_note"></textarea>
+          <input class="input-fields" id="date_note" type="date" />
+          <input type="submit" id="save_btn" value="Save" />
+        </div>
+        <!--        <div class="quote" id="quote">
+          <p>
+            'The way to get started is to quit talking and begin doing'
+            <i>--Walt Disney</i>
+          </p>
+        </div>
+        -->
+
+        <div id="alert_message">
+          <div>
+            Write something...
+            <img
+              width="40"
+              height="40"
+              src="https://img.icons8.com/wired/64/000000/hand-with-pen.png"
+              alt="hand-with-pen"
+            />
+          </div>
+
+          <div id="alert_ok">OK!</div>
+        </div>
+        <div class="notes">
+          <div class="display_notes" id="display_notes"></div>
+        </div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+
+    <script>
+      var allNotes = [];
+      window.onload = function () {
+        allNotes = JSON.parse(localStorage.getItem("allNotes"));
+        if (allNotes) {
+          displayNotes();
+        } else {
+          allNotes = [];
+        }
+      };
+
+      var body = document.getElementsByTagName("body")[0];
+
+      var alert_message = document.getElementById("alert_message");
+      var alert_ok = document.getElementById("alert_ok");
+      var overlay = document.getElementById("overlay");
+      var saveBtn = document.getElementById("save_btn");
+      var displayNotesHTML = document.getElementById("display_notes");
+
+      saveBtn.addEventListener("click", save);
+
+      function save() {
+        var textNote = document.getElementById("text_note");
+        var textNote_val = textNote.value;
+        var due_date = document.getElementById("date_note");
+        var due_date_val = due_date.value;
+        let index = saveBtn.getAttribute("data-index");
+
+        if (index !== null) {
+          console.log(allNotes[index]);
+          allNotes[index] = { message: textNote_val, due_date: due_date_val };
+          this.removeAttribute("data-index");
+          saveBtn.value = "Add";
+          localStorage.setItem("allNotes", JSON.stringify(allNotes));
+          displayNotes();
+          textNote.value = "";
+          due_date.value = "";
+        } else {
+          if (textNote_val !== "") {
+            let to_save = { message: textNote_val, due_date: due_date_val };
+            allNotes.push(to_save);
+            localStorage.setItem("allNotes", JSON.stringify(allNotes));
+            textNote.value = "";
+            due_date.value = "";
+            displayNotes();
+          } else {
+            alert_message.style.display = "flex";
+            overlay.style.display = "block";
+          }
+        }
+      }
+      alert_ok.addEventListener("click", () => {
+        alert_message.style.display = "none";
+        overlay.style.display = "none";
+      });
+
+      function displayNotes() {
+        displayNotesHTML.innerHTML = "";
+        allNotes = JSON.parse(localStorage.getItem("allNotes"));
+        console.log(typeof allNotes);
+        console.log(new Date(allNotes[0].due_date).getTime());
+        allNotes.sort(
+          (a, b) =>
+            new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
+        );
+        console.log(allNotes);
+        allNotes.forEach((note, i) => {
+          displayNotesHTML.innerHTML += `
+                <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
+                    <div class="one_note">
+                        <div class="inner_note">
+                        <p class="date_note">
+                          ${new Date(note.due_date).getDate() + 1} /
+                          ${new Date(note.due_date).getMonth() + 1} /
+                          ${new Date(note.due_date).getFullYear()}</p>
+                        <p>${note.message}</p>
+                        </div>
+                        </div>
+                    <div>
+                        <span id="edit_note" onclick="edit(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Edit</span>
+                        <span id="del_note" onclick="del(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Delete</span>
+                    </div>
+                </div>`;
+        });
+      }
+
+      function show(i) {
+        var delNotes = document.querySelectorAll("#del_note");
+        var editNotes = document.querySelectorAll("#edit_note");
+        editNotes[i].style.visibility = "visible";
+        delNotes[i].style.visibility = "visible";
+      }
+
+      function hide(i) {
+        var delNotes = document.querySelectorAll("#del_note");
+        var editNotes = document.querySelectorAll("#edit_note");
+        editNotes[i].style.visibility = "hidden";
+        delNotes[i].style.visibility = "hidden";
+      }
+
+      function del(i) {
+        allNotes.splice(i, 1);
+        localStorage.setItem("allNotes", JSON.stringify(allNotes));
+        displayNotes();
+      }
+
+      function edit(i) {
+        var textNote = document.getElementById("text_note");
+        var due_date = document.getElementById("date_note");
+        textNote.value = allNotes[i].message;
+        due_date.value = allNotes[i].due_date;
+        saveBtn.setAttribute("data-index", i);
+        saveBtn.value = "Update";
+        save();
+      }
+    </script>
+  </body>
+</html>
