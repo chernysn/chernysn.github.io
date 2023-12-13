@@ -324,17 +324,12 @@
             new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
         );
         allNotes.forEach((note, i) => {
-          if (note.important) {
-            if (note.important === true) {
-              console.log("CHECKED", note.important.checked);
-              var border = "border";
-            } else {
-              console.log("CHECKED", note.important.checked);
-              var border = " ";
-            }
+          if (note.important === true) {
+            var border = "border";
           } else {
             var border = " ";
           }
+
           displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
                     <div class="one_note ${border}">
@@ -353,7 +348,6 @@
                 </div>`;
         });
       }
-
       function show(i) {
         var delNotes = document.querySelectorAll("#del_note");
         var editNotes = document.querySelectorAll("#edit_note");
