@@ -66,7 +66,8 @@
       }
 
       .input-fields {
-        width: auto;
+        width: 100%;
+        height: auto;
         margin: 0.5em 0 0.5em 0;
         border: 0.5px dotted violet;
         background-color: rgb(250, 200, 250);
@@ -76,10 +77,24 @@
         font-size: 0.8em;
         line-height: 1.5em;
         color: rgba(0, 0, 0, 0.5);
+        position: relative;
       }
 
       .important {
         background-color: inherit;
+      }
+
+      .input-fields::-webkit-calendar-picker-indicator {
+        background: transparent;
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+        height: auto;
       }
 
       input[type="submit"] {
@@ -227,10 +242,9 @@
       <div class="container">
         <div class="add_note">
           <textarea type="text" id="text_note"></textarea>
-
-          <div class="input-fields">
-            <input class="" id="date_note" type="date" /> Important
-            <input type="checkbox" id="important" />
+          <input class="input-fields" id="date_note" type="date" />
+          <div class="input-fields important">
+            Important <input type="checkbox" id="important" />
           </div>
           <input type="submit" id="save_btn" value="Save" />
         </div>
@@ -290,7 +304,6 @@
             due_date: due_date_val,
             important: important,
           };
-          console.log(allNotes[index], "THIS NOTE");
           this.removeAttribute("data-index");
           saveBtn.value = "Add";
           localStorage.setItem("allNotes", JSON.stringify(allNotes));
@@ -323,6 +336,7 @@
       });
 
       function displayNotes() {
+        important = false;
         displayNotesHTML.innerHTML = "";
         allNotes = JSON.parse(localStorage.getItem("allNotes"));
         allNotes.sort(
