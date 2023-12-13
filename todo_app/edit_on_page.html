@@ -291,7 +291,7 @@
           displayNotes();
           textNote.value = "";
           due_date.value = "";
-          important.checked = false;
+          important = false;
         } else {
           if (textNote_val !== "") {
             let to_save = {
@@ -303,7 +303,7 @@
             localStorage.setItem("allNotes", JSON.stringify(allNotes));
             textNote.value = "";
             due_date.value = "";
-            important.checked = false;
+            important = false;
             displayNotes();
           } else {
             alert_message.style.display = "flex";
@@ -324,11 +324,15 @@
             new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
         );
         allNotes.forEach((note, i) => {
-          if (note.important === true) {
-            console.log("CHECKED", note.important.checked);
-            var border = "border";
+          if (note.important) {
+            if (note.important === true) {
+              console.log("CHECKED", note.important.checked);
+              var border = "border";
+            } else {
+              console.log("CHECKED", note.important.checked);
+              var border = " ";
+            }
           } else {
-            console.log("CHECKED", note.important.checked);
             var border = " ";
           }
           displayNotesHTML.innerHTML += `
