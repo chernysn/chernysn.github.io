@@ -52,30 +52,33 @@
         box-shadow: inset 2px 2px 20px 3px rgb(145, 65, 145);
       }
 
-      .input-fields {
+      .input_wrapper {
         width: 100%;
-        height: auto;
-        margin: 0.5em 0 0.5em 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 0.85em;
+      }
+
+      .input-fields,
+      .important,
+      .category {
+        width: 13em;
+        min-width: 13em;
+        height: 3.5em;
+        margin: 0.5em;
         border: 0.5px dotted violet;
-        background-color: rgb(250, 200, 250);
-        padding: 0.5em;
+        background-color: rgb(255, 170, 255);
         box-sizing: border-box;
         border-radius: 1em;
-        font-size: 0.85em;
-        line-height: 1.5em;
-        color: rgba(0, 0, 0, 0.5);
         position: relative;
         outline: none;
+        padding: 1em;
         cursor: pointer;
-      }
-
-      .important {
-        background-color: inherit;
-      }
-
-      input[type="checkbox"] {
-        accent-color: rgb(145, 65, 145);
-        transform: scale(1.2);
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgba(0, 0, 0, 0.5);
       }
 
       .input-fields::-webkit-calendar-picker-indicator {
@@ -91,9 +94,39 @@
         height: auto;
       }
 
+      .categories_selection {
+        position: relative;
+      }
+
+      .options_wrapper {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        left: 0.5em;
+        top: 3.5em;
+        width: 13em;
+      }
+
+      .options {
+        background-color: white;
+        padding: 1em;
+        width: auto;
+        cursor: pointer;
+      }
+
+      .options:hover {
+        background-color: rgb(240, 240, 240);
+      }
+
+      input[type="checkbox"] {
+        accent-color: rgb(145, 65, 145);
+        transform: scale(1.2);
+      }
+
       input[type="submit"] {
         width: 100%;
         padding: 0.8em 0.5em;
+        margin: 1em 0 0 0;
         border-radius: 1em;
         border: none;
         background-color: rgb(150, 70, 150);
@@ -237,10 +270,21 @@
       <div class="container">
         <div class="add_note">
           <textarea type="text" id="text_note"></textarea>
-          <input class="input-fields" id="date_note" type="date" />
-          <div class="input-fields important">
-            <label for="important">Important </label>
-            <input type="checkbox" name="important" id="important" />
+          <div class="input_wrapper">
+            <div class="categories_selection">
+              <div class="category" id="category">Category:</div>
+              <div class="options_wrapper">
+                <div class="options">Recommendations</div>
+                <div class="options">Grading</div>
+                <div class="options">Lesson planning</div>
+                <div class="options" value="meetings">Meetings</div>
+              </div>
+            </div>
+            <input class="input-fields" id="date_note" type="date" />
+            <div class="input-fields important">
+              <label for="important">Important </label>
+              <input type="checkbox" name="important" id="important" />
+            </div>
           </div>
           <input type="submit" id="save_btn" value="Save" />
         </div>
@@ -283,8 +327,25 @@
       var overlay = document.getElementById("overlay");
       var saveBtn = document.getElementById("save_btn");
       var displayNotesHTML = document.getElementById("display_notes");
-
+      var category = document.getElementById("category");
+      var options_wrapper = document.querySelector(".options_wrapper");
+      var options = document.querySelectorAll(".options");
       saveBtn.addEventListener("click", save);
+
+      category.addEventListener("click", () => {
+        if (options_wrapper.style.display == "none") {
+          options_wrapper.style.display = "block";
+        } else {
+          options_wrapper.style.display = "none";
+        }
+      });
+
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          category.innerText = option.innerText;
+          options_wrapper.style.display = "none";
+        });
+      });
 
       function save() {
         var textNote = document.getElementById("text_note");
@@ -293,12 +354,14 @@
         var due_date_val = due_date.value;
         var important = document.getElementById("important");
         important_val = important.checked;
+        var get_category = category.innerText;
         let index = saveBtn.getAttribute("data-index");
 
         if (index !== null) {
           allNotes[index] = {
             message: textNote_val,
             due_date: due_date_val,
+            category: get_category,
             important: important_val,
           };
           this.removeAttribute("data-index");
@@ -307,6 +370,7 @@
           displayNotes();
           textNote.value = "";
           due_date.value = "";
+          category.innerText = "Category:";
           important.checked = false;
         } else {
           if (textNote_val !== "") {
@@ -314,11 +378,13 @@
               message: textNote_val,
               due_date: due_date_val,
               important: important_val,
+              category: get_category,
             };
             allNotes.push(to_save);
             localStorage.setItem("allNotes", JSON.stringify(allNotes));
             textNote.value = "";
             due_date.value = "";
+            category.innerText = "Category:";
             important.checked = false;
             displayNotes();
           } else {
@@ -361,6 +427,9 @@
             "Dec",
           ];
           var month = months[new Date(note.due_date).getUTCMonth()];
+          if (note.category == undefined) {
+            note.category = "Category";
+          }
           displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
                     <div class="one_note ${border}">
@@ -369,6 +438,7 @@
                           ${new Date(note.due_date).getUTCDate()} 
                           ${month} 
                           ${new Date(note.due_date).getFullYear()}</p>
+                        <p>&#9899;<b>${note.category}</b></p>
                         <p>${note.message}</p>
                         </div>
                         </div>
@@ -404,6 +474,7 @@
         var due_date = document.getElementById("date_note");
         textNote.value = allNotes[i].message;
         due_date.value = allNotes[i].due_date;
+        category.innerText = allNotes[i].category;
         saveBtn.setAttribute("data-index", i);
         saveBtn.value = "Update";
         save();
