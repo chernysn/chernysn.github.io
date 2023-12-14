@@ -277,6 +277,7 @@
                 <div class="options">Recommendations</div>
                 <div class="options">Grading</div>
                 <div class="options">Lesson planning</div>
+                <div class="options">Learning</div>
                 <div class="options" value="meetings">Meetings</div>
               </div>
             </div>
@@ -475,6 +476,7 @@
         textNote.value = allNotes[i].message;
         due_date.value = allNotes[i].due_date;
         category.innerText = allNotes[i].category;
+        document.getElementById("important").checked = allNotes[i].important;
         saveBtn.setAttribute("data-index", i);
         saveBtn.value = "Update";
         save();
