@@ -1,441 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes App</title>
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-size: 12px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        background-color: rgb(237, 130, 237);
-      }
 
-      .main {
-        width: 100%;
-        height: auto;
-        padding: 0 0 2em;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes App</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: rgb(237, 130, 237);
+    }
 
-      .container {
-        width: 70%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 0 auto;
-      }
+    .main {
+      width: 100%;
+      height: auto;
+      padding: 0 0 2em;
+      box-sizing: border-box;
+    }
 
-      .add_note {
-        width: 100%;
-        margin-top: 1em;
-        padding: 0.8em;
-      }
+    .container {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 auto;
+    }
 
-      textarea {
-        width: 100%;
-        height: 10em;
-        padding: 1.5em;
-        margin: 0.5em 0;
-        border-radius: 1em;
-        border: 0.5px dotted violet;
-        background-color: rgb(250, 200, 250);
-        outline: none;
-        box-sizing: border-box;
-        box-shadow: inset 2px 2px 20px 3px rgb(145, 65, 145);
-      }
+    .add_note {
+      width: 100%;
+      margin-top: 1em;
+      padding: 0.8em;
+    }
 
-      .input_wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: wrap;
-        font-size: 0.85em;
-      }
+    textarea {
+      width: 100%;
+      height: 10em;
+      padding: 1.5em;
+      margin: 0.5em 0;
+      border-radius: 1em;
+      border: 0.5px dotted violet;
+      background-color: rgb(250, 200, 250);
+      outline: none;
+      box-sizing: border-box;
+      box-shadow: inset 2px 2px 20px 3px rgb(145, 65, 145);
+    }
 
-      .input-fields,
-      .important,
-      .category {
-        width: 13em;
-        height: auto;
-        margin: 0.5em;
-        border: 0.5px dotted violet;
-        background-color: rgb(255, 170, 255);
-        box-sizing: border-box;
-        border-radius: 1em;
-        position: relative;
-        outline: none;
-        padding: 1em;
-        cursor: pointer;
-        text-align: center;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 1.1em;
-        color: rgba(0, 0, 0, 0.8);
-      }
+    .input_wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.85em;
+    }
 
-      .input-fields::-webkit-calendar-picker-indicator {
-        background: transparent;
-        bottom: 0;
-        color: transparent;
-        cursor: pointer;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: auto;
-        height: auto;
-      }
+    .input-fields,
+    .important,
+    .category {
+      width: 13em;
+      height: auto;
+      margin: 0.5em;
+      border: 0.5px dotted violet;
+      background-color: rgb(255, 170, 255);
+      box-sizing: border-box;
+      border-radius: 1em;
+      position: relative;
+      outline: none;
+      padding: 1em;
+      cursor: pointer;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1.1em;
+      color: rgba(0, 0, 0, 0.8);
+    }
 
-      .categories_selection {
-        position: relative;
-      }
+    .input-fields::-webkit-calendar-picker-indicator {
+      background: transparent;
+      bottom: 0;
+      color: transparent;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: auto;
+      height: auto;
+    }
 
-      .options_wrapper {
-        display: none;
-        position: absolute;
-        z-index: 2;
-        left: 2.5em;
-        top: 3.5em;
-        width: auto;
-        background-color: white;
-        border-radius: 0.5em;
-      }
+    .categories_selection {
+      position: relative;
+    }
 
-      .options {
-        padding: 1.2em 2em;
-        width: auto;
-        cursor: pointer;
-        font-size: 1.1em;
-        border-radius: 0.5em;
-      }
+    .options_wrapper {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      left: 2.5em;
+      top: 3.5em;
+      width: auto;
+      background-color: white;
+      border-radius: 0.5em;
+    }
 
-      .options:hover {
-        background-color: rgb(240, 240, 240);
-      }
+    .options {
+      padding: 1.2em 2em;
+      width: auto;
+      cursor: pointer;
+      font-size: 1.1em;
+      border-radius: 0.5em;
+    }
 
-      input[type="checkbox"] {
-        accent-color: rgb(145, 65, 145);
-        transform: scale(1.2);
-      }
+    .options:hover {
+      background-color: rgb(240, 240, 240);
+    }
 
-      input[type="submit"] {
-        width: 100%;
-        padding: 0.8em 0.5em;
-        margin: 1em 0 0 0;
-        border-radius: 1em;
-        border: none;
-        background-color: rgb(150, 70, 150);
-        color: rgb(255, 183, 255);
-        box-shadow: 3px 3px 15px -2px rgb(145, 65, 145);
-      }
+    input[type="checkbox"] {
+      accent-color: rgb(145, 65, 145);
+      transform: scale(1.2);
+    }
 
-      input[type="submit"]:active {
-        transform: translateY(2px);
-      }
+    input[type="submit"] {
+      width: 100%;
+      padding: 0.8em 0.5em;
+      margin: 1em 0 0 0;
+      border-radius: 1em;
+      border: none;
+      background-color: rgb(150, 70, 150);
+      color: rgb(255, 183, 255);
+      box-shadow: 3px 3px 15px -2px rgb(145, 65, 145);
+    }
 
-      .notes {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-      }
+    input[type="submit"]:active {
+      transform: translateY(2px);
+    }
 
-      h2 {
-        margin: 0 0 1em 1em;
-      }
+    .notes {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
 
-      .display_notes {
-        width: 95%;
-        padding: 0 4em;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: left;
-      }
+    h2 {
+      margin: 0 0 1em 1em;
+    }
 
-      .notes_wrapper {
-        width: 14em;
-        height: 14em;
-        padding: 0.5em;
-        margin: 0.5em 0.5em 0.7em;
-      }
+    .display_notes {
+      width: 95%;
+      padding: 0 4em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+    }
 
-      .one_note {
-        width: 100%;
-        height: 100%;
-        font-size: 0.85em;
-        line-height: 1.5em;
-        padding: 1em;
-        background-color: rgb(250, 195, 250);
-        box-sizing: border-box;
-        text-wrap: wrap;
-        box-shadow: 3px 3px 15px -2px rgb(150, 70, 150);
-        border-radius: 1em;
-      }
+    .notes_wrapper {
+      width: 14em;
+      height: 14em;
+      padding: 0.5em;
+      margin: 0.5em 0.5em 0.7em;
+    }
 
-      .inner_note {
-        width: 100%;
-        height: 100%;
-        overflow-y: scroll;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
+    .one_note {
+      width: 100%;
+      height: 100%;
+      font-size: 0.85em;
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: rgb(250, 195, 250);
+      box-sizing: border-box;
+      text-wrap: wrap;
+      box-shadow: 3px 3px 15px -2px rgb(150, 70, 150);
+      border-radius: 1em;
+    }
 
-      .inner_note::-webkit-scrollbar {
-        display: none;
-      }
+    .inner_note {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-      .date_note {
-        margin: 0;
-        color: rgb(75, 45, 80);
-        text-align: left;
-        background-color: rgba(75, 45, 80, 0.2);
-        border-radius: 1em;
-        text-align: center;
-      }
+    .inner_note::-webkit-scrollbar {
+      display: none;
+    }
 
-      .border-red {
-        border-top: 10px rgb(255, 45, 97) solid;
-      }
+    .date_note {
+      margin: 0;
+      color: rgb(75, 45, 80);
+      text-align: left;
+      background-color: rgba(75, 45, 80, 0.2);
+      border-radius: 1em;
+      text-align: center;
+    }
 
-      .border-blue {
-        border-top: 10px rgb(255, 168, 141) solid;
-      }
+    .border-red {
+      border-top: 10px rgb(255, 45, 97) solid;
+    }
 
-      #edit_note,
-      #del_note {
-        border: none;
-        font-size: 1em;
-        float: right;
-        margin: 0 0.1em;
-        border-radius: 1em;
-        padding: 0.25em 0.5em;
-        background-color: none;
-        color: rgb(255, 190, 255);
-        font-weight: 100;
-        visibility: hidden;
-        cursor: pointer;
-      }
+    .border-blue {
+      border-top: 10px rgb(255, 168, 141) solid;
+    }
 
-      #alert_message {
-        position: absolute;
-        top: 35%;
-        left: calc((100% - 20em) / 2);
-        width: 20em;
-        height: 12em;
-        border-radius: 1em;
-        z-index: 5;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(225, 194, 225);
-        box-shadow: 5px 5px 25px 5px rgb(100, 45, 100);
-        color: rgba(100, 45, 100, 1);
-        font-weight: 600;
-        font-size: 1.5em;
-      }
+    #edit_note,
+    #del_note {
+      border: none;
+      font-size: 1em;
+      float: right;
+      margin: 0 0.1em;
+      border-radius: 1em;
+      padding: 0.25em 0.5em;
+      background-color: none;
+      color: rgb(255, 190, 255);
+      font-weight: 100;
+      visibility: hidden;
+      cursor: pointer;
+    }
 
-      #alert_ok {
-        padding: 0.4em;
-        margin: 1em 0 0 0;
-        cursor: pointer;
-        color: rgba(100, 45, 100, 0.3);
-      }
+    #alert_message {
+      position: absolute;
+      top: 35%;
+      left: calc((100% - 20em) / 2);
+      width: 20em;
+      height: 12em;
+      border-radius: 1em;
+      z-index: 5;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(225, 194, 225);
+      box-shadow: 5px 5px 25px 5px rgb(100, 45, 100);
+      color: rgba(100, 45, 100, 1);
+      font-weight: 600;
+      font-size: 1.5em;
+    }
 
-      #alert_ok:hover {
-        transform: translateY(2px);
-        color: rgba(150, 55, 145, 0.8);
-      }
+    #alert_ok {
+      padding: 0.4em;
+      margin: 1em 0 0 0;
+      cursor: pointer;
+      color: rgba(100, 45, 100, 0.3);
+    }
 
-      #overlay {
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-      }
-    </style>
-  </head>
+    #alert_ok:hover {
+      transform: translateY(2px);
+      color: rgba(150, 55, 145, 0.8);
+    }
 
-  <body>
-    <div class="main">
-      <div class="container">
-        <div class="add_note">
-          <textarea type="text" id="text_note"></textarea>
-          <div class="input_wrapper">
-            <div class="categories_selection">
-              <div class="category" id="category">Category:</div>
-              <div class="options_wrapper">
-                <div class="options">Recommendations</div>
-                <div class="options">Grading</div>
-                <div class="options">Lesson planning</div>
-                <div class="options">Learning</div>
-                <div class="options" value="meetings">Meetings</div>
-              </div>
-            </div>
-            <input class="input-fields" id="date_note" type="date" />
-            <div class="input-fields important">
-              <label for="important">Important </label>
-              <input type="checkbox" name="important" id="important" />
-            </div>
+    #overlay {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="container">
+      <div class="add_note">
+        <textarea type="text" id="text_note"></textarea>
+        <div class="input_wrapper">
+          <input class="input-fields" id="date_note" type="date" />
+          <div class="input-fields important">
+            <label for="important">Important </label>
+            <input type="checkbox" name="important" id="important" />
           </div>
-          <input type="submit" id="save_btn" value="Save" />
+        </div>
+        <input type="submit" id="save_btn" value="Save" />
+      </div>
+
+      <div id="alert_message">
+        <div>
+          Write something...
+          <img width="40" height="40" src="https://img.icons8.com/wired/64/000000/hand-with-pen.png"
+            alt="hand-with-pen" />
         </div>
 
-        <div id="alert_message">
-          <div>
-            Write something...
-            <img
-              width="40"
-              height="40"
-              src="https://img.icons8.com/wired/64/000000/hand-with-pen.png"
-              alt="hand-with-pen"
-            />
-          </div>
-
-          <div id="alert_ok">OK!</div>
-        </div>
-        <div class="notes">
-          <div class="display_notes" id="display_notes"></div>
-        </div>
+        <div id="alert_ok">OK!</div>
+      </div>
+      <div class="notes">
+        <div class="display_notes" id="display_notes"></div>
       </div>
     </div>
-    <div id="overlay"></div>
+  </div>
+  <div id="overlay"></div>
 
-    <script>
-      var allNotes = [];
-      window.onload = function () {
-        allNotes = JSON.parse(localStorage.getItem("allNotes"));
-        if (allNotes) {
-          displayNotes();
-        } else {
-          allNotes = [];
-        }
-      };
+  <script>
+    var allNotes = [];
+    window.onload = function () {
+      allNotes = JSON.parse(localStorage.getItem("allNotes"));
+      if (allNotes) {
+        displayNotes();
+      } else {
+        allNotes = [];
+      }
+    };
 
-      var body = document.getElementsByTagName("body")[0];
+    var body = document.getElementsByTagName("body")[0];
 
-      var alert_message = document.getElementById("alert_message");
-      var alert_ok = document.getElementById("alert_ok");
-      var overlay = document.getElementById("overlay");
-      var saveBtn = document.getElementById("save_btn");
-      var displayNotesHTML = document.getElementById("display_notes");
-      var category = document.getElementById("category");
-      var options_wrapper = document.querySelector(".options_wrapper");
-      var options = document.querySelectorAll(".options");
-      saveBtn.addEventListener("click", save);
+    var alert_message = document.getElementById("alert_message");
+    var alert_ok = document.getElementById("alert_ok");
+    var overlay = document.getElementById("overlay");
+    var saveBtn = document.getElementById("save_btn");
+    var displayNotesHTML = document.getElementById("display_notes");
+    var category = document.getElementById("category");
+    var options_wrapper = document.querySelector(".options_wrapper");
+    var options = document.querySelectorAll(".options");
+    saveBtn.addEventListener("click", save);
 
-      category.addEventListener("click", () => {
-        if (options_wrapper.style.display == "none") {
-          options_wrapper.style.display = "block";
-        } else {
-          options_wrapper.style.display = "none";
-        }
+    category.addEventListener("click", () => {
+      if (options_wrapper.style.display == "none") {
+        options_wrapper.style.display = "block";
+      } else {
+        options_wrapper.style.display = "none";
+      }
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        category.innerText = option.innerText;
+        options_wrapper.style.display = "none";
       });
+    });
 
-      options.forEach((option) => {
-        option.addEventListener("click", () => {
-          category.innerText = option.innerText;
-          options_wrapper.style.display = "none";
-        });
-      });
+    function save() {
+      var textNote = document.getElementById("text_note");
+      var textNote_val = textNote.value;
+      var due_date = document.getElementById("date_note");
+      var due_date_val = due_date.value;
+      var important = document.getElementById("important");
+      important_val = important.checked;
+      var get_category = category.innerText;
+      let index = saveBtn.getAttribute("data-index");
 
-      function save() {
-        var textNote = document.getElementById("text_note");
-        var textNote_val = textNote.value;
-        var due_date = document.getElementById("date_note");
-        var due_date_val = due_date.value;
-        var important = document.getElementById("important");
-        important_val = important.checked;
-        var get_category = category.innerText;
-        let index = saveBtn.getAttribute("data-index");
-
-        if (index !== null) {
-          allNotes[index] = {
+      if (index !== null) {
+        allNotes[index] = {
+          message: textNote_val,
+          due_date: due_date_val,
+          category: get_category,
+          important: important_val,
+        };
+        this.removeAttribute("data-index");
+        saveBtn.value = "Add";
+        localStorage.setItem("allNotes", JSON.stringify(allNotes));
+        displayNotes();
+        textNote.value = "";
+        due_date.value = "";
+        category.innerText = "Category:";
+        important.checked = false;
+      } else {
+        if (textNote_val !== "") {
+          let to_save = {
             message: textNote_val,
             due_date: due_date_val,
-            category: get_category,
             important: important_val,
+            category: get_category,
           };
-          this.removeAttribute("data-index");
-          saveBtn.value = "Add";
+          allNotes.push(to_save);
           localStorage.setItem("allNotes", JSON.stringify(allNotes));
-          displayNotes();
           textNote.value = "";
           due_date.value = "";
           category.innerText = "Category:";
           important.checked = false;
+          displayNotes();
         } else {
-          if (textNote_val !== "") {
-            let to_save = {
-              message: textNote_val,
-              due_date: due_date_val,
-              important: important_val,
-              category: get_category,
-            };
-            allNotes.push(to_save);
-            localStorage.setItem("allNotes", JSON.stringify(allNotes));
-            textNote.value = "";
-            due_date.value = "";
-            category.innerText = "Category:";
-            important.checked = false;
-            displayNotes();
-          } else {
-            alert_message.style.display = "flex";
-            overlay.style.display = "block";
-          }
+          alert_message.style.display = "flex";
+          overlay.style.display = "block";
         }
       }
-      alert_ok.addEventListener("click", () => {
-        alert_message.style.display = "none";
-        overlay.style.display = "none";
-      });
+    }
+    alert_ok.addEventListener("click", () => {
+      alert_message.style.display = "none";
+      overlay.style.display = "none";
+    });
 
-      function displayNotes() {
-        important = false;
-        displayNotesHTML.innerHTML = "";
-        allNotes = JSON.parse(localStorage.getItem("allNotes"));
-        allNotes.sort(
-          (a, b) =>
-            new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
-        );
-        allNotes.forEach((note, i) => {
-          if (note.important === true) {
-            var border = "border-red";
-          } else {
-            var border = "border-blue";
-          }
-          var months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sept",
-            "Oct",
-            "Nov",
-            "Dec",
-          ];
-          var month = months[new Date(note.due_date).getUTCMonth()];
-          if (note.category == undefined) {
-            note.category = "Category";
-          }
-          displayNotesHTML.innerHTML += `
+    function displayNotes() {
+      important = false;
+      displayNotesHTML.innerHTML = "";
+      allNotes = JSON.parse(localStorage.getItem("allNotes"));
+      allNotes.sort(
+        (a, b) =>
+          new Date(a.due_date).getTime() - new Date(b.due_date).getTime()
+      );
+      allNotes.forEach((note, i) => {
+        if (note.important === true) {
+          var border = "border-red";
+        } else {
+          var border = "border-blue";
+        }
+        var months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sept",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        var month = months[new Date(note.due_date).getUTCMonth()];
+        if (note.category == undefined) {
+          note.category = "Category";
+        }
+        displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
                     <div class="one_note ${border}">
                         <div class="inner_note">
@@ -452,39 +439,40 @@
                         <span id="del_note" onclick="del(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Delete</span>
                     </div>
                 </div>`;
-        });
-      }
-      function show(i) {
-        var delNotes = document.querySelectorAll("#del_note");
-        var editNotes = document.querySelectorAll("#edit_note");
-        editNotes[i].style.visibility = "visible";
-        delNotes[i].style.visibility = "visible";
-      }
+      });
+    }
+    function show(i) {
+      var delNotes = document.querySelectorAll("#del_note");
+      var editNotes = document.querySelectorAll("#edit_note");
+      editNotes[i].style.visibility = "visible";
+      delNotes[i].style.visibility = "visible";
+    }
 
-      function hide(i) {
-        var delNotes = document.querySelectorAll("#del_note");
-        var editNotes = document.querySelectorAll("#edit_note");
-        editNotes[i].style.visibility = "hidden";
-        delNotes[i].style.visibility = "hidden";
-      }
+    function hide(i) {
+      var delNotes = document.querySelectorAll("#del_note");
+      var editNotes = document.querySelectorAll("#edit_note");
+      editNotes[i].style.visibility = "hidden";
+      delNotes[i].style.visibility = "hidden";
+    }
 
-      function del(i) {
-        allNotes.splice(i, 1);
-        localStorage.setItem("allNotes", JSON.stringify(allNotes));
-        displayNotes();
-      }
+    function del(i) {
+      allNotes.splice(i, 1);
+      localStorage.setItem("allNotes", JSON.stringify(allNotes));
+      displayNotes();
+    }
 
-      function edit(i) {
-        var textNote = document.getElementById("text_note");
-        var due_date = document.getElementById("date_note");
-        textNote.value = allNotes[i].message;
-        due_date.value = allNotes[i].due_date;
-        category.innerText = allNotes[i].category;
-        document.getElementById("important").checked = allNotes[i].important;
-        saveBtn.setAttribute("data-index", i);
-        saveBtn.value = "Update";
-        save();
-      }
-    </script>
-  </body>
+    function edit(i) {
+      var textNote = document.getElementById("text_note");
+      var due_date = document.getElementById("date_note");
+      textNote.value = allNotes[i].message;
+      due_date.value = allNotes[i].due_date;
+      category.innerText = allNotes[i].category;
+      document.getElementById("important").checked = allNotes[i].important;
+      saveBtn.setAttribute("data-index", i);
+      saveBtn.value = "Update";
+      save();
+    }
+  </script>
+</body>
+
 </html>
