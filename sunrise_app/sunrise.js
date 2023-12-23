@@ -189,13 +189,18 @@ function weather(location) {
 
 if (window.matchMedia("only screen and (max-width: 1000px)").matches) {
   var mobile_input = document.getElementById("location");
+  var input = document.getElementById("input");
   var mobile_offset_screen = document.querySelector(".weather_info");
 
   mobile_input.addEventListener("focus", () => {
-    if (window.innerHeight < 570) {
-      mobile_offset_screen.style.transform = "translateY(-65%)";
+    if (window.innerHeight < 350) {
+      mobile_offset_screen.style.transform = "translateY(-200px)";
+      input.style.fontSize = "1.2em";
+    } else if (window.innerHeight < 560) {
+      mobile_offset_screen.style.transform = "translateY(-55%)";
+      input.style.fontSize = "1.2em";
     } else if (window.innerWidth < 1000) {
-      mobile_offset_screen.style.transform = "translateY(-25%)";
+      mobile_offset_screen.style.transform = "translateY(0)";
     } else {
       mobile_offset_screen.style.transform = "translateY(0)";
     }
@@ -205,5 +210,6 @@ if (window.matchMedia("only screen and (max-width: 1000px)").matches) {
     setTimeout(function () {
       mobile_offset_screen.style.transform = "translateY(0)";
     }, 250);
+    input.style.fontSize = "inherit";
   });
 }
