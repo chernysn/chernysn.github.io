@@ -426,25 +426,25 @@
           "Dec",
         ];
         var month = months[new Date(note.due_date).getUTCMonth()];
-        if (note.category == undefined) {
-          note.category = "";
-        }
         displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
                     <div class="one_note ${border}">
                         <div class="inner_note">
-                        <p class="date_note">
-                          ${new Date(note.due_date).getUTCDate()} 
-                          ${month} 
-                          ${new Date(note.due_date).getFullYear()}</p>
-                          <p>${note.message}</p>
-                        </div>
-                        </div>
-                    <div>
-                        <span id="edit_note" onclick="edit(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Edit</span>
-                        <span id="del_note" onclick="del(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Delete</span>
-                    </div>
-                </div>`;
+              ${isNaN(new Date(note.due_date).getFullYear()) ?
+            '<p class="date_note">Later</p >' :
+            `<p class="date_note">
+                        ${new Date(note.due_date).getUTCDate()} 
+                        ${month} 
+                        ${new Date(note.due_date).getFullYear()}
+                    </p>`}
+                <p>${note.message}</p>
+            </div >
+            </div >
+        <div>
+          <span id="edit_note" onclick="edit(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Edit</span>
+          <span id="del_note" onclick="del(${i})" onmouseover="show(${i})" onmouseout="hide(${i})">Delete</span>
+        </div>
+                </div >`;
       });
     }
     function show(i) {
