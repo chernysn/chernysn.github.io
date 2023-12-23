@@ -6,7 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Notes App</title>
   <style>
-    html,
+    :root {
+      --background: #3e3e3e;
+    }
+
+    html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       width: 100%;
       height: 100%;
@@ -14,14 +24,42 @@
       padding: 0;
       font-size: 12px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background-color: rgb(237, 130, 237);
     }
 
     .main {
       width: 100%;
-      height: auto;
+      height: 100%;
       padding: 0 0 2em;
       box-sizing: border-box;
+    }
+
+    #choose-color {
+      position: absolute;
+      top: .8em;
+      right: .8em;
+      border: 0;
+    }
+
+    #choose-color input[type="color"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      width: 2em;
+      height: 2em;
+      padding: 0;
+      border-radius: 1px;
+    }
+
+    #choose-color input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+      border-radius: 1px;
+    }
+
+    #choose-color input[type="color"]::-webkit-color-swatch {
+      border-radius: 1px;
+      padding: 0;
     }
 
     .container {
@@ -42,15 +80,15 @@
 
     textarea {
       width: 100%;
-      height: 10em;
+      height: 8em;
       padding: 1.5em;
       margin: 0.5em 0;
-      border-radius: 1em;
-      border: 0.5px dotted violet;
-      background-color: rgb(250, 200, 250);
+      border-radius: 2.5em 0;
+      border: 0;
+      background-color: rgba(255, 255, 255, .5);
       outline: none;
       box-sizing: border-box;
-      box-shadow: inset 2px 2px 20px 3px rgb(145, 65, 145);
+      box-shadow: inset 1px 1px 10px 3px rgba(0, 0, 0, 0.3);
     }
 
     .input_wrapper {
@@ -65,20 +103,22 @@
     .input-fields,
     .important {
       width: 13em;
-      height: auto;
+      height: 3em;
+      border: 0;
       margin: 0.5em;
-      border: 0.5px dotted violet;
-      background-color: rgb(255, 170, 255);
+      background-color: rgba(255, 255, 255, .5);
       box-sizing: border-box;
       border-radius: 1em;
       position: relative;
       outline: none;
-      padding: 1em;
       cursor: pointer;
       text-align: center;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 1.1em;
       color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .input-fields::-webkit-calendar-picker-indicator {
@@ -94,31 +134,8 @@
       height: auto;
     }
 
-    .options_wrapper {
-      display: none;
-      position: absolute;
-      z-index: 2;
-      left: 2.5em;
-      top: 3.5em;
-      width: auto;
-      background-color: white;
-      border-radius: 0.5em;
-    }
-
-    .options {
-      padding: 1.2em 2em;
-      width: auto;
-      cursor: pointer;
-      font-size: 1.1em;
-      border-radius: 0.5em;
-    }
-
-    .options:hover {
-      background-color: rgb(240, 240, 240);
-    }
-
     input[type="checkbox"] {
-      accent-color: rgb(145, 65, 145);
+      accent-color: rgb(55, 55, 55);
       transform: scale(1.2);
     }
 
@@ -128,9 +145,10 @@
       margin: 1em 0 0 0;
       border-radius: 1em;
       border: none;
-      background-color: rgb(150, 70, 150);
-      color: rgb(255, 183, 255);
-      box-shadow: 3px 3px 15px -2px rgb(145, 65, 145);
+      background-color: rgba(0, 0, 0, .35);
+      color: rgb(255, 255, 255, .6);
+      font-size: 1.1em;
+      box-shadow: 3px 3px 3px rgb(0, 0, 0, .2);
     }
 
     input[type="submit"]:active {
@@ -151,16 +169,16 @@
 
     .display_notes {
       width: 95%;
-      padding: 0 4em;
+      padding: 0 2em;
       display: flex;
       flex-wrap: wrap;
       justify-content: left;
     }
 
     .notes_wrapper {
-      width: 14em;
-      height: 14em;
-      padding: 0.5em;
+      width: 15em;
+      height: 15em;
+      padding: .5em;
       margin: 0.5em 0.5em 0.7em;
     }
 
@@ -170,11 +188,11 @@
       font-size: 0.85em;
       line-height: 1.5em;
       padding: 1em;
-      background-color: rgb(250, 195, 250);
+      background-color: rgba(255, 255, 255, .55);
       box-sizing: border-box;
       text-wrap: wrap;
-      box-shadow: 3px 3px 15px -2px rgb(150, 70, 150);
-      border-radius: 1em;
+      box-shadow: 5px 10px 10px -2px rgb(0, 0, 0, .2);
+      border-radius: 2.5em 0;
     }
 
     .inner_note {
@@ -191,7 +209,7 @@
 
     .date_note {
       margin: 0;
-      color: rgb(75, 45, 80);
+      color: rgb(0, 0, 0, .8);
       text-align: left;
       background-color: rgba(75, 45, 80, 0.2);
       border-radius: 1em;
@@ -203,7 +221,7 @@
     }
 
     .border-blue {
-      border-top: 10px rgb(255, 168, 141) solid;
+      border-top: 10px transparent solid;
     }
 
     #edit_note,
@@ -215,7 +233,7 @@
       border-radius: 1em;
       padding: 0.25em 0.5em;
       background-color: none;
-      color: rgb(255, 190, 255);
+      color: rgb(255, 255, 255, .5);
       font-weight: 100;
       visibility: hidden;
       cursor: pointer;
@@ -230,26 +248,35 @@
       border-radius: 1em;
       z-index: 5;
       display: none;
+      background-color: var(--background);
+      box-shadow: 5px 5px 10px 5px rgb(0, 0, 0, .3);
+      font-size: 1.5em;
+    }
+
+    .alert_inner {
+      background-color: rgb(255, 255, 255, .8);
+      width: 100%;
+      height: 100%;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rgb(225, 194, 225);
-      box-shadow: 5px 5px 25px 5px rgb(100, 45, 100);
-      color: rgba(100, 45, 100, 1);
+      color: rgba(0, 0, 0, 0.8);
       font-weight: 600;
-      font-size: 1.5em;
+      border-radius: 1em;
+
     }
 
     #alert_ok {
       padding: 0.4em;
       margin: 1em 0 0 0;
       cursor: pointer;
-      color: rgba(100, 45, 100, 0.3);
+      color: rgba(0, 0, 0, 0.5);
     }
 
     #alert_ok:hover {
       transform: translateY(2px);
-      color: rgba(150, 55, 145, 0.8);
+      color: rgba(20, 0, 0, 0.8);
     }
 
     #overlay {
@@ -259,7 +286,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 255, 0.5);
       display: none;
     }
   </style>
@@ -267,6 +294,7 @@
 
 <body>
   <div class="main">
+    <div id="choose-color"><input id="color-picker" type="color" value="#832161"></div>
     <div class="container">
       <div class="add_note">
         <textarea type="text" id="text_note"></textarea>
@@ -281,14 +309,17 @@
       </div>
 
       <div id="alert_message">
-        <div>
-          Write something...
-          <img width="40" height="40" src="https://img.icons8.com/wired/64/000000/hand-with-pen.png"
-            alt="hand-with-pen" />
-        </div>
+        <div class="alert_inner">
+          <div>
+            Write something...
+            <img width="40" height="40" src="https://img.icons8.com/wired/64/000000/hand-with-pen.png"
+              alt="hand-with-pen" />
+          </div>
 
-        <div id="alert_ok">OK!</div>
+          <div id="alert_ok">OK!</div>
+        </div>
       </div>
+
       <div class="notes">
         <div class="display_notes" id="display_notes"></div>
       </div>
@@ -298,12 +329,19 @@
 
   <script>
     var allNotes = [];
+    var background = "";
     window.onload = function () {
       allNotes = JSON.parse(localStorage.getItem("allNotes"));
       if (allNotes) {
         displayNotes();
       } else {
         allNotes = [];
+      }
+      background = JSON.parse(localStorage.getItem("backgroundColor"));
+      if (background) {
+        body.style.backgroundColor = background;
+      } else {
+        body.style.backgroundColor = "#832161";
       }
     };
 
@@ -442,6 +480,13 @@
       saveBtn.value = "Update";
       save();
     }
+
+    var colorChoose = document.getElementById("color-picker");
+    colorChoose.addEventListener('input', () => {
+      background = colorChoose.value;
+      body.style.backgroundColor = background;
+      localStorage.setItem("backgroundColor", JSON.stringify(background));
+    })
   </script>
 </body>
 
