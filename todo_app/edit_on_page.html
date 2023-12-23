@@ -63,8 +63,7 @@
     }
 
     .input-fields,
-    .important,
-    .category {
+    .important {
       width: 13em;
       height: auto;
       margin: 0.5em;
@@ -93,10 +92,6 @@
       top: 0;
       width: auto;
       height: auto;
-    }
-
-    .categories_selection {
-      position: relative;
     }
 
     .options_wrapper {
@@ -319,25 +314,7 @@
     var overlay = document.getElementById("overlay");
     var saveBtn = document.getElementById("save_btn");
     var displayNotesHTML = document.getElementById("display_notes");
-    var category = document.getElementById("category");
-    var options_wrapper = document.querySelector(".options_wrapper");
-    var options = document.querySelectorAll(".options");
     saveBtn.addEventListener("click", save);
-
-    category.addEventListener("click", () => {
-      if (options_wrapper.style.display == "none") {
-        options_wrapper.style.display = "block";
-      } else {
-        options_wrapper.style.display = "none";
-      }
-    });
-
-    options.forEach((option) => {
-      option.addEventListener("click", () => {
-        category.innerText = option.innerText;
-        options_wrapper.style.display = "none";
-      });
-    });
 
     function save() {
       var textNote = document.getElementById("text_note");
@@ -346,14 +323,12 @@
       var due_date_val = due_date.value;
       var important = document.getElementById("important");
       important_val = important.checked;
-      var get_category = category.innerText;
       let index = saveBtn.getAttribute("data-index");
 
       if (index !== null) {
         allNotes[index] = {
           message: textNote_val,
           due_date: due_date_val,
-          category: get_category,
           important: important_val,
         };
         this.removeAttribute("data-index");
@@ -362,7 +337,6 @@
         displayNotes();
         textNote.value = "";
         due_date.value = "";
-        category.innerText = "Category:";
         important.checked = false;
       } else {
         if (textNote_val !== "") {
@@ -370,13 +344,11 @@
             message: textNote_val,
             due_date: due_date_val,
             important: important_val,
-            category: get_category,
           };
           allNotes.push(to_save);
           localStorage.setItem("allNotes", JSON.stringify(allNotes));
           textNote.value = "";
           due_date.value = "";
-          category.innerText = "Category:";
           important.checked = false;
           displayNotes();
         } else {
@@ -420,7 +392,7 @@
         ];
         var month = months[new Date(note.due_date).getUTCMonth()];
         if (note.category == undefined) {
-          note.category = "Category";
+          note.category = "";
         }
         displayNotesHTML.innerHTML += `
                 <div class="notes_wrapper" onmouseover="show(${i})" onmouseout="hide(${i})">
@@ -430,8 +402,7 @@
                           ${new Date(note.due_date).getUTCDate()} 
                           ${month} 
                           ${new Date(note.due_date).getFullYear()}</p>
-                        <p>&#9899;<b>${note.category}</b></p>
-                        <p>${note.message}</p>
+                          <p>${note.message}</p>
                         </div>
                         </div>
                     <div>
@@ -466,7 +437,6 @@
       var due_date = document.getElementById("date_note");
       textNote.value = allNotes[i].message;
       due_date.value = allNotes[i].due_date;
-      category.innerText = allNotes[i].category;
       document.getElementById("important").checked = allNotes[i].important;
       saveBtn.setAttribute("data-index", i);
       saveBtn.value = "Update";
