@@ -48,33 +48,33 @@ var body = document.getElementsByTagName("BODY")[0];
 var i = 0;
 
 setInterval(function () {
-  setTimeout(changeImage1, 5000);
+  setTimeout(changeImage1, 10000);
   function changeImage1() {
     body.style.backgroundImage = imgs[i];
     i = i + 1;
   }
 
-  setTimeout(changeImage2, 10000);
+  setTimeout(changeImage2, 20000);
   function changeImage2() {
     body.style.backgroundImage = imgs[i];
     i = i + 1;
   }
-  setTimeout(changeImage3, 15000);
+  setTimeout(changeImage3, 30000);
   function changeImage3() {
     body.style.backgroundImage = imgs[i];
     i = i + 1;
   }
-  setTimeout(changeImage4, 20000);
+  setTimeout(changeImage4, 40000);
   function changeImage4() {
     body.style.backgroundImage = imgs[i];
     i = i + 1;
   }
-  setTimeout(changeImage5, 25000);
+  setTimeout(changeImage5, 50000);
   function changeImage5() {
     body.style.backgroundImage = imgs[i];
     i = 0;
   }
-}, 5000);
+}, 10000);
 
 function start() {
   function gotLocation(position) {
