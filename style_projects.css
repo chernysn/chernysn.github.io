@@ -1,641 +1,611 @@
 html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
 }
 
 .nav {
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 1em 1em 0 1em;
-    z-index: 2;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 1em 1em 0 1em;
+  z-index: 2;
 }
 
 .home_btn img {
-    width: 4em;
-    height: 4em;
-    opacity: .3;
+  width: 4em;
+  height: 4em;
+  opacity: 0.3;
 }
 
 .left-right {
-    width: 23em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+  width: 23em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .left-right p {
-    font-size: 2em;
-    font-weight: 100;
-    margin: 0.5em;
-    opacity: .5;
+  font-size: 2em;
+  font-weight: 100;
+  margin: 0.5em;
+  opacity: 0.5;
 }
 
 .btn_next_right img {
-    width: 4em;
-    height: 4em;
-    cursor: pointer;
-    opacity: .5;
+  width: 4em;
+  height: 4em;
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 .btn_back_left img {
-    width: 4em;
-    height: 4em;
-    transform: rotate(180deg);
-    cursor: pointer;
-    opacity: .5;
+  width: 4em;
+  height: 4em;
+  transform: rotate(180deg);
+  cursor: pointer;
+  opacity: 0.5;
 }
-
 
 .btn_next_right img:hover,
 .btn_back_left img:hover,
 .home_btn img:hover {
-    opacity: 8;
-    transition: all .3s ease-in-out;
+  opacity: 8;
+  transition: all 0.3s ease-in-out;
 }
 
 .main {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    top: 0;
-    position: relative;
-    box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 0;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .section {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 #section_1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 5em 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5em 0;
 }
 
 #section_2 {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
 }
 
 #section_3 {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
-
 
 /* FIRST SCREEN CALCULATOR ==============================================================================================================*/
 
 .calculator {
-    width: 25em;
-    min-width: 15em;
-    height: 47em;
-    color: rgb(255, 255, 255);
-    padding: 2.5em;
-    background-color: rgb(128, 0, 0);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    object-fit: contain;
+  width: 25em;
+  min-width: 15em;
+  height: 47em;
+  color: rgb(255, 255, 255);
+  padding: 2.5em;
+  background-color: rgb(128, 0, 0);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  object-fit: contain;
 }
 
 .calculator h3 {
-    font-size: 2em;
-    margin: .5em 0 .5em 0;
-    font-weight: 400;
+  font-size: 2em;
+  margin: 0.5em 0 0.5em 0;
+  font-weight: 400;
 }
-
 
 .calculator label {
-    font-size: 1.1em;
-    font-weight: 100;
-    margin: .5em 0;
+  font-size: 1.1em;
+  font-weight: 100;
+  margin: 0.5em 0;
 }
-
 
 .calculator input {
-
-    height: 2em;
-    padding: 0.3em;
-    font-size: 1.3em;
-    margin: 0;
-    border-radius: 0;
-    border: 0;
-    outline: none;
+  height: 2em;
+  padding: 0.3em;
+  font-size: 1.3em;
+  margin: 0;
+  border-radius: 0;
+  border: 0;
+  outline: none;
 }
 
-input[type=number] {
-    appearance: textfield;
+input[type="number"] {
+  appearance: textfield;
 }
 
 .compounded_btn {
-
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 0px;
-    height: 2.3em;
-    padding: 0 .3em;
-    display: flex;
-    font-size: 1.2em;
-    align-items: center;
-    justify-content: left;
-    cursor: pointer;
-    color: black;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  height: 2.3em;
+  padding: 0 0.3em;
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  justify-content: left;
+  cursor: pointer;
+  color: black;
 }
 
 .options {
-    height: auto;
-    width: 20.8em;
-    font-size: 1.2em;
-    list-style: none;
-    padding-left: 0%;
-    box-sizing: border-box;
-    margin-top: 0;
-    display: none;
-    z-index: 2;
-    position: absolute;
-    border-top: .5px rgb(185, 144, 144) solid;
+  height: auto;
+  width: 20.8em;
+  font-size: 1.2em;
+  list-style: none;
+  padding-left: 0%;
+  box-sizing: border-box;
+  margin-top: 0;
+  display: none;
+  z-index: 2;
+  position: absolute;
+  border-top: 0.5px rgb(185, 144, 144) solid;
 }
 
 .options .option {
-    display: flex;
-    height: 2em;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-    justify-content: center;
-    padding: 1em;
-    border-bottom: .5px rgb(185, 144, 144) solid;
-    cursor: pointer;
-    color: black;
+  display: flex;
+  height: 2em;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  border-bottom: 0.5px rgb(185, 144, 144) solid;
+  cursor: pointer;
+  color: black;
 }
 
 .options .option:hover {
-    background: rgb(245, 245, 245);
+  background: rgb(245, 245, 245);
 }
 
 .active {
-    display: block;
+  display: block;
 }
 
 .calculator button {
-    width: auto;
-    margin: 2em 0 1em 0;
-    height: 5.5em;
-    font-size: 1.2em;
-    color: black;
-    background-color: rgb(255, 180, 10);
-    border: none;
+  width: auto;
+  margin: 2em 0 1em 0;
+  height: 5.5em;
+  font-size: 1.2em;
+  color: black;
+  background-color: rgb(255, 180, 10);
+  border: none;
 }
 
 .calculator button:active {
-    box-shadow: 0 1px rgb(168, 168, 168);
-    transform: translateY(2px);
+  box-shadow: 0 1px rgb(168, 168, 168);
+  transform: translateY(2px);
 }
 
 .calculator .total {
-    margin: .5em 0;
+  margin: 0.5em 0;
 }
 
 .calculator .total_final {
-    border: 1px rgb(45, 45, 45) solid;
-    height: 3.5em;
-    padding: 0.5em;
-    background-color: rgb(230, 230, 230);
-    color: black;
-    font-size: 1.7em;
+  border: 1px rgb(45, 45, 45) solid;
+  height: 3.5em;
+  padding: 0.5em;
+  background-color: rgb(230, 230, 230);
+  color: black;
+  font-size: 1.7em;
 }
-
-
 
 /* SECOND SECTION STARTS HERE TO-DO LIST ===========================================================================*/
 
-
 .clear {
-    width: 7em;
-    height: 2.5em;
-    font-size: .9em;
-    color: gray;
-    padding: 0.5em;
-    background-color: rgb(245, 245, 245);
-    border: none;
-    position: absolute;
-    bottom: 1em;
-    left: 1em;
-    text-align: center;
-    border-radius: 0.1em;
+  width: 7em;
+  height: 2.5em;
+  font-size: 0.9em;
+  color: gray;
+  padding: 0.5em;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  text-align: center;
+  border-radius: 0.1em;
 }
 
 .clear:hover {
-    background-color: rgb(255, 0, 0);
-    color: white;
-    box-shadow: 0.1em 0.1em .3em .05em rgb(106, 106, 106);
+  background-color: rgb(255, 0, 0);
+  color: white;
+  box-shadow: 0.1em 0.1em 0.3em 0.05em rgb(106, 106, 106);
 }
 
 .clear:hover #x {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 .todo_list {
-    width: 35em;
-    min-width: 25em;
-    max-width: 75em;
-    padding: 2em;
-    color: rgb(45, 45, 45);
+  width: 35em;
+  min-width: 25em;
+  max-width: 75em;
+  padding: 2em;
+  color: rgb(45, 45, 45);
 }
 
 .todo_list .heading {
-    display: flex;
+  display: flex;
 }
 
 .todo_list .heading h1 {
-    font-weight: 700;
-    font-size: 2.5em;
-    width: 100%;
-    margin: .5px;
-    text-align: left;
-    line-height: .8em;
-    color: rgb(205, 205, 205);
+  font-weight: 700;
+  font-size: 2.5em;
+  width: 100%;
+  margin: 0.5px;
+  text-align: left;
+  line-height: 0.8em;
+  color: rgb(205, 205, 205);
 }
 
 .todo {
-    height: 15em;
-    background-color: rgba(65, 65, 65, .9);
-    border-radius: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: space-between;
-    padding: 2em 1em 1em;
-    position: relative;
+  height: 15em;
+  background-color: rgba(65, 65, 65, 0.9);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  padding: 2em 1em 1em;
+  position: relative;
 }
 
 .todo label {
-    font-size: 1.5em;
-    color: rgb(210, 210, 210);
-    font-weight: 800;
-    margin: 0;
+  font-size: 1.5em;
+  color: rgb(210, 210, 210);
+  font-weight: 800;
+  margin: 0;
 }
 
 .todo_input {
-    width: auto;
-    border: none;
-    height: 1.5em;
-    padding: 0.5em;
-    border-radius: 5px;
-    background-color: white;
-    outline: none;
-    font-size: 1.2em;
-    margin: .2em 0;
+  width: auto;
+  border: none;
+  height: 1.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+  font-size: 1.2em;
+  margin: 0.2em 0;
 }
 
 .todo input:focus {
-    border: none;
+  border: none;
 }
 
 .todo_btn_add {
-    font-size: 1.2em;
-    margin: 0.5em 0;
-    padding: 0.5em;
-    border-radius: 5px;
-    background-color: orange;
-    color: white;
-    font-weight: 800;
-    border: 0px white solid;
-    box-shadow: 5px 5px 10px 1px rgb(80, 80, 80);
+  font-size: 1.2em;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: orange;
+  color: white;
+  font-weight: 800;
+  border: 0px white solid;
+  box-shadow: 5px 5px 10px 1px rgb(80, 80, 80);
 }
 
 .todo button:hover {
-    background-color: rgb(46, 150, 255);
-    color: white;
+  background-color: rgb(46, 150, 255);
+  color: white;
 }
 
 .todo button:active {
-    box-shadow: 0 1px rgb(168, 168, 168);
-    transform: translateY(2px);
+  box-shadow: 0 1px rgb(168, 168, 168);
+  transform: translateY(2px);
 }
 
 .list_items {
-    border-radius: 0;
-    min-height: 15em;
-    height: auto;
-    background-color: rgba(85, 85, 85, .4);
-    margin-top: 0;
-    padding: 1em 0 3.5em 0;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: 0.5px solid rgb(85, 85, 85)
+  border-radius: 0;
+  min-height: 15em;
+  height: auto;
+  background-color: rgba(85, 85, 85, 0.4);
+  margin-top: 0;
+  padding: 1em 0 3.5em 0;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 0.5px solid rgb(85, 85, 85);
 }
 
 .list_items .my_todo_items {
-    display: flex;
-    margin: 0.2em 0.8em;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: auto;
-    height: 1em;
-    padding: 1em;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px 0 0 0;
+  display: flex;
+  margin: 0.2em 0.8em;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  height: 1em;
+  padding: 1em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px 0 0 0;
 }
 
 .today {
-    width: 12em;
-    font-size: 0.8em;
+  width: 12em;
+  font-size: 0.8em;
 }
 
 .my_list .items {
-    margin: 0;
-    padding-left: 0.2em;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    width: 100%;
-    line-height: 2em;
-    cursor: pointer;
-    word-break: break-word;
-    white-space: normal;
+  margin: 0;
+  padding-left: 0.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  line-height: 2em;
+  cursor: pointer;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .items .date {
-    font-weight: bold;
-    margin: 0 1em 0 0;
+  font-weight: bold;
+  margin: 0 1em 0 0;
 }
 
 .my_list .my_todo_items:hover {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0em 0.05em .05em .05em rgb(169, 169, 169);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0em 0.05em 0.05em 0.05em rgb(169, 169, 169);
 }
 
 .remove_item {
-    background-color: rgb(255, 93, 90);
-    width: 2.5em;
-    height: 2em;
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    border-radius: 5px;
-    box-shadow: 1px 2px 4px .05px rgb(105, 105, 105);
+  background-color: rgb(255, 93, 90);
+  width: 2.5em;
+  height: 2em;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px 0.05px rgb(105, 105, 105);
 }
 
 .remove_item:hover {
-    background-color: rgb(255, 0, 0);
-    border-radius: 5px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 5px;
 }
 
 .remove_item:active {
-    box-shadow: 0 1px rgb(168, 168, 168);
-    transform: translateY(1px);
+  box-shadow: 0 1px rgb(168, 168, 168);
+  transform: translateY(1px);
 }
 
 .alert {
-    margin: 0;
-    display: none;
-    top: 5em;
-    margin: auto;
-    left: 0;
-    right: 0;
-    width: 70%;
-    min-height: 5em;
-    max-height: 10em;
-    background-color: rgba(95, 95, 95, 0.9);
-    padding: 2em;
-    justify-content: center;
-    border-radius: 0px;
-    text-align: center;
-    font-size: 1.1em;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    color: rgb(255, 255, 255);
-    position: absolute;
-    cursor: pointer;
-    z-index: 1;
+  margin: 0;
+  display: none;
+  top: 5em;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 70%;
+  min-height: 5em;
+  max-height: 10em;
+  background-color: rgba(95, 95, 95, 0.9);
+  padding: 2em;
+  justify-content: center;
+  border-radius: 0px;
+  text-align: center;
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
 }
 
 #alert_close {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-    width: 1.5em;
-    height: 1.5em;
-    padding: 0.3em;
-    color: rgb(255, 234, 194);
-    background-color: orange;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 1.5em;
+  padding: 0.3em;
+  color: rgb(255, 234, 194);
+  background-color: orange;
 }
 
 #alert_close p {
-    margin: 0.2em 0;
+  margin: 0.2em 0;
 }
 
 #alert_close:hover {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 #alert_close:active {
-    transform: translateY(2px);
+  transform: translateY(2px);
 }
-
 
 /* SECTION THREE ONLINE STORE =============================================*/
 
 .store {
-    display: flex;
-    flex-direction: column;
-    margin: 6em 0;
+  display: flex;
+  flex-direction: column;
+  margin: 6em 0;
 }
 
 .store video {
-    width: 80em;
-    height: 50em;
+  width: 80em;
+  height: 50em;
 }
-
 
 /* screen 300px ===================================== WORKS     */
 
 @media only screen and (min-width: 200px) and (max-width: 500px) and (orientation: portrait) {
+  body {
+    font-size: 8px;
+  }
 
-    body {
-        font-size: 8px;
-    }
+  #section_1 {
+    margin-top: 5px;
+    align-items: center;
+  }
 
-    #section_1 {
-        margin-top: 5px;
-        align-items: center;
-    }
+  #section_2 {
+    font-size: 10px;
+    align-items: flex-start;
+    padding-top: 12vh;
+  }
 
-    #section_2 {
-        font-size: 10px;
-        align-items: flex-start;
-        padding-top: 12vh;
-    }
+  .store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20vh auto;
+  }
 
-    .store {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20vh auto;
-    }
-
-    .store video {
-        width: 90%;
-        height: auto;
-    }
-
-
+  .store video {
+    width: 90%;
+    height: auto;
+  }
 }
 
 /* screen 500px ===================================== WORKS     */
 
 @media only screen and (min-width: 501px) and (max-width: 809px) {
+  body {
+    font-size: 10px;
+  }
 
-    body {
-        font-size: 10px;
-    }
+  #section_1 {
+    font-size: 10px;
+    align-items: center;
+  }
 
-    #section_1 {
-        font-size: 10px;
-        align-items: center;
+  #section_2 {
+    font-size: 10px;
+    align-items: flex-start;
+    padding-top: 12vh;
+  }
 
-    }
+  .store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20vh auto;
+  }
 
-    #section_2 {
-        font-size: 10px;
-        align-items: flex-start;
-        padding-top: 12vh;
-    }
-
-    .store {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20vh auto;
-    }
-
-    .store video {
-        width: 90%;
-        height: auto;
-    }
-
-
+  .store video {
+    width: 90%;
+    height: auto;
+  }
 }
 
 /* screen 800px =========================================   WORKS */
 
 @media only screen and (min-device-width: 810px) and (orientation: portrait) {
+  body {
+    font-size: 15px;
+  }
 
-    body {
-        font-size: 15px;
-    }
+  #section_1 {
+    font-size: 15px;
+    align-items: center;
+  }
 
-    #section_1 {
-        font-size: 15px;
-        align-items: center;
-    }
+  #section_2 {
+    font-size: 15px;
+    align-items: center;
+  }
 
-    #section_2 {
-        font-size: 15px;
-        align-items: center;
-    }
+  .store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20vh auto;
+  }
 
-    .store {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20vh auto;
-    }
-
-    .store video {
-        width: 90%;
-        height: auto;
-    }
-
-
+  .store video {
+    width: 90%;
+    height: auto;
+  }
 }
 
 /* screen 800px =========================================   WORKS */
 
 @media only screen and (min-device-width: 1200px) {
+  body {
+    font-size: 11px;
+  }
 
-    body {
-        font-size: 11px;
-    }
+  #section_1 {
+    font-size: 11px;
+    align-items: center;
+  }
 
-    #section_1 {
-        font-size: 11px;
-        align-items: center;
-    }
-
-    #section_2 {
-        font-size: 11px;
-        align-items: center;
-
-    }
-
+  #section_2 {
+    font-size: 11px;
+    align-items: center;
+  }
 }
-
 
 /* screen above 1900px =========================================*/
 
-@media only screen and (min-width:1900px) {
+@media only screen and (min-width: 1900px) {
+  body {
+    font-size: 16px;
+  }
 
-    body {
-        font-size: 16px;
-    }
+  #section_1 {
+    align-items: start;
+    padding-top: 15vh;
+  }
 
-    #section_1 {
-        align-items: start;
-        padding-top: 15vh;
-    }
-
-    #section_2 {
-        align-items: start;
-        padding-top: 10vh;
-    }
-
+  #section_2 {
+    align-items: start;
+    padding-top: 10vh;
+  }
 }
 
 /* screen above 3000px =========================================*/
 
-@media only screen and (min-width:3000px) {
+@media only screen and (min-width: 3000px) {
+  body {
+    font-size: 30px;
+  }
 
-    body {
-        font-size: 30px;
-    }
+  #section_1 {
+    align-items: start;
+    padding-top: 7vh;
+  }
 
-    #section_1 {
-        align-items: start;
-        padding-top: 7vh;
-    }
-
-    #section_2 {
-        align-items: start;
-        padding-top: 12vh;
-    }
-
+  #section_2 {
+    align-items: start;
+    padding-top: 12vh;
+  }
 }
