@@ -53,6 +53,7 @@ add_task_btn.addEventListener("click", () => {
 
     create_local_item(task);
     document.getElementById("todo_input").value = "";
+    document.getElementById("todo_date").value = "";
   }
 });
 
