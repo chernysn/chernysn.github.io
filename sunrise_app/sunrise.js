@@ -81,18 +81,24 @@ function start() {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
 
-    var url_city = `https://geocode.maps.co/search?q=${lat},${lon}`;
+    var url_city = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=97112a6caccc48e9bcbc963cea70470b`;
 
     var fetch_Res_city = fetch(url_city);
     fetch_Res_city
-      .then((resp_city) => resp_city.json())
+      .then((resp) => {
+        response = resp; // Assign resp to the response variable
+        return resp.json();
+      })
       .then((datas_city) => {
-        var my_location = datas_city[0].display_name;
-        var my_city = my_location.split(",");
-        my_city = my_city[2];
+        var my_city =
+          datas_city.results[0].components.city ||
+          datas_city.results[0].components.town;
         console.log(my_city);
-
+        console.log(response); // Now you can access response here
         weather(my_city);
+      })
+      .catch((error) => {
+        console.error("Error fetching city:", error);
       });
   }
 
@@ -111,105 +117,43 @@ function user_search() {
 }
 
 function weather(location) {
-  var weather_info = document.getElementById("weather_info");
-  var city_date = document.querySelector(".city_date");
-  var temp = document.querySelector(".temp");
   var sunrise_dom_today = document.getElementById("today_sunrise");
   var sunset_dom_today = document.getElementById("today_sunset");
   var sunrise_dom_tomorrow = document.getElementById("tomorrow_sunrise");
   var sunset_dom_tomorrow = document.getElementById("tomorrow_sunset");
-  var date_dom = document.getElementById("date");
   var city_dom = document.getElementById("city");
   var today = new Date();
   var tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
 
-  var url_loc = `https://geocode.maps.co/search?q=${location}`;
+  var url_loc = `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=97112a6caccc48e9bcbc963cea70470b`;
   var fetch_Res_loc = fetch(url_loc);
   fetch_Res_loc
     .then((resp) => resp.json())
     .then((datas_loc) => {
-      var lat = datas_loc[0].lat;
-      var lon = datas_loc[0].lon;
-      console.log(lat, lon);
-
-      let url3 = `https://api.weather.gov/points/${lat},${lon}`;
-      console.log(url3);
-      let fetch_Res3 = fetch(url3);
-      fetch_Res3
-        .then((resp3) => resp3.json())
-        .then((datas3) => {
-          let url = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=${today}`;
-          console.log(url);
-          let fetch_Res = fetch(url);
-          fetch_Res
-            .then((resp) => resp.json())
-            .then((datas) => {
-              var sunrise_today = datas.results.sunrise;
-              var sunset_today = datas.results.sunset;
-              console.log(sunrise_today, sunset_today);
-
-              let url_tomorrow = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=${tomorrow}`;
-              console.log(url_tomorrow);
-              let fetch_Res_tomorrow = fetch(url_tomorrow);
-              fetch_Res_tomorrow
-                .then((resp_tomorrow) => resp_tomorrow.json())
-                .then((datas_tomorrow) => {
-                  var sunrise_tomorrow = datas_tomorrow.results.sunrise;
-                  var sunset_tomorrow = datas_tomorrow.results.sunset;
-                  console.log(sunrise_tomorrow, sunset_tomorrow);
-
-                  function capitalize(name) {
-                    let lower_case_name = name.toLowerCase();
-                    let name_list = lower_case_name.split(" ");
-                    console.log(name_list);
-                    let list = [];
-                    name_list.forEach((word, i) => {
-                      if (word != "") {
-                        let x = word[0].toUpperCase() + word.slice(1);
-                        list.push(x);
-                        console.log("X and I", x, i);
-                      }
-                    });
-                    return list.join(" ");
-                  }
-
-                  let location2 = capitalize(location);
-
-                  city_dom.innerHTML = `${location2}`;
-                  sunrise_dom_today.innerHTML = `${sunrise_today}`;
-                  sunset_dom_today.innerHTML = `${sunset_today}`;
-                  sunrise_dom_tomorrow.innerHTML = `${sunrise_tomorrow}`;
-                  sunset_dom_tomorrow.innerHTML = `${sunset_tomorrow}`;
-                });
-            });
-        });
+      var lat = datas_loc.results[0].annotations.DMS.lat;
+      var lon = datas_loc.results[0].annotations.DMS.lng;
+      var sunrise = datas_loc.results[0].annotations.sun.rise;
+      /* ..............................................................................................*/
+      console.log(lat, lon, sunrise_hour);
     });
 }
 
-if (window.matchMedia("only screen and (max-width: 1000px)").matches) {
-  var mobile_input = document.getElementById("location");
-  var input = document.getElementById("input");
-  var mobile_offset_screen = document.querySelector(".weather_info");
-
-  mobile_input.addEventListener("focus", () => {
-    if (window.innerHeight < 350) {
-      mobile_offset_screen.style.transform = "translateY(-200px)";
-      input.style.fontSize = "1.2em";
-    } else if (window.innerHeight < 560) {
-      mobile_offset_screen.style.transform = "translateY(-55%)";
-      input.style.fontSize = "1.2em";
-    } else if (window.innerWidth < 1000) {
-      mobile_offset_screen.style.transform = "translateY(0)";
-    } else {
-      mobile_offset_screen.style.transform = "translateY(0)";
-    }
-  });
-
-  mobile_input.addEventListener("blur", () => {
+var originalHeight = window.innerHeight;
+var inputs = document.getElementsByTagName("input");
+var container = document.querySelector(".container");
+Array.from(inputs).forEach((input) => {
+  input.addEventListener("focus", () => {
     setTimeout(function () {
-      mobile_offset_screen.style.transform = "translateY(0)";
-    }, 250);
-    input.style.fontSize = "inherit";
+      var shrinkHeight = window.innerHeight;
+      var heightDifference = originalHeight - shrinkHeight;
+      container.style.height = originalHeight + "px";
+      container.style.transform = `translateY(-${heightDifference}px)`;
+    }, 140);
   });
-}
+  input.addEventListener("blur", () => {
+    setTimeout(function () {
+      container.style.transform = `translateY(0)`;
+    }, 150);
+  });
+});
